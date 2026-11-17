@@ -1,0 +1,29 @@
+#
+#   Makefile for MinGW - src/test
+#
+include ../makevars.mingw
+
+.SUFFIXES: .o.cpp
+
+SWE_LIB = ../swe/libswe.a
+BASE_LIB = ../base/libmaitreya_base.a
+ASTRO_LIB = libmaitreya_astro.a
+TEST_PROG = testRunner.exe
+
+OBS = \
+	FileUtilTest.o \
+	JsonTest.o
+
+all : $(TEST_PROG)
+
+CPPFLAGS = $(BASECPPFLAGS) -I../swe -I../base
+    
+# LDLIBS = -lstdc++ $(ASTRO_LIB) $(BASE_LIB) $(SWE_LIB) -L/usr/local/lib -lintl -lcppunit
+LDLIBS = -lstdc++ $(BASE_LIB) $(SWE_LIB) -L/usr/local/lib -lintl -lcppunit
+
+$(TEST_PROG) : testRunner.o $(OBS)
+	$(CPP) -o $(TEST_PROG) testRunner.o $(OBS) $(LDLIBS)
+ 
+clean:
+	$(RM) *.o $(TEST_PROG) $(OBS) *.core
+

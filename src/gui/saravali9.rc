@@ -1,0 +1,4 @@
+aaa	ICON "../resources/pic/saravali9.ico"
+maitreya9_icon	ICON "../resources/pic/saravali9.ico"
+
+//#include "wx/msw/wx.rc"

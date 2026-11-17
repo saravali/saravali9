@@ -1,0 +1,119 @@
+#
+#   Makefile for MinGW - src/wxpdfdoc
+#
+include ../makevars.mingw
+
+.SUFFIXES: .o.cpp
+
+PDF_LIB = libsaravali_pdf.a
+
+CPPFLAGS = $(BASECPPFLAGS) -Ithirdparty/woff2/include -Ithirdparty/woff2/brotli/include $(WXCPPFLAGS)
+CFLAGS = -Ithirdparty/woff2/include -Ithirdparty/woff2/brotli/include
+
+OBS = \
+	crypto/random.o \
+	crypto/saslprep.o \
+	crypto/sha256.o \
+	crypto/sha384.o \
+	crypto/sha512.o \
+	crypto/unicode_norm.o \
+	woff/woff2converter.o \
+	woff/woffconverter.o \
+	pdfannotation.o \
+	pdfcffdecoder.o \
+	pdfcffindex.o \
+	pdfcolour.o \
+	pdfdc.o \
+	pdfdecode.o \
+	pdfdocument.o \
+	pdfencoding.o \
+	pdfencrypt.o \
+	pdffont.o \
+	pdffontdatacore.o \
+	pdffontdata.o \
+	pdffontdataopentype.o \
+	pdffontdatatruetype.o \
+	pdffontdatatype0.o \
+	pdffontdatatype1.o \
+	pdffontdescription.o \
+	pdffontdetails.o \
+	pdffontextended.o \
+	pdffontmanager.o \
+	pdffontparser.o \
+	pdffontparsertruetype.o \
+	pdffontparsertype1.o \
+	pdffontsubsetcff.o \
+	pdffontsubsettruetype.o \
+	pdffontvolt.o \
+	pdfform.o \
+	pdfgc.o \
+	pdfgradient.o \
+	pdfgraphics.o \
+	pdfimage.o \
+	pdfkernel.o \
+	pdflayer.o \
+	pdfobjects.o \
+	pdfocg.o \
+	pdfparser.o \
+	pdfpattern.o \
+	pdfprint.o \
+	pdfrijndael.o \
+	pdftemplate.o \
+	pdfutility.o \
+	pdfxml.o \
+	thirdparty/woff2/brotli/common/constants.o \
+	thirdparty/woff2/brotli/common/context.o \
+	thirdparty/woff2/brotli/common/dictionary.o \
+	thirdparty/woff2/brotli/common/platform.o \
+	thirdparty/woff2/brotli/common/shared_dictionary.o \
+	thirdparty/woff2/brotli/common/transform.o \
+	thirdparty/woff2/brotli/dec/bit_reader.o \
+	thirdparty/woff2/brotli/dec/decode.o \
+	thirdparty/woff2/brotli/dec/huffman.o \
+	thirdparty/woff2/brotli/dec/state.o \
+	thirdparty/woff2/brotli/enc/backward_references.o \
+	thirdparty/woff2/brotli/enc/backward_references_hq.o \
+	thirdparty/woff2/brotli/enc/bit_cost.o \
+	thirdparty/woff2/brotli/enc/block_splitter.o \
+	thirdparty/woff2/brotli/enc/brotli_bit_stream.o \
+	thirdparty/woff2/brotli/enc/cluster.o \
+	thirdparty/woff2/brotli/enc/command.o \
+	thirdparty/woff2/brotli/enc/compound_dictionary.o \
+	thirdparty/woff2/brotli/enc/compress_fragment.o \
+	thirdparty/woff2/brotli/enc/compress_fragment_two_pass.o \
+	thirdparty/woff2/brotli/enc/dictionary_hash.o \
+	thirdparty/woff2/brotli/enc/encode.o \
+	thirdparty/woff2/brotli/enc/encoder_dict.o \
+	thirdparty/woff2/brotli/enc/entropy_encode.o \
+	thirdparty/woff2/brotli/enc/fast_log.o \
+	thirdparty/woff2/brotli/enc/histogram.o \
+	thirdparty/woff2/brotli/enc/literal_cost.o \
+	thirdparty/woff2/brotli/enc/memory.o \
+	thirdparty/woff2/brotli/enc/metablock.o \
+	thirdparty/woff2/brotli/enc/static_dict.o \
+	thirdparty/woff2/brotli/enc/utf8_util.o \
+	thirdparty/woff2/src/convert_woff2ttf_fuzzer.o \
+	thirdparty/woff2/src/convert_woff2ttf_fuzzer_new_entry.o \
+	thirdparty/woff2/src/font.o \
+	thirdparty/woff2/src/glyph.o \
+	thirdparty/woff2/src/normalize.o \
+	thirdparty/woff2/src/table_tags.o \
+	thirdparty/woff2/src/transform.o \
+	thirdparty/woff2/src/variable_length.o \
+	thirdparty/woff2/src/woff2_common.o \
+	thirdparty/woff2/src/woff2_compress.o \
+	thirdparty/woff2/src/woff2_dec.o \
+	thirdparty/woff2/src/woff2_decompress.o \
+	thirdparty/woff2/src/woff2_enc.o \
+	thirdparty/woff2/src/woff2_info.o \
+	thirdparty/woff2/src/woff2_out.o 
+
+all : $(PDF_LIB)
+
+$(PDF_LIB) : $(OBS)
+	$(AR) $(PDF_LIB) $(OBS)
+
+
+clean:
+	$(RM) *.o $(PDF_LIB) *.oore
+

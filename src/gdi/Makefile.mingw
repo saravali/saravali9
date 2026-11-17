@@ -1,0 +1,76 @@
+#
+#   Makefile for MinGW - src/gdi
+#
+include ../makevars.mingw
+
+.SUFFIXES: .o.cpp
+
+GDI_LIB = libsaravali_gdi.a
+GDI_PROG = saravali9gdi.exe
+
+CPPFLAGS = $(BASECPPFLAGS) -I../swe -I../base -I../astro -I../pics -I../wxpdfdoc $(WXCPPFLAGS)
+
+# LDLIBS = -lstdc++ libsaravali_gdi.a ../astro/libsaravali_astro.a ../base/libsaravali_base.a ../jsoncpp/libjsoncpp.a 
+# 	../wxpdfdoc/libsaravali_pdf.a ../swe/libswe.a $(WXLDLIBS) 
+LDLIBS = libsaravali_gdi.a ../astro/libsaravali_astro.a ../base/libsaravali_base.a ../jsoncpp/libjsoncpp.a \
+	../wxpdfdoc/libsaravali_pdf.a ../swe/libswe.a $(WXLDLIBS)  -lstdc++
+
+OBS = \
+	AshtakavargaDiagrams.o \
+	BarDiagram.o \
+	CeDasaLords.o \
+	CeFieldGrid.o \
+	CeImage.o \
+	CeLabelledAnnulus.o \
+	CeNakshatras.o \
+	CePlanetsBase.o \
+	ChartElement.o \
+	ChartElementImpl.o \
+	ChartField.o \
+	DasaTree.o \
+	DasaChart.o \
+	DiamondChart.o \
+	DocHelper.o \
+	EastIndianChart.o \
+	EphemDiagram.o \
+	FieldWriter.o \
+	GcPainter.o \
+	GdiHelper.o \
+	GdiWidget.o \
+	GdiWidgetGrid.o \
+	HybridChart.o \
+	ImageProvider.o \
+	MatchmapDiagram.o \
+	Painter.o \
+	PdfGenerator.o \
+	PdfPainter.o \
+	PpTree.o \
+	PrintoutTextHelper.o \
+	Sbc.o \
+	ShadbalaDiagrams.o \
+	SouthIndianChart.o \
+	TimelineDiagram.o \
+	UranianDial.o \
+	UranianAspects.o \
+	UranianPlanets.o \
+	VargaDiagrams.o \
+	WesternAngles.o \
+	WesternAspects.o \
+	WesternHouses.o \
+	WesternPlanets.o \
+	WesternSigns.o 
+
+all : $(GDI_LIB)
+
+$(GDI_PROG) : $(GDI_LIB) textclient.o
+	$(CPP) -o $(GDI_PROG) textclient.o $(LDLIBS)
+
+textclient: $(GDI_PROG)
+
+$(GDI_LIB) : $(OBS)
+	$(AR) $(GDI_LIB) $(OBS)
+
+clean:
+	$(RM) *.o $(GDI_LIB) $(GDI_PROG) *.core
+
+

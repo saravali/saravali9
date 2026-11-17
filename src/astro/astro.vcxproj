@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArabicParts.h" />
+    <ClInclude Include="Ashtakavarga.h" />
+    <ClInclude Include="Ashtakoota.h" />
+    <ClInclude Include="astrobase.h" />
+    <ClInclude Include="CompositeHoroscope.h" />
+    <ClInclude Include="ContextProperties.h" />
+    <ClInclude Include="Dasa.h" />
+    <ClInclude Include="DasaTool.h" />
+    <ClInclude Include="Dignity.h" />
+    <ClInclude Include="Direction.h" />
+    <ClInclude Include="DoubleTermList.h" />
+    <ClInclude Include="Eclipse.h" />
+    <ClInclude Include="Ephemeris.h" />
+    <ClInclude Include="EventFinder.h" />
+    <ClInclude Include="Expert.h" />
+    <ClInclude Include="Formulary.h" />
+    <ClInclude Include="GenericDasa.h" />
+    <ClInclude Include="Hora.h" />
+    <ClInclude Include="Horoscope.h" />
+    <ClInclude Include="Jaimini.h" />
+    <ClInclude Include="KalachakraDasa.h" />
+    <ClInclude Include="MatchWriter.h" />
+    <ClInclude Include="Nakshatra.h" />
+    <ClInclude Include="PlanetBalance.h" />
+    <ClInclude Include="PlanetaryPicture.h" />
+    <ClInclude Include="Shadbala.h" />
+    <ClInclude Include="SolarHoroscope.h" />
+    <ClInclude Include="SpWriter.h" />
+    <ClInclude Include="TableWriter.h" />
+    <ClInclude Include="Term.h" />
+    <ClInclude Include="TermList.h" />
+    <ClInclude Include="TermSolver.h" />
+    <ClInclude Include="TextHelper.h" />
+    <ClInclude Include="Uranian.h" />
+    <ClInclude Include="UranianHelper.h" />
+    <ClInclude Include="UranianTextLoader.h" />
+    <ClInclude Include="Varga.h" />
+    <ClInclude Include="VedicAspect.h" />
+    <ClInclude Include="WesternAspect.h" />
+    <ClInclude Include="Yoga.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ArabicParts.cpp" />
+    <ClCompile Include="Ashtakavarga.cpp" />
+    <ClCompile Include="Ashtakoota.cpp" />
+    <ClCompile Include="AshtottariDasa.cpp" />
+    <ClCompile Include="astrobase.cpp" />
+    <ClCompile Include="CompositeHoroscope.cpp" />
+    <ClCompile Include="ContextProperties.cpp" />
+    <ClCompile Include="Dasa.cpp" />
+    <ClCompile Include="DasaTool.cpp" />
+    <ClCompile Include="Dignity.cpp" />
+    <ClCompile Include="Direction.cpp" />
+    <ClCompile Include="DoubleTermList.cpp" />
+    <ClCompile Include="Eclipse.cpp" />
+    <ClCompile Include="Ephemeris.cpp" />
+    <ClCompile Include="EventFinder.cpp" />
+    <ClCompile Include="Expert.cpp" />
+    <ClCompile Include="Formulary.cpp" />
+    <ClCompile Include="GenericDasa.cpp" />
+    <ClCompile Include="Hora.cpp" />
+    <ClCompile Include="Horoscope.cpp" />
+    <ClCompile Include="Jaimini.cpp" />
+    <ClCompile Include="KalachakraDasa.cpp" />
+    <ClCompile Include="MatchWriter.cpp" />
+    <ClCompile Include="Nakshatra.cpp" />
+    <ClCompile Include="PlanetBalance.cpp" />
+    <ClCompile Include="PlanetaryPicture.cpp" />
+    <ClCompile Include="Shadbala.cpp" />
+    <ClCompile Include="SolarHoroscope.cpp" />
+    <ClCompile Include="SpWriter.cpp" />
+    <ClCompile Include="TableWriter.cpp" />
+    <ClCompile Include="Term.cpp" />
+    <ClCompile Include="TermList.cpp" />
+    <ClCompile Include="TermSolver.cpp" />
+    <ClCompile Include="TextHelper.cpp" />
+    <ClCompile Include="Uranian.cpp" />
+    <ClCompile Include="UranianHelper.cpp" />
+    <ClCompile Include="UranianTextLoader.cpp" />
+    <ClCompile Include="Varga.cpp" />
+    <ClCompile Include="VedicAspect.cpp" />
+    <ClCompile Include="WesternAspect.cpp" />
+    <ClCompile Include="YdlInterpreter.cpp" />
+    <ClCompile Include="Yoga.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{ae40158d-9db7-4ffe-9c68-e86683a53078}</ProjectGuid>
+    <RootNamespace>astro</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;YY_NO_UNISTD_H;_CRT_SECURE_NO_WARNINGS;__WINDOWS;_WINDOWS_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.;..\swe;..\..\..\gettext\include;..\..\..\sqlite;..\base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.;..\swe;..\base;..\jsoncpp;..\wxsqlite3;$(WXWIDGETS)\include;$(WXWIDGETS)\include\msvc</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp23</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp23</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

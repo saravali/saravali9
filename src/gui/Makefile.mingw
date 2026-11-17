@@ -1,0 +1,53 @@
+#
+#   Makefile for MinGW - src/gui
+#
+include ../makevars.mingw
+
+.SUFFIXES: .o.cpp
+
+SWE_LIB = ../swe/libswe.a
+JSONCPP_LIB = ../jsoncpp/libjsoncpp.a
+BASE_LIB = ../base/libsaravali_base.a
+GDI_LIB = ../gdi/libsaravali_gdi.a
+JYOTISH_LIB = ../astro/libsaravali_astro.a
+DB_LIB = ../wxsqlite3/libsaravali_db.a
+PDF_LIB = ../wxpdfdoc/libsaravali_pdf.a
+INTL_LIB = -L/usr/local/lib -lintl
+DIALOG_LIB = ../dialogs/libsaravali_dialogs.a
+WIDGET_LIB = ../widgets/libsaravali_widgets.a
+
+MAITREYA_PROG = saravali9.exe
+
+CPPFLAGS = $(BASECPPFLAGS) -I../base -I../gdi -I../gui -I../widgets -I../astro -I../dialogs -I../widgets -I../pics $(WXCPPFLAGS)
+
+LDLIBS = -lstdc++\
+	$(WIDGET_LIB) $(JYOTISH_LIB) $(DIALOG_LIB) $(BASE_LIB) $(GDI_LIB) \
+	$(SWE_LIB) $(DB_LIB) $(PDF_LIB) $(JSONCPP_LIB) $(WXLDLIBS)
+
+OBS = \
+	ApplicationWindow.o \
+	ChildWindow.o \
+	GuiApplication.o \
+	guibase.o \
+	MenuProvider.o \
+	PdfLauncher.o \
+	saravali_resources.o \
+	Statusbar.o \
+	ToolPanel.o \
+	WindowDirectory.o \
+	WindowFactory.o \
+	WindowListCtrl.o \
+	YogaEditorWindow.o
+
+$(MAITREYA_PROG) : $(OBS)
+	test -f geonames1000.sql || ln -s ../resources/atlas/geonames1000.sql
+	$(CPP) -o $(MAITREYA_PROG) $(OBS) $(LDLIBS)
+
+saravali_resources.o : saravali9.rc
+	windres -i saravali9.rc -o saravali_resources.o \
+	--include-dir /usr/local/include/wx-3.0 --define __WIN32__ 
+
+clean:
+	$(RM) *.o $(MAITREYA_PROG) *.core
+
+

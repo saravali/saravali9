@@ -1,0 +1,136 @@
+{
+    "configs": [
+        {
+            "name": "Number One New",
+            "Signs": {},
+            "Houses": {},
+            "Angles": {},
+            "WesternPlanets": {
+							"markerPen" : {
+								"color" : "black",
+								"width" : 1
+							},
+							"firstScaleMarker" : {
+								"pen10" : {
+									"width" : 3
+								},
+								"pen5" : {
+									"width" : 2
+								}
+							}
+						},
+            "Aspects": {}
+				},
+				{
+            "name": "Houses only",
+						"Houses": {
+							"radius": 100,
+							"innerRadius": 40,
+							"wLabels": 45
+						}
+        },
+				{
+            "name": "Rectangle",
+            "extends": "WDefault",
+            "geom": "Rectangle"
+        },
+				{
+            "name": "Square",
+            "extends": "WDefault",
+            "geom": "Square"
+        },
+				{
+            "name": "Rectangle 2",
+            "extends": "WDefault",
+            "geom": "Rectangle"
+        },
+				{
+            "name": "Rect2",
+            "extends": "WDefault",
+            "geom": "Rect2"
+        },
+				{
+            "name": "Triangle",
+            "extends": "WDefault",
+            "geom": "Triangle"
+        },
+				{
+            "name": "Filled Aspect Disc",
+            "extends": "WDefault",
+            "Aspects": {
+                "radius": 50,
+                "brush": {
+									"color": "rgba( 127, 24, 55, 127 )",
+									"fileaname": "stars.jpg"
+								}
+            }
+        },
+				{
+            "name": "Only a disc",
+            "geom": "Ellipse",
+						"disc" : {
+							"radius" : 90
+						}
+        },
+				{
+            "name": "Two discs, geht wohl nicht wegen Duplikat",
+            "geom": "Ellipse",
+						"Disc" : {
+							"radius" : 20,
+							"brush": {
+								"color": "rgba( 12, 24, 155, 127 )"
+							}
+						},
+						"disc" : {
+							"radius" : 90
+						}
+        },
+				{
+            "name": "Elliptic annulus",
+            "geom": "Ellipse",
+						"Annulus" : {
+							"radius" : 60,
+							"innerRadius" : 20,
+							"brush": {
+								"color": "rgba( 12, 24, 155, 127 )"
+							}
+						}
+        },
+				{
+            "name": "Martin1",
+            "extends": "WDefault",
+						"pen1" : {
+								"color": "rgba( 12, 24, 155, 127 )",
+								"width": 4
+						},
+						"Disc": {
+								"radius": 94,
+								"pen": {
+									"color" : "rgba( 255, 0, 0, 31 )",
+									"width" : 9
+								}
+						}
+        },
+				{
+            "name": "Ellipse",
+            "extends": "WDefault",
+            "geom": "Ellipse"
+        },
+				{
+            "name": "Double Frame",
+            "extends": "WDefault",
+						"Disc": {
+								"radius": 94,
+								"pe1n": {
+									"acolor" : "rgba( 255, 0, 0, 31 )",
+									"awidth" : 9
+								}
+						}
+        },
+				{
+            "name": "Western planets only (test)",
+            "westernplanets": {
+            }
+        }
+    ]
+}

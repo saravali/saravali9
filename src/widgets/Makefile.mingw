@@ -1,0 +1,53 @@
+#
+#   Makefile for MinGW - src/widgets
+#
+include ../makevars.mingw
+
+.SUFFIXES: .o.cpp
+
+WIDGET_LIB = libsaravali_widgets.a
+
+CPPFLAGS = $(BASECPPFLAGS) -I../base -I../gdi -I../gui -I../astro -I../dialogs $(WXCPPFLAGS)
+
+OBS = \
+	AshtakavargaWidget.o \
+	BasicWidget.o \
+	ChartWidget.o \
+	CombiWidget.o \
+	ComprehensiveTextWidget.o \
+	DasaChartWidget.o \
+	DasaTreeWidget.o \
+	DirectionWidget.o \
+	EclipseWidget.o \
+	EphemWidget.o \
+	EventFinderWidget.o \
+	GdiWidgetWrapper.o \
+	GenericTextWidget.o \
+	GridWrapper.o \
+	HoraWidget.o \
+	MatchesWidget.o \
+	MixedWidgetGrid.o \
+	MultiDirectionWidget.o \
+	NotebookWidget.o \
+	PartnerWidget.o \
+	PpWidget.o \
+	ShadbalaWidget.o \
+	SolarWidget.o \
+	SpWidget.o \
+	TextWidget.o \
+	TextWrapperWidgets.o \
+	UranianChartWidget.o \
+	VargaGridWidget.o \
+	VimsopakabalaWidget.o \
+	WidgetFactory.o \
+	YogaEditorWidget.o \
+	YogaWidget.o
+
+all : $(WIDGET_LIB)
+
+$(WIDGET_LIB) : $(OBS)
+	$(AR) $(WIDGET_LIB) $(OBS)
+
+clean:
+	$(RM) *.o $(WIDGET_LIB) *.core
+

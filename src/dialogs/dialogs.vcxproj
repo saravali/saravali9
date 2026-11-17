@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AboutDialog.cpp" />
+    <ClCompile Include="AnimationConflet.cpp" />
+    <ClCompile Include="AshtakavargaConflet.cpp" />
+    <ClCompile Include="AtlasAliasDialog.cpp" />
+    <ClCompile Include="AtlasConflet.cpp" />
+    <ClCompile Include="AtlasDialog.cpp" />
+    <ClCompile Include="AtlasEditDialog.cpp" />
+    <ClCompile Include="AtlasImportDialog.cpp" />
+    <ClCompile Include="AyanamsaConflet.cpp" />
+    <ClCompile Include="BardiagramConflet.cpp" />
+    <ClCompile Include="BasedataConflet.cpp" />
+    <ClCompile Include="BasicColorConflet.cpp" />
+    <ClCompile Include="BirthDataDialog.cpp" />
+    <ClCompile Include="BrushDialog.cpp" />
+    <ClCompile Include="CalculationConflet.cpp" />
+    <ClCompile Include="ChartColorConflet.cpp" />
+    <ClCompile Include="ChartConflet.cpp" />
+    <ClCompile Include="ChartOptionsSbc.cpp" />
+    <ClCompile Include="ChartOptionsUranian.cpp" />
+    <ClCompile Include="ChartOptionsVarga.cpp" />
+    <ClCompile Include="ChartOptionsWestern.cpp" />
+    <ClCompile Include="ChartPreviewPanel.cpp" />
+    <ClCompile Include="CommonControls.cpp" />
+    <ClCompile Include="ConfigurationDialog.cpp" />
+    <ClCompile Include="Conflet.cpp" />
+    <ClCompile Include="ConfletFactory.cpp" />
+    <ClCompile Include="DasaConflet.cpp" />
+    <ClCompile Include="DragChart.cpp" />
+    <ClCompile Include="EphemerisConflet.cpp" />
+    <ClCompile Include="ExportDialog.cpp" />
+    <ClCompile Include="FontConflet.cpp" />
+    <ClCompile Include="GeneralConfigConflet.cpp" />
+    <ClCompile Include="JaiminiConflet.cpp" />
+    <ClCompile Include="KalavelaConflet.cpp" />
+    <ClCompile Include="MiscellaneousConflet.cpp" />
+    <ClCompile Include="MultipleViewConflet.cpp" />
+    <ClCompile Include="PageConflet.cpp" />
+    <ClCompile Include="PlanetConflet.cpp" />
+    <ClCompile Include="PlanetFilterDialog.cpp" />
+    <ClCompile Include="PlanetPropertyConflet.cpp" />
+    <ClCompile Include="PdfConflet.cpp" />
+    <ClCompile Include="PenDialog.cpp" />
+    <ClCompile Include="PrintoutConflet.cpp" />
+    <ClCompile Include="RearrangableListCtrl.cpp" />
+    <ClCompile Include="Sidebar.cpp" />
+    <ClCompile Include="SpinCtrl.cpp" />
+    <ClCompile Include="StandardLocationConflet.cpp" />
+    <ClCompile Include="StyleManagerDialog.cpp" />
+    <ClCompile Include="TabbedViewConflet.cpp" />
+    <ClCompile Include="TableStyleConflet.cpp" />
+    <ClCompile Include="TextValidator.cpp" />
+    <ClCompile Include="ToolbarConflet.cpp" />
+    <ClCompile Include="DirectionConflet.cpp" />
+    <ClCompile Include="UranianAspectConflet.cpp" />
+    <ClCompile Include="UranianConflet.cpp" />
+    <ClCompile Include="UranianControls.cpp" />
+    <ClCompile Include="Validator.cpp" />
+    <ClCompile Include="VargaConflet.cpp" />
+    <ClCompile Include="WesternAspectConflet.cpp" />
+    <ClCompile Include="YearlyHoroscopeDialog.cpp" />
+    <ClCompile Include="YogaEditorPanel.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AboutDialog.h" />
+    <ClInclude Include="AnimationConflet.h" />
+    <ClInclude Include="AshtakavargaConflet.h" />
+    <ClInclude Include="AtlasAliasDialog.h" />
+    <ClInclude Include="AtlasConflet.h" />
+    <ClInclude Include="AtlasDialog.h" />
+    <ClInclude Include="AtlasEditDialog.h" />
+    <ClInclude Include="AtlasImportDialog.h" />
+    <ClInclude Include="CustomAyanamsaConflet.h" />
+    <ClInclude Include="BardiagramConflet.h" />
+    <ClCompile Include="BasedataConflet.h" />
+    <ClInclude Include="BasicColorConflet.h" />
+    <ClInclude Include="BirthDataDialog.h" />
+    <ClInclude Include="BrushDialog.h" />
+    <ClInclude Include="CalculationConflet.h" />
+    <ClInclude Include="ChartColorConflet.h" />
+    <ClInclude Include="ChartConflet.h" />
+    <ClInclude Include="ChartOptionsSbc.h" />
+    <ClInclude Include="ChartOptionsUranian.h" />
+    <ClInclude Include="ChartOptionsVarga.h" />
+    <ClInclude Include="ChartOptionsWestern.h" />
+    <ClInclude Include="ChartPreviewPanel.h" />
+    <ClInclude Include="CommonControls.h" />
+    <ClInclude Include="ConfigurationDialog.h" />
+    <ClInclude Include="Conflet.h" />
+    <ClInclude Include="ConfletFactory.h" />
+    <ClInclude Include="DragChart.h" />
+    <ClInclude Include="EphemerisConflet.h" />
+    <ClInclude Include="ExportDialog.h" />
+    <ClInclude Include="FontConflet.h" />
+    <ClInclude Include="GeneralConfigConflet.h" />
+    <ClInclude Include="JaiminiConflet.h" />
+    <ClInclude Include="KalavelaConflet.h" />
+    <ClInclude Include="MiscellaneousConflet.h" />
+    <ClInclude Include="MultipleViewConflet.h" />
+    <ClInclude Include="PageConflet.h" />
+    <ClInclude Include="PdfConflet.h" />
+    <ClInclude Include="PenDialog.h" />
+    <ClInclude Include="PlanetConflet.h" />
+    <ClInclude Include="PlanetFilterDialog.h" />
+    <ClInclude Include="PlanetPropertyConflet.h" />
+    <ClInclude Include="PrintoutConflet.h" />
+    <ClInclude Include="RearrangableListCtrl.h" />
+    <ClInclude Include="Sidebar.h" />
+    <ClInclude Include="SpinCtrl.h" />
+    <ClInclude Include="StandardLocationConflet.h" />
+    <ClInclude Include="StyleManagerDialog.h" />
+    <ClInclude Include="TabbedViewConflet.h" />
+    <ClInclude Include="TableStyleConflet.h" />
+    <ClInclude Include="TextValidator.h" />
+    <ClInclude Include="ToolbarConflet.h" />
+    <ClInclude Include="DirectionConflet.h" />
+    <ClInclude Include="UranianAspectConflet.h" />
+    <ClInclude Include="UranianConflet.h" />
+    <ClInclude Include="UranianControls.h" />
+    <ClInclude Include="Validator.h" />
+    <ClInclude Include="VargaConflet.h" />
+    <ClInclude Include="WesternAspectConflet.h" />
+    <ClInclude Include="YearlyHoroscopeDialog.h" />
+    <ClInclude Include="YogaEditorPanel.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{d03fdbed-797c-40ef-a271-9c369ab14cd2}</ProjectGuid>
+    <RootNamespace>dialogs</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp23</LanguageStandard>
+      <AdditionalIncludeDirectories>.;..\gdi;..\astro;..\widgets;..\gui;..\base;..\wxpdfdoc;..\..;$(WXWIDGETS)\include;$(WXWIDGETS)\include\msvc</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp23</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,69 @@
+#
+#   Makefile for MinGW - src/base
+#
+include ../makevars.mingw
+
+.SUFFIXES: .o.cpp
+
+BASE_LIB = libsaravali_base.a
+
+CPPFLAGS = $(BASECPPFLAGS) -I../swe -I../jsoncpp -I../wxsqlite3 -I../wxpdfdoc $(WXCPPFLAGS)
+
+OBS = \
+	ArabicPartBase.o \
+	AspectConfig.o \
+	astroconfig.o \
+	AtlasDao.o \
+	AtlasImporter.o \
+	AtlasLogic.o \
+	BaseDao.o \
+	Calculator.o \
+	CategoryHelper.o \
+	ChartGeometry.o \
+	ColorConfig.o \
+	Commands.o \
+	ConfigListLoader.o \
+	DateFormatter.o \
+	datelocation.o \
+	Exporter.o \
+	FileConfig.o \
+	FontTool.o \
+	Formatter.o \
+	gdibase.o \
+	gdiconfig.o \
+	HtmlExporter.o \
+	JsonConverter.o \
+	JsonHandler.o \
+	JsonWorker.o \
+	jsonstubs.o \
+	Lang.o \
+	LanguageConfig.o \
+	logger.o \
+	mathbase.o \
+	MDocument.o \
+	mstring.o \
+	MultipleView.o \
+	Planet.o \
+	PrintoutConfig.o \
+	Sheet.o \
+	SymbolProvider.o \
+	Table.o \
+	TableStyle.o \
+	Viewpoint.o \
+	YdlExpression.o \
+	YdlLexer.o \
+	YdlParser.o \
+	YogaConfig.o
+
+all : $(BASE_LIB)
+
+$(BASE_LIB) : $(OBS)
+	$(AR) $(BASE_LIB) $(OBS)
+
+
+clean:
+	$(RM) *.o $(BASE_LIB) *.core
+
+
+
+

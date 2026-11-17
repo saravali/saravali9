@@ -1,0 +1,82 @@
+#
+#   Makefile for MinGW - src/dialogs
+#
+include ../makevars.mingw
+
+.SUFFIXES: .o.cpp
+
+DIALOG_LIB = libsaravali_dialogs.a
+
+CPPFLAGS = $(BASECPPFLAGS) -I../base -I../gdi -I../gui -I../widgets -I../astro -I../wxpdfdoc $(WXCPPFLAGS)
+
+OBS = \
+	AboutDialog.o \
+	AnimationConflet.o \
+	AshtakavargaConflet.o \
+	AtlasAliasDialog.o \
+	AtlasConflet.o \
+	AtlasDialog.o \
+	AtlasEditDialog.o \
+	AtlasImportDialog.o \
+	AyanamsaConflet.o \
+	BardiagramConflet.o \
+	BasedataConflet.o \
+	BasicColorConflet.o \
+	BirthDataDialog.o \
+	BrushDialog.o \
+	CalculationConflet.o \
+	ChartConflet.o \
+	ChartColorConflet.o \
+	ChartOptionsSbc.o \
+	ChartOptionsUranian.o \
+	ChartOptionsVarga.o \
+	ChartOptionsWestern.o \
+	ChartPreviewPanel.o \
+	CommonControls.o \
+	ConfletFactory.o \
+	ConfigurationDialog.o \
+	Conflet.o \
+	DasaConflet.o \
+	DragChart.o \
+	EphemerisConflet.o \
+	ExportDialog.o \
+	FontConflet.o \
+	GeneralConfigConflet.o \
+	JaiminiConflet.o \
+	KalavelaConflet.o \
+	MiscellaneousConflet.o \
+	MultipleViewConflet.o \
+	PageConflet.o \
+	PlanetConflet.o \
+	PlanetFilterDialog.o \
+	PlanetPropertyConflet.o \
+	PdfConflet.o \
+	PenDialog.o \
+	PrintoutConflet.o \
+	RearrangableListCtrl.o \
+	Sidebar.o \
+	SpinCtrl.o \
+	StandardLocationConflet.o \
+	StyleManagerDialog.o \
+	TabbedViewConflet.o \
+	TableStyleConflet.o \
+	TextValidator.o \
+	ToolbarConflet.o \
+	DirectionConflet.o \
+	UranianAspectConflet.o \
+	UranianConflet.o \
+	UranianControls.o \
+	Validator.o \
+	VargaConflet.o \
+	WesternAspectConflet.o \
+	YearlyHoroscopeDialog.o \
+	YogaEditorPanel.o 
+
+all : $(DIALOG_LIB)
+
+$(DIALOG_LIB) : $(OBS)
+	$(AR) $(DIALOG_LIB) $(OBS)
+
+clean:
+	$(RM) *.o $(DIALOG_LIB) *.core
+

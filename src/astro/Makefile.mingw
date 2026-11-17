@@ -1,0 +1,72 @@
+#
+#   Makefile for MinGW - src/astro
+#
+include ../makevars.mingw
+
+.SUFFIXES: .o.cpp
+
+ASTRO_LIB = libsaravali_astro.a
+ASTRO_PROG = saravali9cli.exe
+
+CPPFLAGS = $(BASECPPFLAGS) -I../swe -I../base $(WXCPPFLAGS)
+    
+LDLIBS = -lstdc++ libsaravali_astro.a ../base/libsaravali_base.a ../jsoncpp/libjsoncpp.a \
+	../swe/libswe.a ../wxpdfdoc/libsaravali_pdf.a ../wxsqlite3/libsaravali_db.a $(WXLDLIBS)
+
+OBS = \
+	ArabicParts.o \
+	Ashtakavarga.o \
+	Ashtakoota.o \
+	AshtottariDasa.o \
+	astrobase.o \
+	CompositeHoroscope.o \
+	ContextProperties.o \
+	Dasa.o \
+	DasaTool.o \
+	Dignity.o \
+	Direction.o \
+	DoubleTermList.o \
+	Eclipse.o \
+	Ephemeris.o \
+	EventFinder.o \
+	Expert.o \
+	Formulary.o \
+	GenericDasa.o \
+	Hora.o \
+	Horoscope.o \
+	Jaimini.o \
+	KalachakraDasa.o \
+	MatchWriter.o \
+	Nakshatra.o \
+	PlanetBalance.o \
+	PlanetaryPicture.o \
+	Shadbala.o \
+	SolarHoroscope.o \
+	SpWriter.o \
+	TableWriter.o \
+	Term.o \
+	TermList.o \
+	TermSolver.o \
+	TextHelper.o \
+	Uranian.o \
+	UranianHelper.o \
+	UranianTextLoader.o \
+	Varga.o \
+	VedicAspect.o \
+	WesternAspect.o \
+	YdlInterpreter.o \
+	Yoga.o 
+
+all : $(ASTRO_LIB)
+
+$(ASTRO_PROG) : $(ASTRO_LIB) textclient.o
+	$(CPP) -o $(ASTRO_PROG) textclient.o $(LDLIBS)
+
+textclient: $(ASTRO_PROG)
+ 
+$(ASTRO_LIB) : $(OBS)
+	$(AR) $(ASTRO_LIB) $(OBS)
+ 
+clean:
+	$(RM) *.o $(ASTRO_PROG) $(ASTRO_LIB) *.core
+

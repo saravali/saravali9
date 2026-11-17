@@ -1,0 +1,28 @@
+include ../makevars.mingw
+
+CFLAGS = $(BASECFLAGS) -DNO_SWE_GLP 
+
+SWELIB = libswe.a
+
+all: $(SWELIB)
+
+SWEOBJ = \
+	swecl.o \
+	swedate.o \
+	swehouse.o \
+	swejpl.o \
+	swemini.o \
+	swemmoon.o \
+	swemplan.o \
+	sweph.o \
+	swephlib.o
+
+swetest.exe: swetest.o swehel.o libswe.a
+	$(CC) $(OP) -o swetest.exe swetest.o swehel.o -L. -lswe -lm
+
+$(SWELIB): $(SWEOBJ)
+	$(AR) $(SWELIB) $(SWEOBJ)
+
+clean:
+	rm -f *.o swetest libswe*
+	

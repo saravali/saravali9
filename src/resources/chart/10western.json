@@ -1,0 +1,281 @@
+{
+    "configs": [
+        {
+            "name": "Number One",
+            "Signs": {},
+            "Houses": {},
+            "Angles": {},
+            "WesternPlanets": {},
+            "Aspects": {}
+				},
+        {
+            "name": "Western Alternative",
+            "Signs": {
+                "radius": 90,
+                "innerRadius": 75,
+                "rLabels": 84,
+                "rotateLabels": true,
+                "useSymbols": true,
+                "labelSize": 100
+            },
+            "WesternPlanets": {
+                "radius": 75,
+                "rLabels": 70,
+                "labelSize": 100,
+                "firstScaleMarker": {
+										"wDegree10" : -2,
+										"wDegree5" : -2,
+										"wDegree1" : -1,
+										"show10DegreeFrame" : true,
+										"show1DegreeFrame" : true,
+										"show5DegreeFrame" : false
+								},
+                "secondaryScaleMarker": {
+										"wDegree10" : -2,
+										"wDegree5" : -2,
+										"wDegree1" : -1,
+										"show10DegreeFrame" : true,
+										"show1DegreeFrame" : true,
+										"show5DegreeFrame" : false
+								},
+                "furtherScaleMarker": {
+										"wDegree10" : -2,
+										"wDegree5" : -2,
+										"wDegree1" : -1,
+										"show10DegreeFrame" : true,
+										"show1DegreeFrame" : true,
+										"show5DegreeFrame" : false
+								}
+            },
+            "Aspects": {
+                "radius": 30
+            },
+            "Houses": {
+                "radius": 75,
+                "innerRadius": 30,
+                "rLabels": 35,
+                "labelSize": 60
+            },
+            "Angles": {
+                "radius": 97,
+                "innerRadius": 30,
+                "rLabels": 102,
+                "labelSize": 200,
+								"pen" : {
+									"width": 2
+								}
+            }
+				},
+        {
+            "name": "WDefault",
+            "Signs": {
+                "radius": 92,
+                "innerRadius": 79,
+                "rLabels": 86
+            },
+            "WesternPlanets": {
+                "radius": 79,
+                "rLabels": 73,
+                "labelSize": 200
+            },
+            "Houses": {
+                "radius": 79,
+                "innerRadius": 50,
+                "rLabels": 55
+            },
+            "Aspects": {
+                "radius": 50
+            },
+            "Angles": {
+                "radius": 97,
+                "innerRadius": 50,
+                "rLabels": 102,
+                "labelSize": 200,
+								"pen" : {
+									"width": 2
+								}
+            }
+				},
+        {
+            "name": "Western Default: andere DegreeScalse",
+            "extends": "Default Western Chart",
+            "WesternPlanets": {
+                "firstScaleMarker": {
+										"show10DegreeFrame" : true,
+										"show1DegreeFrame" : false,
+										"show5DegreeFrame" : false
+								}
+            }
+				},
+        {
+            "name": "Western Default: transits inside",
+            "extends": "Default Western Chart",
+            "Aspects": {
+                "radius": 40
+            },
+            "Houses": {
+                "radius": 79,
+                "innerRadius": 40,
+                "rLabels": 43,
+                "labelSize": 50
+            },
+            "Angles": {
+                "radius": 97,
+                "innerRadius": 45
+            }
+				},
+        {
+            "name": "Western Default: signs in short text (1)",
+            "extends": "WDefault",
+            "Signs": {
+                "useSymbols": false,
+                "textLength": "Short"
+            }
+				},
+        {
+            "name": "Western Default: signs in short text",
+            "extends": "WDefault",
+            "Signs": {
+                "radius": 92,
+                "innerRadius": 79,
+                "rLabels": 86,
+                "useSymbols": false,
+                "textLength": "Short"
+            }
+				},
+        {
+            "name": "Western Default: signs in medium text",
+            "extends": "WDefault",
+            "Signs": {
+                "radius": 92,
+                "innerRadius": 79,
+                "rLabels": 86,
+                "useSymbols": false,
+                "textLength": "Medium",
+                "rotateLabels": true
+            }
+				},
+        {
+            "name": "Western Default: signs in long text",
+            "extends": "WDefault",
+            "Signs": {
+                "radius": 92,
+                "innerRadius": 79,
+                "rLabels": 86,
+                "useSymbols": false,
+                "textLength": "Long",
+                "rotateLabels": true
+            }
+				},
+        {
+            "name": "Western Default: rotated signs",
+            "extends": "WDefault",
+            "Signs": {
+                "radius": 92,
+                "innerRadius": 79,
+                "rLabels": 86,
+                "useSymbols": true,
+                "rotateLabels": true
+            }
+				},
+        {
+            "name": "Houses outside",
+            "Signs": {
+                "radius": 85,
+                "innerRadius": 72,
+                "rLabels": 79
+            },
+            "Houses": {
+                "radius": 93,
+                "innerRadius": 85,
+                "rLabels": 88,
+                "labelSize": 50
+            },
+            "WesternPlanets": {
+                "radius": 72,
+                "rLabels": 67,
+								"secondaryScaleOffset": 20
+            },
+            "Aspects": {
+                "radius": 50
+            },
+            "Angles": {
+                "radius": 97,
+                "innerRadius": 50,
+                "rLabels": 98,
+                "useSymbols": true,
+                "labelSize": 200,
+								"showOuterFrame" : false,
+								"showInnerFrame" : false,
+								"pen" : {
+									"width": 2
+								}
+            }
+				},
+        {
+            "name": "Big Signs",
+            "Angles": {
+							"radius": 100,
+							"innerRadius": 40,
+							"rLabels": 100
+            },
+            "Aspects": {
+                "radius": 40
+            },
+            "WesternPlanets": {
+                "radius": 69,
+                "rLabels": 63,
+								"secondaryScaleOffset": 23
+            },
+						"Houses": {
+							"radius": 69,
+							"innerRadius": 40,
+							"rLabels": 45
+						},
+            "Signs": {
+                "radius": 92,
+                "innerRadius": 69,
+                "rLabels": 82,
+                "rotateLabels": true,
+                "useSymbols": true,
+                "labelSize": 200
+            }
+				},
+        {
+            "name": "Large Aspects",
+            "Signs": {
+                "radius": 92,
+                "innerRadius": 79,
+                "rLabels": 86,
+                "useSymbols": true
+            },
+            "Houses": {
+                "radius": 79,
+                "innerRadius": 30,
+                "rLabels": 33,
+                "labelSize": 50
+            },
+            "WesternPlanets": {
+                "radius": 79,
+                "labelSize": 200,
+                "useSymbols": true,
+								"secondaryScaleOffset": 13
+            },
+            "Aspects": {
+                "radius": 79
+            },
+            "Angles": {
+                "radius": 50,
+                "width": 47,
+                "wLabels": 55,
+                "useSymbols": true,
+                "labelSize": 300,
+								"showOuterFrame" : false,
+								"showInnerFrame" : false,
+								"pen" : {
+									"width": 2
+								}
+            }
+        }
+    ]
+}

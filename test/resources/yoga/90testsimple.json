@@ -1,0 +1,355 @@
+{
+	"configs" : 
+	[
+		{
+			"description" : "always true 1",
+			"effect" : "A statement must be terminated with colon \u201e;\u201c\nThis Yoga will always match.",
+			"group" : "Test",
+			"rule" : "true;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "always true 2",
+			"effect" : "Return statement can be used, but is obsolete if there is only one statement.",
+			"group" : "Test",
+			"rule" : "return true;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "always false",
+			"effect" : "This Yoga wil never match.",
+			"group" : "Test",
+			"rule" : "return false;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "multiple lines",
+			"effect" : "multiple lines in rules are allowed",
+			"group" : "Test",
+			"rule" : "return\n\nCap;\n",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Single line comment",
+			"effect" : "Single line comments start with double slash //.\nThe rest of the line will be ignored.",
+			"group" : "Test",
+			"rule" : "// this is a comment\n   // bla bla\n1;\n// yyy\n",
+			"source" : "Custom"
+		},
+		{
+			"description" : "C-style comments",
+			"effect" : "C-style comments are possible. They start with /* and end with */\nAnything in between will be ignored.",
+			"group" : "Test",
+			"rule" : "/* start comment */\n/* multiline \ncomment\n\n*/\nScorpio;\n",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Case insensitive",
+			"effect" : "YDL is case insensitive",
+			"group" : "Test",
+			"rule" : "reTUrn truE;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Expressions should evaluate to Boolean",
+			"effect" : "The interpreter can only evaluate expressions regarding their boolean value,\ni.e. whether a horoscope matches a Yoga or not.\nOther values are possible but there will be a warning and the value is implicitely casted to bool (0=false, true otherwise)\nSee the warning in the log.",
+			"group" : "Test",
+			"rule" : "// Floating point will be casted to boolean\nreturn 4.3;\n",
+			"source" : "Custom"
+		},
+		{
+			"description" : "integer return",
+			"effect" : "Integer return",
+			"group" : "Test",
+			"rule" : "return 3;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Floating point return",
+			"effect" : "Floating point return. Separation always by point, not by comma.\nYou can enforce integers to be interpreted as floating point by using the separator, e.g. 3.0 instead of 3.",
+			"group" : "Test",
+			"rule" : "return 0.12;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "good",
+			"effect" : "Old style (version 8) Ydl.\n\nSun must be dragged to Cancer if you want the rule to evaluate to true.",
+			"group" : "Test",
+			"rule" : "return getRasi( Sun ) == Cancer;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "multiple statements",
+			"effect" : "Colon separates. last expression will give the result.",
+			"group" : "Test",
+			"rule" : "5; 2; 3;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "multiple statements with nested return",
+			"effect" : "no evaluation after return. All epressions are evaluated nevertheless.\n",
+			"group" : "Test",
+			"rule" : "5; return Cap; 3;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "planets not included in Yoga Editor Drach chart",
+			"effect" : "This rule cannot be evaluated in Yoga editor because Dhuma is missing.",
+			"group" : "Test",
+			"rule" : "return getrasi( Dhuma );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Simple syntax error",
+			"effect" : "Look into the log for more information.",
+			"group" : "Test",
+			"rule" : "return 1true;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Syntax Error 2",
+			"effect" : "empty statement is not accepted.",
+			"group" : "Test",
+			"rule" : "return true;;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Syntax Error 3",
+			"effect" : "missing colon",
+			"group" : "Test",
+			"rule" : "return true",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Constants: signs",
+			"effect" : "Signs are referenced by their latin name, e.g. Aries, Taurus etc.\nThey can be abbreviated with the left 3 letters (Ari=Aries)",
+			"group" : "Test",
+			"rule" : "sagittarius == sag;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Constants: planets",
+			"effect" : "planets are referenced by their common name, e.g. Moon, Rahu etc.\nThey can be abbreviated with the left 3 letters (Jup etc.)\nSupported are: Uranus, Neptune, pluto and the kalavelas/upagrahas (which have no abbreviated form).",
+			"group" : "Test",
+			"rule" : "saturn == sat;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Constants: houses",
+			"effect" : "houses are named house1 etc.\nAbbreviated names are h1 etc.\nThe numerical value is 0 for house1 etc.",
+			"group" : "Test",
+			"rule" : "house12 == h12;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Constants: Vargas",
+			"effect" : "Vargas are referenced by their name as seen on the GUI.\nAlternatively they can be named by their division D-9 etc.",
+			"group" : "Test",
+			"rule" : "drekkana==D-3;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Constants: wrong Varga division",
+			"effect" : "The number of the division must be supported. Valid number are 1,9,2,3 etc.",
+			"group" : "Test",
+			"rule" : "D-15;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Error in type cast",
+			"effect" : "value must be valid on type cast",
+			"group" : "Test",
+			"rule" : "(Planet)100;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Error: Division by zero",
+			"effect" : "TODO should be runtime error",
+			"group" : "Test",
+			"rule" : "1/0;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "typecast",
+			"effect" : "possible typecasts are\nint, double, house, sign, varga, planet",
+			"group" : "Test",
+			"rule" : "return (House)( 3 + 7);",
+			"source" : "Custom"
+		},
+		{
+			"description" : "typecast 2",
+			"effect" : "Floating point values for integer constants will casted to integer,\nso the expression below is valid",
+			"group" : "Test",
+			"rule" : "(house)3.141;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "typecast 3",
+			"effect" : "Arithmetic allowed. The sample below has bad readability.",
+			"group" : "Test",
+			"rule" : "return (Planet)(7-3);",
+			"source" : "Custom"
+		},
+		{
+			"description" : "typecast 4",
+			"effect" : "The sample is possible but should be avoided for readability.",
+			"group" : "Test",
+			"rule" : "return (Planet)(2*8);",
+			"source" : "Custom"
+		},
+		{
+			"description" : "wrong value in typecast",
+			"effect" : "Value 20 is not allowed for houses (must be 0..11)",
+			"group" : "Test",
+			"rule" : "(House)20;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "mathematical operators",
+			"effect" : "mathematical operations like +,-,* and / yield Floating point value",
+			"group" : "Test",
+			"rule" : "a=2.7; b=3; a*b;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "mathematical operators 2",
+			"effect" : "mathematical operators are not typesave",
+			"group" : "Test",
+			"rule" : "house12 + (gemini + navamsa);",
+			"source" : "Custom"
+		},
+		{
+			"description" : "mathematical operators 3",
+			"effect" : "more nonsense",
+			"group" : "Test",
+			"rule" : "pluto / gemini + drekkana;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Floating point values 1",
+			"effect" : "Floating point values must be separated with point (.), not with comma (as some locales prefer).",
+			"group" : "Test",
+			"rule" : "return 3.4;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "operator precedence",
+			"effect" : "Brackets give operator precedence as expected.",
+			"group" : "Test",
+			"rule" : "2 * ( 30 + 2 );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Simple assignment",
+			"effect" : "Variables must begin with a letter and can contain numbers or underscore",
+			"group" : "Test",
+			"rule" : "a = aries; a;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Simple assignment 2",
+			"effect" : "Simple assignment. Drag Mars onto the chart.",
+			"group" : "Test",
+			"rule" : "a = mars; getrasi( a );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "assignment 3",
+			"effect" : "Drag Sun and Mars onto the same field.",
+			"group" : "Test",
+			"rule" : "a = getrasi( mars ); b=sun; getrasi( b ) == a;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "assignment 4",
+			"effect" : "Case with two variables",
+			"group" : "Test",
+			"rule" : "y = 3; x = y + y; return 2.7 * x;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "assignment 5",
+			"effect" : "Reassignment of variables changes value. Type must be the same.",
+			"group" : "Test",
+			"rule" : "x = Cancer; x = Aries; x;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "assignment 6: type error",
+			"effect" : "Reassignment of variables changes is only possible on same type.\n",
+			"group" : "Test",
+			"rule" : "x = 3; x = Aries;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "assignment 7: avoid type error",
+			"effect" : "Reassignment of variables is only possible on same type.\nType checking is pedantic. So cast if necessary.\ne.g. x=(double)3;\n",
+			"group" : "Test",
+			"rule" : "a = 4.1; a = (double)33; a;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Equals one of 1",
+			"effect" : "The first variable is compared to the rest. Result is true if one of the variables matches.",
+			"group" : "Test",
+			"rule" : "EqualsOneOf( 3, 4, 6, 3 );\n\n",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Equals one of 2",
+			"effect" : "Types of variables can be different. Below Cancer and Venus match because both have numerical value 3.",
+			"group" : "Test",
+			"rule" : "EqualsOneOf( cancer, 31.0, venus );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Equals one of 3",
+			"effect" : "Mathematical operations allowed.",
+			"group" : "Test",
+			"rule" : "EqualsOneOf( 0.3, 0.6 / 2 );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Equals one of 4",
+			"effect" : "Typecast not necessary, but improves readability.",
+			"group" : "Test",
+			"rule" : "EqualsOneOf( true, (boolean)3 );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "get varga by division",
+			"effect" : "Vargas can referenced with D-N.\nThe integer values are D-1=0, D-9 = 1, D-2 = 2, D-3 = 3, etc\n",
+			"group" : "Test",
+			"rule" : "(int)D-2;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Logical NOT",
+			"effect" : "Negation",
+			"group" : "Test",
+			"rule" : "not( 3 );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Logical NOT (2)",
+			"effect" : "Negation",
+			"group" : "Test",
+			"rule" : "not( false );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Logical NOT (3)",
+			"effect" : "Negation of zero values is true",
+			"group" : "Test",
+			"rule" : "not( House1 );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Red12",
+			"effect" : "Reduce numeric values by 12. ",
+			"group" : "Test",
+			"rule" : "red12( Saturn + 44.9 );",
+			"source" : "Custom"
+		}
+	]
+}

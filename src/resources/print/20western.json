@@ -1,0 +1,167 @@
+{
+    "configs": [
+        {
+            "name": "Western Alternative",
+            "description": "Western form with planet balance",
+            "viewpoint": "Western",
+            "items": [
+                {
+                    "type": "Table",
+                    "groups": [
+                        {
+                            "autoHeader": false,
+                            "basedata": [
+                                "Name",
+                                "LocalDate",
+                                "LocalTime",
+                                "UniversalTime",
+                                "Timezone",
+                                "DaylightSaving"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": false,
+                            "basedata": [
+                                "LocationName",
+                                "LocationLongitude",
+                                "LocationLatitude",
+                                "SiderealTime",
+                                "HouseSystem"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "WesternChart",
+                    "width": 100
+                },
+                {
+                    "type": "Table",
+                    "expand": true,
+                    "maxTextFormat": "Short",
+                    "groups": [
+                        {
+                            "autoHeader": false,
+                            "planets": [
+                                "Inner",
+                                "Outer",
+                                "AscNode"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude",
+                                "HousePosition"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": false,
+                            "basedata": [
+                                "ElementFire",
+                                "ElementEarth",
+                                "ElementAir",
+                                "ElementWater",
+                                "ObjectsNorth",
+                                "ObjectsSouth",
+                                "ObjectsWest",
+                                "ObjectsEast",
+                                "SignQualityMovable",
+                                "SignQualityFixed",
+                                "SignQualityDual"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": false,
+                            "planets": [
+                                "Meridian",
+                                "Ascendant",
+                                "FourHouses"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Western with Aspectarium",
+            "description": "Western form with Aspectarium",
+            "viewpoint": "Western",
+            "items": [
+                {
+                    "type": "Table",
+                    "pageNumber": 1,
+                    "groups": [
+                        {
+                            "autoHeader": false,
+                            "basedata": [
+                                "Name",
+                                "LocalDate",
+                                "LocalTime",
+                                "UniversalTime",
+                                "Timezone",
+                                "DaylightSaving"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": false,
+                            "basedata": [
+                                "LocationName",
+                                "LocationLongitude",
+                                "LocationLatitude",
+                                "SiderealTime",
+                                "HouseSystem"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "WesternChart",
+                    "pageNumber": 1,
+                    "width": 100
+                },
+                {
+                    "type": "Table",
+                    "expand": true,
+                    "pageNumber": 1,
+                    "maxTextFormat": "Short",
+                    "groups": [
+                        {
+                            "autoHeader": false,
+                            "planets": [
+                                "Inner",
+                                "Outer",
+                                "AscNode",
+                                "Meridian",
+                                "Ascendant"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude",
+                                "HousePosition",
+                                "WesternAspectarium"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": false,
+                            "planets": [
+                                "FourHouses"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

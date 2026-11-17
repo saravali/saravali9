@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="crypto\random.h" />
+    <ClInclude Include="crypto\saslprep.h" />
+    <ClInclude Include="crypto\sha256.h" />
+    <ClInclude Include="crypto\sha384.h" />
+    <ClInclude Include="crypto\sha512.h" />
+    <ClInclude Include="crypto\unicode_norm.h" />
+    <ClInclude Include="crypto\unicode_norm_table.h" />
+    <ClInclude Include="private_graphics.h" />
+    <ClInclude Include="srgb2014icc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\common\constants.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\common\context.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\common\dictionary.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\common\platform.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\common\shared_dictionary_internal.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\common\transform.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\common\version.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\dec\bit_reader.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\dec\huffman.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\dec\prefix.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\dec\state.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\backward_references.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\backward_references_hq.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\backward_references_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\bit_cost.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\bit_cost_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\block_encoder_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\block_splitter.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\block_splitter_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\brotli_bit_stream.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\cluster.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\cluster_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\command.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\compound_dictionary.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\compress_fragment.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\compress_fragment_two_pass.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\dictionary_hash.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\encoder_dict.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\entropy_encode.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\entropy_encode_static.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\fast_log.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\find_match_length.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\hash.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\hash_composite_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\hash_forgetful_chain_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\hash_longest_match64_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\hash_longest_match64_simd_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\hash_longest_match_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\hash_longest_match_quickly_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\hash_longest_match_simd_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\hash_rolling_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\hash_to_binary_tree_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\histogram.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\histogram_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\literal_cost.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\matching_tag_mask.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\memory.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\metablock.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\metablock_inc.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\params.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\prefix.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\quality.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\ringbuffer.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\state.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\static_dict.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\static_dict_lut.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\enc\utf8_util.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\include\brotli\decode.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\include\brotli\encode.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\include\brotli\port.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\include\brotli\shared_dictionary.h" />
+    <ClInclude Include="thirdparty\woff2\brotli\include\brotli\types.h" />
+    <ClInclude Include="thirdparty\woff2\src\buffer.h" />
+    <ClInclude Include="thirdparty\woff2\src\file.h" />
+    <ClInclude Include="thirdparty\woff2\src\font.h" />
+    <ClInclude Include="thirdparty\woff2\src\glyph.h" />
+    <ClInclude Include="thirdparty\woff2\src\normalize.h" />
+    <ClInclude Include="thirdparty\woff2\src\port.h" />
+    <ClInclude Include="thirdparty\woff2\src\round.h" />
+    <ClInclude Include="thirdparty\woff2\src\store_bytes.h" />
+    <ClInclude Include="thirdparty\woff2\src\table_tags.h" />
+    <ClInclude Include="thirdparty\woff2\src\transform.h" />
+    <ClInclude Include="thirdparty\woff2\src\variable_length.h" />
+    <ClInclude Include="thirdparty\woff2\src\woff2_common.h" />
+    <ClInclude Include="woff\woff2converter.h" />
+    <ClInclude Include="woff\woffconverter.h" />
+    <ClInclude Include="wxmemdbg.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="crypto\random.cpp" />
+    <ClCompile Include="crypto\saslprep.cpp" />
+    <ClCompile Include="crypto\sha256.cpp" />
+    <ClCompile Include="crypto\sha384.cpp" />
+    <ClCompile Include="crypto\sha512.cpp" />
+    <ClCompile Include="crypto\unicode_norm.cpp" />
+    <ClCompile Include="pdfannotation.cpp" />
+    <ClCompile Include="pdfcffdecoder.cpp" />
+    <ClCompile Include="pdfcffindex.cpp" />
+    <ClCompile Include="pdfcolour.cpp" />
+    <ClCompile Include="pdfdc.cpp" />
+    <ClCompile Include="pdfdecode.cpp" />
+    <ClCompile Include="pdfdocument.cpp" />
+    <ClCompile Include="pdfencoding.cpp" />
+    <ClCompile Include="pdfencrypt.cpp" />
+    <ClCompile Include="pdffont.cpp" />
+    <ClCompile Include="pdffontdata.cpp" />
+    <ClCompile Include="pdffontdatacore.cpp" />
+    <ClCompile Include="pdffontdataopentype.cpp" />
+    <ClCompile Include="pdffontdatatruetype.cpp" />
+    <ClCompile Include="pdffontdatatype0.cpp" />
+    <ClCompile Include="pdffontdatatype1.cpp" />
+    <ClCompile Include="pdffontdescription.cpp" />
+    <ClCompile Include="pdffontdetails.cpp" />
+    <ClCompile Include="pdffontextended.cpp" />
+    <ClCompile Include="pdffontmanager.cpp" />
+    <ClCompile Include="pdffontparser.cpp" />
+    <ClCompile Include="pdffontparsertruetype.cpp" />
+    <ClCompile Include="pdffontparsertype1.cpp" />
+    <ClCompile Include="pdffontsubsetcff.cpp" />
+    <ClCompile Include="pdffontsubsettruetype.cpp" />
+    <ClCompile Include="pdffontvolt.cpp" />
+    <ClCompile Include="pdfform.cpp" />
+    <ClCompile Include="pdfgc.cpp" />
+    <ClCompile Include="pdfgradient.cpp" />
+    <ClCompile Include="pdfgraphics.cpp" />
+    <ClCompile Include="pdfimage.cpp" />
+    <ClCompile Include="pdfkernel.cpp" />
+    <ClCompile Include="pdflayer.cpp" />
+    <ClCompile Include="pdfobjects.cpp" />
+    <ClCompile Include="pdfocg.cpp" />
+    <ClCompile Include="pdfparser.cpp" />
+    <ClCompile Include="pdfpattern.cpp" />
+    <ClCompile Include="pdfprint.cpp" />
+    <ClCompile Include="pdfrijndael.cpp" />
+    <ClCompile Include="pdftemplate.cpp" />
+    <ClCompile Include="pdfutility.cpp" />
+    <ClCompile Include="pdfxml.cpp" />
+    <ClCompile Include="thirdparty\woff2\brotli\common\constants.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\common\context.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\common\dictionary.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\common\platform.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\common\shared_dictionary.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\common\transform.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\dec\bit_reader.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\dec\decode.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\dec\huffman.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\dec\state.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\backward_references.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\backward_references_hq.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\bit_cost.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\block_splitter.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\brotli_bit_stream.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\cluster.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\command.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\compound_dictionary.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\compress_fragment.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\compress_fragment_two_pass.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\dictionary_hash.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\encode.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\encoder_dict.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\entropy_encode.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\fast_log.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\histogram.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\literal_cost.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\memory.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\metablock.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\static_dict.c" />
+    <ClCompile Include="thirdparty\woff2\brotli\enc\utf8_util.c" />
+    <ClCompile Include="thirdparty\woff2\src\convert_woff2ttf_fuzzer.cc" />
+    <ClCompile Include="thirdparty\woff2\src\convert_woff2ttf_fuzzer_new_entry.cc" />
+    <ClCompile Include="thirdparty\woff2\src\font.cc" />
+    <ClCompile Include="thirdparty\woff2\src\glyph.cc" />
+    <ClCompile Include="thirdparty\woff2\src\normalize.cc" />
+    <ClCompile Include="thirdparty\woff2\src\table_tags.cc" />
+    <ClCompile Include="thirdparty\woff2\src\transform.cc" />
+    <ClCompile Include="thirdparty\woff2\src\variable_length.cc" />
+    <ClCompile Include="thirdparty\woff2\src\woff2_common.cc" />
+    <ClCompile Include="thirdparty\woff2\src\woff2_compress.cc" />
+    <ClCompile Include="thirdparty\woff2\src\woff2_dec.cc" />
+    <ClCompile Include="thirdparty\woff2\src\woff2_decompress.cc" />
+    <ClCompile Include="thirdparty\woff2\src\woff2_enc.cc" />
+    <ClCompile Include="thirdparty\woff2\src\woff2_info.cc" />
+    <ClCompile Include="thirdparty\woff2\src\woff2_out.cc" />
+    <ClCompile Include="woff\woff2converter.cpp" />
+    <ClCompile Include="woff\woffconverter.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{6d932f60-2637-4b22-be72-c9f93f31d07e}</ProjectGuid>
+    <RootNamespace>wxpdfdoc</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp23</LanguageStandard>
+      <AdditionalIncludeDirectories>.;thirdparty/woff2/brotli/include;thirdparty/woff2/include;$(WXWIDGETS)\include;$(WXWIDGETS)\include\msvc</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp23</LanguageStandard>
+      <AdditionalIncludeDirectories>.;thirdparty/woff2/brotli/include;thirdparty/woff2/include;$(WXWIDGETS)\include;$(WXWIDGETS)\include\msvc</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

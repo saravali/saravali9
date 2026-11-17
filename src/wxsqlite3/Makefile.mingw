@@ -1,0 +1,25 @@
+#
+#   Makefile for MinGW - src/wxsqlite3
+#
+include ../makevars.mingw
+
+.SUFFIXES: .o.cpp
+
+DB_LIB = libsaravali_db.a
+
+CPPFLAGS = $(BASECPPFLAGS) $(WXCPPFLAGS)
+CFLAGS =  -march=native
+
+OBS = \
+	sqlite3mc_amalgamation.o \
+	wxsqlite3.o
+
+all : $(DB_LIB)
+
+$(DB_LIB) : $(OBS)
+	$(AR) $(DB_LIB) $(OBS)
+
+
+clean:
+	$(RM) *.o $(DB_LIB) *.core
+

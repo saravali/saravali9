@@ -1,0 +1,5 @@
+2025-05-07  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.in.in: New file, from gettext-0.24.
+	* remove-potcdate.sed: Upgrade to gettext-0.24.
+

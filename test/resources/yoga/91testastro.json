@@ -1,0 +1,215 @@
+{
+	"configs" : 
+	[
+		{
+			"description" : "No higher varga 1",
+			"effect" : "This yoga can only match in Rasi chart but not in higher Vargas (like Navamsa) because the keyword is not supported there.\nDoes not work in Yoga Editor because there are no longitudes, only fields/rasis.",
+			"group" : "Test",
+			"rule" : "GetNakshatra( Sun);",
+			"source" : "Custom"
+		},
+		{
+			"description" : "No higher varga 2",
+			"effect" : "This yoga can only match in Rasi chart but not in higher Vargas (like Navamsa) because the keyword is not supported there.\nDoes not work in Yoga Editor because there are no longitudes, only fields/rasis.",
+			"group" : "Test",
+			"rule" : "getlongitude( Sun);",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Variadic test",
+			"effect" : "Yoga Editor: drag the planet to the sign. The function is variadic",
+			"group" : "Test",
+			"rule" : "isPlanetInSign( saturn, cancer );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Variadic test 2",
+			"effect" : "Yoga Editor: drag the planet to one of the signs.",
+			"group" : "Test",
+			"rule" : "isPlanetInSign( mercury, aries, taurus, pisces, libra);",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Variadic test 3/house",
+			"effect" : "Yoga Editor: drag the planet to one of the houses.",
+			"group" : "Test",
+			"rule" : "isPlanetInHouse( mars, house3, h4 );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Planets in relative Houses",
+			"effect" : "Ask if the 12 from moon is occupied by one of the planets.\nDrag the planets to chart.",
+			"group" : "Test",
+			"rule" : "isRelativeHouseOccupiedBy( Moon, h12, Mars, Venus );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Planets in relative Houses 2",
+			"effect" : "Ask if the 12 from moon is occupied by one of the planets.\nDrag the planets to chart.",
+			"group" : "Test",
+			"rule" : "isRelativeHouseOccupiedBy( Moon, h2, Mars  );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Exaltation sign 1",
+			"effect" : "Drag the planet to the right field.",
+			"group" : "Test",
+			"rule" : "IsPlanetInExaltationSign( sat );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Exaltation sign 2",
+			"effect" : "Drag the planet to the right field.",
+			"group" : "Test",
+			"rule" : "IsPlanetInExaltationSign( mar );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Debilation sign 1",
+			"effect" : "Drag the planet to the right field.",
+			"group" : "Test",
+			"rule" : "IsPlanetInDebilationSign( moo );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Debilation sign 2",
+			"effect" : "Drag the planet to the right field.",
+			"group" : "Test",
+			"rule" : "IsPlanetInDebilationSign( ven );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Mulatrikona sign 1",
+			"effect" : "Drag the planet to the right field.",
+			"group" : "Test",
+			"rule" : "IsPlanetInMulatrikonaSign( ven );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Mulatrikona sign 2",
+			"effect" : "Drag the planet to the right field.",
+			"group" : "Test",
+			"rule" : "IsPlanetInMulatrikonaSign( sun );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "getLongitude",
+			"effect" : "Result not available in Yoga Editor because there are only Rasis, no longitude of the planets. Parsing is supported.",
+			"group" : "Test",
+			"rule" : "return getLongitude( Moon );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "getBhava",
+			"effect" : "Drag the objects",
+			"group" : "Test",
+			"rule" : "getBhava( Moon );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "isBenefic",
+			"effect" : "The rule is simplfied for Drag Chart: Natural benefics are evil if joined by malefic.\nMoon and mercury are always benefic",
+			"group" : "Test",
+			"rule" : "isBenefic( sat );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "isMalefic",
+			"effect" : "The rule is simplfied for Drag Chart: Natural benefics are evil if joined by malefic.\nMoon and mercury are always benefic here (this is different in the program\u2019s evaluation)",
+			"group" : "Test",
+			"rule" : "isMalefic( sat );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Graha Drishti (1)",
+			"effect" : "Graha Drisht from a planet to another one.\nDrag e.g. Mars to Aries, Sun to Cancer",
+			"group" : "Test",
+			"rule" : "isGrahaDrishti( mars, Sun );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Graha Drishti (2)",
+			"effect" : "Graha Drisht from a planet to a Sign.\nDrag e.g. Mars to Aries\n",
+			"group" : "Test",
+			"rule" : "isGrahaDrishti( mars, Sco );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Rasi Drishti",
+			"effect" : "planet to planet: rasi drishti will be evaluated between the signs.\nDrag e.g. mars to gemini, sun to virgo.",
+			"group" : "Test",
+			"rule" : "isRasiDrishti( mars, sun );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Rasi Drishti 2",
+			"effect" : "planet to sign: \ndrag mars e.g. to taurus",
+			"group" : "Test",
+			"rule" : "isRasiDrishti( mars, libra );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Rasi Drishti 3",
+			"effect" : "sign to sign\n",
+			"group" : "Test",
+			"rule" : "isRasiDrishti( aries, sco );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Get Lord of House",
+			"effect" : "Drag the ascendant to a sign, result is the lord of the 7th from the ascendant",
+			"group" : "Test",
+			"rule" : "getLordOfHouse( h7);",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Get Lord of Sign",
+			"effect" : "Result is the lord of the sign (independent of horoscopes resp. Ascendant)",
+			"group" : "Test",
+			"rule" : "getLordOfSign( gemini );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "countPlanetsInSign",
+			"effect" : "Drag planets to Aries.",
+			"group" : "Test",
+			"rule" : "countPlanetsInSign( Aries );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "countPlanetsInHouse",
+			"effect" : "Drag Ascendant and planets to the chart.",
+			"group" : "Test",
+			"rule" : "countPlanetsInHouse( h3 );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "countNumberOfOccupiedSigns",
+			"effect" : "Drag planets to the chart. Nodes and ascendant do not contribute.",
+			"group" : "Test",
+			"rule" : "countNumberOfOccupiedSigns();\n",
+			"source" : "Custom"
+		},
+		{
+			"description" : "get varga by division",
+			"effect" : "Vargas can referenced with D-N.\nThere will be error in Yoga Editor because it has no support for higher vargas, i.e. only Rasi is available.",
+			"group" : "Test",
+			"rule" : "D-9;",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Mutual Kendra",
+			"effect" : "Drag Sun and Moon in mutual 1,4,7 or 10th house",
+			"group" : "Test",
+			"rule" : "isMutualKendra( Sun, Moon );",
+			"source" : "Custom"
+		},
+		{
+			"description" : "Mutual Trikona",
+			"effect" : "Drag Sun and Moon in mutual 1,5 or 9th house",
+			"group" : "Test",
+			"rule" : "isMutualTrikona( Sun, Moon );",
+			"source" : "Custom"
+		}
+	]
+}

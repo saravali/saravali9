@@ -1,0 +1,73 @@
+#
+#   Makefile for MinGW - src/astro
+#
+include src/makevars.mingw
+
+MKDIR = mkdir -p
+CP = cp
+CPR = cp -r
+
+MAIN_PROG = saravali9.exe
+RELEASE_DIR = ../release_v9
+
+SRC_DIR = src
+GUI_DIR = src/gui
+RESOURCE_DIR = src/resources
+RESOURCE_TARGET_DIR = $(RELEASE_DIR)/resources
+
+all:
+	cd src; make -f $(MAKEFILE); cd ..
+
+clean:
+	cd src; make -f $(MAKEFILE) clean; cd ..
+
+# temp wegen timestmap
+# release: all
+release:
+	$(MKDIR) $(RELEASE_DIR)
+	cd $(GUI_DIR) && strip $(MAIN_PROG) && cd ..
+	$(RM) $(RELEASE_DIR)/$(MAIN_PROG)
+	$(CP) $(GUI_DIR)/$(MAIN_PROG) $(RELEASE_DIR)
+	#
+	# resource dir
+	$(RMR) $(RESOURCE_TARGET_DIR)	
+	$(MKDIR) $(RESOURCE_TARGET_DIR)	
+	# 
+	# license file
+	$(CP) COPYING license.txt
+	unix2dos license.txt
+	$(CP) license.txt $(RESOURCE_TARGET_DIR)
+	#
+	# atlas dir
+	$(MKDIR) $(RESOURCE_TARGET_DIR)/atlas
+	$(CP) $(RESOURCE_DIR)/atlas/geonames1000.sql $(RESOURCE_TARGET_DIR)/atlas
+	#
+	# pics
+	$(MKDIR) $(RESOURCE_TARGET_DIR)/pic
+	$(CP) $(RESOURCE_DIR)/pic/*.jpg $(RESOURCE_TARGET_DIR)/pic
+	$(CPR) $(RESOURCE_DIR)/pic/16x16 $(RESOURCE_TARGET_DIR)/pic
+	$(CPR) $(RESOURCE_DIR)/pic/24x24 $(RESOURCE_TARGET_DIR)/pic
+	$(CPR) $(RESOURCE_DIR)/pic/32x32 $(RESOURCE_TARGET_DIR)/pic
+	# other resources
+	for dir in dasa geom sheet skin table uranian yoga; \
+	do \
+		$(MKDIR) $(RESOURCE_TARGET_DIR)/$$dir; \
+		$(CP) $(RESOURCE_DIR)/$$dir/*.json $(RESOURCE_TARGET_DIR)/$$dir; \
+	done
+	$(CP) $(RESOURCE_DIR)/pic/saravali9.ico $(RELEASE_DIR)
+	#
+	# font stuff
+	$(MKDIR) $(RESOURCE_TARGET_DIR)/font
+	$(CP) $(RESOURCE_DIR)/font/Saravali.ttf $(RESOURCE_TARGET_DIR)/font
+	$(CP) $(RESOURCE_DIR)/font/OFL.txt $(RESOURCE_TARGET_DIR)/font
+	#
+	# i18n
+	$(MKDIR) $(RESOURCE_TARGET_DIR)/po
+	$(CP) po/saravali9.pot $(RESOURCE_TARGET_DIR)/po
+	for LANG in de de ru te pl it hu ro es fr ta; \
+	do \
+		$(MKDIR) $(RESOURCE_TARGET_DIR)/po/$$LANG; \
+		$(CP) po/$$LANG.gmo $(RESOURCE_TARGET_DIR)/po/$$LANG/saravali9.mo; \
+	done
+
+

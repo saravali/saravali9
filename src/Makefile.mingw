@@ -1,0 +1,21 @@
+#
+#   Makefile for MinGW - src
+#
+include makevars.mingw
+
+all:
+	for dir in jsoncpp wxpdfdoc wxsqlite3 swe base astro gdi dialogs widgets gui; do \
+		cd $$dir; \
+		make -f $(MAKEFILE); \
+		cd ..; \
+	done
+
+clean:
+	for dir in jsoncpp wxpdfdoc wxsqlite3 swe base astro gdi dialogs widgets gui; do \
+		cd $$dir; \
+		make -f $(MAKEFILE) clean; \
+		cd ..; \
+	done
+
+
+

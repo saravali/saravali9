@@ -1,0 +1,301 @@
+{
+    "configs": [
+        {
+            "name": "Vedic alternative",
+            "description": "Another Vedic printout with, Rasi, Navamsa and Vimsottari Dasa",
+            "viewpoint": "Vedic",
+            "items": [
+                {
+                    "type": "Text",
+                    "subType": "Header1",
+                    "contents": "$name"
+                },
+                {
+                    "type": "Table",
+                    "showVerticalBorders": false,
+                    "showHorizontalBorders": false,
+                    "showEmptyColumns": false,
+                    "groups": [
+                        {
+                            "autoHeader": false,
+                            "basedata": [
+                                "LocalDate",
+                                "LocalTime",
+                                "LocationName",
+                                "LocationLongitude",
+                                "LocationLatitude",
+                                "UniversalTime",
+                                "Timezone",
+                                "DaylightSaving",
+                                "SiderealTime"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": false,
+                            "planets": [
+                                "InnerVedic",
+                                "Rahu",
+                                "Ketu",
+                                "Ascendant"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude",
+                                "Nakshatra"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": false,
+                            "basedata": [
+                                "AscendantSign",
+                                "MoonSign",
+                                "MoonNakshatra",
+                                "Varna",
+                                "Gana",
+                                "Yoni",
+                                "MoonVimsottariLord",
+                                "MoonVimsottariInfluenceTime"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "VargaChartGrid",
+                    "vargas": [
+                        "Rasi",
+                        "Navamsa"
+                    ]
+                },
+                {
+                    "type": "DasaSummary",
+                    "reportType": "Compact"
+                }
+            ]
+        },
+        {
+            "name": "Vedic KP",
+            "description": "Vedic printout with KP Lords, Rasi, Navamsa and Vimsottari Dasa",
+            "viewpoint": "Vedic",
+            "items": [
+                {
+                    "type": "Text",
+                    "subType": "Header1",
+                    "contents": "$name"
+                },
+                {
+                    "type": "Table",
+                    "expand": false,
+                    "showVerticalBorders": false,
+                    "showHorizontalBorders": false,
+                    "showEmptyColumns": false,
+                    "maxTextFormat": "Medium",
+                    "groups": [
+                        {
+                            "basedata": [
+                                "Name",
+                                "LocalDate",
+                                "LocalTime",
+                                "LocationName",
+                                "LocationLongitude",
+                                "LocationLatitude",
+                                "AyanamsaNameAndValue",
+                                "Varna",
+                                "Yoni",
+                                "Nadi"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": true,
+                            "planets": [
+                                "InnerVedic",
+                                "Rahu",
+                                "Ketu",
+                                "Ascendant"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude",
+                                "Navamsa",
+                                "Nakshatra",
+                                "KpLords"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": true,
+                            "commonHeader": "House Cusps",
+                            "planets": [
+                                "AllHouses"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "VargaChartGrid",
+                    "vargas": [
+                        "Rasi",
+                        "Navamsa"
+                    ]
+                },
+                {
+                    "type": "DasaSummary",
+                    "reportType": "Compact"
+                }
+            ]
+        },
+        {
+            "name": "Vedic Bhava",
+            "description": "Vedic printout with Rasi + Bhava Chart and Vimsottari Dasa",
+            "viewpoint": "Vedic",
+            "items": [
+                {
+                    "type": "Text",
+                    "subType": "Header1",
+                    "contents": "$name"
+                },
+                {
+                    "type": "Table",
+                    "expand": true,
+                    "groups": [
+                        {
+                            "basedata": [
+                                "Name",
+                                "LocalDate",
+                                "LocalTime",
+                                "LocationName",
+                                "LocationLongitude",
+                                "LocationLatitude",
+                                "AyanamsaNameAndValue",
+                                "Varna",
+                                "Yoni",
+                                "Nadi"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": true,
+                            "planets": [
+                                "InnerVedic",
+                                "Rahu",
+                                "Ketu",
+                                "Ascendant"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude",
+                                "Navamsa",
+                                "Nakshatra"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "VargaChartGrid",
+                    "vargas": [
+                        "Rasi",
+                        "Bhava"
+                    ]
+                },
+                {
+                    "type": "DasaSummary",
+                    "reportType": "Compact"
+                }
+            ]
+        },
+        {
+            "name": "Vedic Default: Dasas in simple text",
+            "description": "Default Vedic printout with Rasi, Bhava and Vimsottari Dasa as bullet list",
+            "viewpoint": "Vedic",
+            "items": [
+                {
+                    "type": "Text",
+                    "subType": "Header1",
+                    "contents": "$name"
+                },
+                {
+                    "type": "Table",
+                    "expand": true,
+                    "groups": [
+                        {
+                            "basedata": [
+                                "Name",
+                                "LocalDate",
+                                "LocalTime",
+                                "LocationName",
+                                "LocationLongitude",
+                                "LocationLatitude",
+                                "AyanamsaNameAndValue",
+                                "Varna",
+                                "Yoni",
+                                "Nadi"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": true,
+                            "planets": [
+                                "InnerVedic",
+                                "Rahu",
+                                "Ketu",
+                                "Ascendant"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude",
+                                "Navamsa",
+                                "Nakshatra"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "VargaChartGrid",
+                    "vargas": [
+                        "Rasi",
+                        "Bhava"
+                    ]
+                },
+                {
+                    "type": "DasaSummary",
+                    "reportType": "Short"
+                }
+            ]
+        },
+        {
+            "name": "Vedic Comprehensive",
+            "extends": "Vedic Default",
+            "autoPageBreak": true,
+            "description": "Vedic printout with more Varga charts, Kalachakra Dasa and SBC",
+            "items": [
+                {
+                    "type": "VargaChartGrid",
+                    "vargas": [
+                        "Rasi",
+                        "Navamsa",
+                        "Drekkana",
+                        "Chaturtamsa",
+                        "Saptamamsa",
+                        "Dasamsa",
+                        "Dvadasamsa",
+                        "Shodasamsa"
+                    ]
+                },
+                {
+                    "type": "DasaSummary",
+                    "dasaId": "Kalachakra",
+                    "reportType": "Compact"
+                },
+                {
+                    "type": "SarvatobhadraChart"
+                }
+            ]
+        }
+    ]
+}

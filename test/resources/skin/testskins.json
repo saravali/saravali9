@@ -1,0 +1,22 @@
+{
+    "configs": [
+				{
+            "name": "Yellow",
+            "pen": {
+                "color": "yellow",
+								"style" : "Dot",
+								"width" : 2
+            },
+            "brush": {
+                "color": "black"
+            },
+						"textColor" : "yellow"
+        },
+				{
+            "name": "Explicitly transparent",
+            "brush": {
+                "style": "wxBRUSHSTYLE_TRANSPARENT"
+            }
+				}
+    ]
+}

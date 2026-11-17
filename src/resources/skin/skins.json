@@ -1,0 +1,367 @@
+{
+    "configs": [
+        {
+            "name": "Default"
+        },
+        {
+            "name": "Default/stock colors",
+            "signPattern": {
+                "paletteName": "signstock"
+            }
+        },
+        {
+            "name": "Default/stock colors, signs and houses",
+            "signPattern": {
+                "paletteName": "signstock"
+            },
+            "housePattern": {
+                "paletteName": "housestock"
+            }
+        },
+				{
+            "name": "Desert",
+            "signPattern": {
+                "paletteName": "desert"
+            }
+				},
+				{
+            "name": "Witte",
+            "signPattern": {
+                "paletteName": "witte"
+            }
+				},
+				{
+            "name": "Desert/signs and houses",
+            "signPattern": {
+                "paletteName": "desert"
+            },
+            "housePattern": {
+                "paletteName": "desert"
+            }
+				},
+				{
+            "name": "Desert korrigiert",
+						"textColor": "black",
+            "signPattern": {
+                "globaltextcolor": "black",
+								"palette" : {
+									"brushes" : [
+										{
+											"color" : "#FE9F79"
+										},
+										{
+											"color" : "#EFE58B"
+										},
+										{
+											"color" : "#c8e9c6"
+										},
+										{
+											"color" : "#AFDFE5"
+										}
+									]
+								}
+						}
+				},
+        {
+            "name": "Rainbow/signs and houses",
+            "signPattern": {
+                "paletteName": "rainbow"
+            },
+            "housePattern": {
+                "paletteName": "rainbow"
+            }
+        },
+        {
+            "name": "Red Style",
+            "signPattern": {
+                "paletteName": "redstyle"
+            }
+        },
+        {
+            "name": "Red Style, signs and houses",
+            "signPattern": {
+                "paletteName": "redstyle"
+            },
+            "housePattern": {
+                "paletteName": "redstyle"
+            }
+        },
+        {
+            "name": "Madera",
+            "brush": {
+                "filename": "madera.jpg"
+            }
+        },
+        {
+            "name": "Madera/Colored",
+            "brush": {
+                "filename": "madera.jpg"
+            },
+            "signPattern": {
+								"palette" : {
+									"brushes" : [
+										{
+											"color" : "rgba( 255, 0, 0, 31 )"
+										},
+										{
+											"color" : "rgba( 255, 255, 0, 31 )"
+										},
+										{
+											"color" : "rgba( 0, 255, 0, 31 )"
+										},
+										{
+											"color" : "rgba( 0, 0, 255, 31 )"
+										}
+									]
+							}
+            },
+            "housePattern": {
+								"palette" : {
+									"brushes" : [
+										{
+											"color" : "rgba( 255, 0, 0, 31 )"
+										},
+										{
+											"color" : "rgba( 255, 255, 0, 31 )"
+										},
+										{
+											"color" : "rgba( 0, 255, 0, 31 )"
+										},
+										{
+											"color" : "rgba( 0, 0, 255, 31 )"
+										}
+									]
+							}
+            },
+						"markedFieldBrush" : {
+								"color" : "rgba( 138, 127, 127, 121 )"
+            }
+        },
+        {
+            "name": "Marble",
+            "brush": {
+                "filename": "marble.jpg"
+            }
+        },
+        {
+            "name": "Marble/Colored",
+            "brush": {
+                "filename": "marble.jpg"
+            },
+            "signPattern": {
+								"palette" : {
+									"brushes" : [
+										{
+											"color" : "rgba( 255, 0, 0, 31 )"
+										},
+										{
+											"color" : "rgba( 255, 255, 0, 31 )"
+										},
+										{
+											"color" : "rgba( 0, 255, 0, 31 )"
+										},
+										{
+											"color" : "rgba( 0, 0, 255, 31 )"
+										}
+									]
+							}
+            },
+            "housePattern": {
+								"palette" : {
+									"brushes" : [
+										{
+											"color" : "rgba( 255, 0, 0, 31 )"
+										},
+										{
+											"color" : "rgba( 255, 255, 0, 31 )"
+										},
+										{
+											"color" : "rgba( 0, 255, 0, 31 )"
+										},
+										{
+											"color" : "rgba( 0, 0, 255, 31 )"
+										}
+									]
+							}
+            },
+						"markedFieldBrush" : {
+								"color" : "rgba( 138, 127, 127, 121 )"
+            }
+        },
+        {
+            "name": "Astrolog",
+            "pen": {
+                "color": "yellow"
+            },
+            "brush": {
+                "color": "black"
+            },
+						"textColor" : "yellow"
+        },
+        {
+            "name": "Yellow",
+            "pen": {
+                "color": "yellow",
+								"width" : 2
+            },
+            "brush": {
+                "color": "black"
+            },
+						"textColor" : "yellow"
+        },
+        {
+            "name": "Stars",
+            "extends": "Yellow",
+            "pen": {
+                "color": "yellow",
+								"width" : 2
+            },
+            "brush": {
+                "filename": "stars.jpg"
+            },
+						"textColor" : "yellow"
+				},
+        {
+            "name": "Yellow2",
+            "pen": {
+                "color": "yellow",
+								"width" : 2
+            },
+            "brush": {
+                "color": "black"
+            },
+						"textColor" : "orange"
+        },
+        {
+            "name": "Linux Console",
+            "brush": {
+                "color": "#000000"
+            },
+            "pen": {
+                "color": "#00ff00",
+                "width": 2
+            },
+						"textColor": "#00ff00"
+        },
+        {
+            "name": "Madera/colored signPattern",
+            "brush": {
+                "filename": "madera.jpg"
+            },
+            "signPattern": {
+                "paletteName": "madera",
+                "globaltextcolor": "black"
+            }
+        },
+				{
+            "name": "Grey Frame",
+            "pen": {
+                "color": "#cccccc",
+                "width": 15
+            },
+						"textColor" : "black"
+				},
+				{
+            "name": "Grey Frame/Colored",
+            "pen": {
+                "color": "#cccccc",
+                "width": 15
+            },
+            "signPattern": {
+                "paletteName": "signstock"
+            },
+            "housePattern": {
+                "paletteName": "housestock"
+            },
+						"textColor" : "black"
+				},
+				{
+            "name": "Kuno",
+            "pen": {
+                "color": "rgba( 0,0,0,127)",
+                "width": 15
+            },
+            "signPattern": {
+                "paletteName": "signstock"
+            },
+            "housePattern": {
+                "paletteName": "housestock"
+            },
+						"textColor" : "black"
+				},
+        {
+            "name": "Rainbow, pale",
+            "signPattern": {
+								"palette" : {
+									"brushes" : [
+										{
+											"color" : "#db545f60"
+										},
+										{
+											"color" : "#eda06860"
+										},
+										{
+											"color" : "#fbfc5560"
+										},
+										{
+											"color" : "#8dd83d60"
+										},
+										{
+											"color" : "#52c93960"
+										},
+										{
+											"color" : "#54ca8e60"
+										},
+										{
+											"color" : "#56c7f560"
+										},
+										{
+											"color" : "#64aaf560"
+										},
+										{
+											"color" : "#5686df60"
+										},
+										{
+											"color" : "#8084d660"
+										},
+										{
+											"color" : "#f253b060"
+										},
+										{
+											"color" : "#e1528f60"
+										}
+									]
+								}
+            }
+        },
+				{
+            "name": "Wide pen",
+            "pen": {
+								"width" : 2
+            }
+        },
+				{
+            "name": "Wider pen",
+            "pen": {
+								"width" : 4
+            }
+        },
+				{
+            "name": "Dashed pen",
+            "pen": {
+								"width" : 4,
+								"style" : "LongDash"
+            }
+        },
+        {
+            "name": "Rainbow",
+            "signPattern": {
+                "paletteName": "rainbow",
+                "globaltextcolor": "black"
+            },
+						"markedFieldBrush" : {
+								"color": "green"
+            }
+        }
+    ]
+}

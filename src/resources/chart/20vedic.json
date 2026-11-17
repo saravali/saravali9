@@ -1,0 +1,115 @@
+{
+    "configs": [
+				{
+            "name": "Generic East",
+            "geom": "Rectangle",
+						"EastGrid": {
+							"straightFrame" : true
+						}
+				},
+				{
+            "name": "Generic South",
+            "geom": "Rectangle",
+						"SouthGrid": {}
+				},
+				{
+            "name": "Generic Diamond",
+            "geom": "Rectangle",
+						"DiamondGrid": {}
+				},
+				{
+            "name": "Generic Sbc",
+            "geom": "Rectangle",
+						"SbcGrid": {}
+				},
+				{
+            "name": "East Indian Ellipse",
+						"geom": "Ellipse",
+						"EastGrid": {
+						}
+        },
+				{
+            "name": "East Indian Triangle",
+						"geom": "Triangle",
+						"EastGrid": {
+						}
+        },
+				{
+            "name": "EAST Indian larger Radius",
+            "geom": "Rectangle",
+						"EastGrid": {
+                "radius": 100
+						}
+        },
+				{
+            "name": "EAST Test 2",
+            "geom": "Ellipse",
+            "forcedZodiacStart": 75,
+						"EastGrid": {
+                "radius": 100
+            },
+            "Degrees": {
+                "radius": 90,
+                "width": 3,
+                "show10DegreeFrame": true
+            }
+        },
+				{
+            "name": "Diamond Test",
+            "geom": "Rectangle",
+						"DiamondGrid": {
+						}
+        },
+				{
+            "name": "Diamond 2",
+            "geom": "Ellipse",
+						"DiamondGrid": {
+							"geometryType": "Ellipse"
+						}
+        },
+				{
+            "name": "SOUTH Indian Test",
+            "geom": "Rectangle",
+						"SouthGrid": {
+						},
+						"Disc": {
+							"radius": 44,
+							"brush" : {
+								"color" : "grey"
+							}
+						}
+        },
+				{
+            "name": "South Indian with logo",
+            "geom": "Rectangle",
+            "Image": {
+								"geom": "Rectangle",
+                "show": true,
+                "radius": 30,
+								"filename": "ganesha.png",
+								"pen": {
+										"color": "orange",
+										"style" : "Transparent",
+										"width": 4
+								}
+						},
+						"SouthGrid": {}
+				},
+				{
+            "name": "South Indian Double frame",
+            "geom": "Rectangle",
+						"Southrid": {
+						},
+						"disc": {
+							"radius": 91
+						}
+        },
+				{
+            "name": "South Indian Ellipse",
+						"geom": "Ellipse",
+						"SouthGrid": {
+							"geometryType": "Ellipse"
+						}
+        }
+    ]
+}

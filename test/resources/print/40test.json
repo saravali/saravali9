@@ -1,0 +1,441 @@
+{
+    "configs": [
+        {
+            "name": "TEST Only title and dummy message",
+            "items": [
+                {
+                    "type": "Text",
+                    "subType": "Header1",
+                    "contents": "$name"
+                },
+                {
+                    "type": "Text",
+                    "subType": "Header2",
+                    "contents": "TEST Header2"
+                }
+            ]
+        },
+        {
+            "name": "TEST long message",
+            "items": [
+                {
+                    "type": "Text",
+                    "subType": "Header1",
+                    "contents": "Long message"
+                },
+                {
+                    "type": "Text",
+                    "subType": "Paragraph",
+                    "contents": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+                }
+            ]
+        },
+        {
+            "name": "TEST vedic only one navamasa",
+            "description": "TODO",
+            "viewpoint": "Vedic",
+            "items": [
+                {
+                    "type": "Table",
+                    "maxDegPrecision": "Second",
+                    "groups": [
+                        {
+                            "autoHeader": false,
+                            "planets": [
+                                "InnerVedic",
+                                "Rahu",
+                                "Ketu",
+                                "Ascendant"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude",
+                                "Nakshatra"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "VargaChart",
+                    "varga": "Navamsa"
+                }
+            ]
+        },
+        {
+            "name": "TEST 3 varga charts in one row",
+            "description": "TODO",
+            "viewpoint": "Vedic",
+            "items": [
+                {
+                    "type": "Table",
+                    "groups": [
+                        {
+                            "autoHeader": false,
+                            "planets": [
+                                "InnerVedic",
+                                "Rahu",
+                                "Ketu",
+                                "Ascendant"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude",
+                                "Nakshatra"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "VargaChartGrid",
+                    "cols": 3,
+                    "vargas": [
+                        "Rasi",
+                        "Navamsa",
+                        "Bhava"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "TEST wrong item type",
+            "viewpoint": "Vedic",
+            "items": [
+                {
+                    "type": "DasaSummary1"
+                }
+            ]
+        },
+        {
+            "name": "TEST Chart Grid without varga",
+            "items": [
+                {
+                    "type": "VargaChartGrid"
+                }
+            ]
+        },
+        {
+            "name": "TEST Vedic comprehensive Dasas",
+            "viewpoint": "Vedic",
+            "autoPageBreak": true,
+            "items": [
+                {
+                    "type": "Text",
+                    "subType": "Header1",
+                    "contents": "$name"
+                },
+                {
+                    "type": "VargaChartGrid",
+                    "vargas": [
+                        "Rasi",
+                        "Navamsa"
+                    ]
+                },
+                {
+                    "type": "DasaSummary",
+                    "reportType": "Comprehensive"
+                }
+            ]
+        },
+        {
+            "name": "TEST page break 1: changing orientation",
+            "viewpoint": "Vedic",
+            "items": [
+                {
+                    "type": "Text",
+                    "contents": "Page one: Portrait"
+                },
+                {
+                    "type": "PageBreak",
+                    "orientation": "Landscape"
+                },
+                {
+                    "type": "Text",
+                    "contents": "Page two: landscape"
+                },
+                {
+                    "type": "PageBreak"
+                },
+                {
+                    "type": "Text",
+                    "contents": "Page three: no orientation given"
+                },
+                {
+                    "type": "PageBreak",
+                    "orientation": "Landscape"
+                },
+                {
+                    "type": "Text",
+                    "contents": "Page four: switched to landscape again"
+                }
+            ]
+        },
+        {
+            "name": "TEST many items with auto page break mode",
+            "viewpoint": "Vedic",
+            "autoPageBreak": true,
+            "items": [
+                {
+                    "type": "Text",
+                    "subType": "Header1",
+                    "contents": "$name"
+                },
+                {
+                    "type": "VargaChartGrid",
+                    "vargas": [
+                        "Rasi",
+                        "Navamsa"
+                    ]
+                },
+                {
+                    "type": "VargaChartGrid",
+                    "vargas": [
+                        "Rasi",
+                        "Navamsa"
+                    ]
+                },
+                {
+                    "type": "VargaChartGrid",
+                    "vargas": [
+                        "Rasi",
+                        "Navamsa"
+                    ]
+                },
+                {
+                    "type": "DasaSummary",
+                    "reportType": "Compact"
+                },
+                {
+                    "type": "DasaSummary",
+                    "reportType": "Compact"
+                }
+            ]
+        },
+        {
+            "name": "TEST many varga charts",
+            "items": [
+                {
+                    "type": "VargaChartGrid",
+                    "vargas": [
+                        "Rasi",
+                        "Navamsa",
+                        "Bhava",
+                        "Rasi",
+                        "Navamsa",
+                        "Drekkana",
+                        "Chaturtamsa",
+                        "Saptamamsa",
+                        "Navamsa",
+                        "Drekkana",
+                        "Chaturtamsa",
+                        "Saptamamsa",
+                        "Dasamsa",
+                        "Dvadasamsa",
+                        "Shodasamsa"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Table Test 1",
+            "items": [
+                {
+                    "type": "Text",
+                    "subType": "Header1",
+                    "contents": "$name"
+                },
+                {
+                    "type": "Table",
+                    "groups": [
+                        {
+                            "basedata": [
+                                "Name",
+                                "LocalDate",
+                                "LocalTime",
+                                "UniversalTime",
+                                "DaylightSaving"
+                            ]
+                        },
+                        {},
+                        {
+                            "basedata": [
+                                "LocationName",
+                                "LocationLongitude",
+                                "LocationLatitude",
+                                "SiderealTime"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Table",
+                    "groups": [
+                        {
+                            "type": "BaseData",
+                            "basedata": [
+                                "Name",
+                                "LocalDate",
+                                "LocalTime",
+                                "UniversalTime",
+                                "DaylightSaving"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": false,
+                            "planets": [
+                                "Sun",
+                                "Moon",
+                                "Cupido",
+                                "Mercury"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude",
+                                "Element",
+                                "SignLord"
+                            ],
+                            "basedata": [
+                                "SiderealTime",
+                                "HouseSystem"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "TEST Western Comprehensive",
+            "description": "Western TODO ",
+            "viewpoint": "Western",
+            "extends": "Western Default",
+            "items": [
+                {
+                    "type": "PageBreak"
+                },
+                {
+                    "type": "Aspectarium",
+                    "maxTextFormat": "Short"
+                }
+            ]
+        },
+        {
+            "name": "TEST Uranian Sensitive Points",
+            "description": "contains tables with sp",
+            "extends": "Uranian Default",
+            "viewpoint": "Uranian",
+            "items": [
+                {
+                    "type": "PageBreak",
+                    "orientation": "Landscape"
+                },
+                {
+                    "type": "SPTable",
+                    "termId": "Midpoint",
+                    "division": 4
+                },
+                {
+                    "type": "PageBreak",
+                    "orientation": "Landscape"
+                },
+                {
+                    "type": "SPTable",
+                    "termId": "Sum",
+                    "division": 1
+                }
+            ]
+        },
+        {
+            "name": "TEST Western Vintage manuell",
+            "description": "Western chart an basic data in style of vintage paper form",
+            "viewpoint": "Western",
+            "items": [
+                {
+                    "type": "Table",
+                    "expand": true,
+                    "groups": [
+                        {
+                            "basedata": [
+                                "Name",
+                                "LocalDate",
+                                "LocalTime",
+                                "UniversalTime",
+                                "Timezone",
+                                "DaylightSaving"
+                            ]
+                        },
+                        {},
+                        {
+                            "basedata": [
+                                "LocationName",
+                                "LocationLongitude",
+                                "LocationLatitude",
+                                "SiderealTime",
+                                "HouseSystem"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "WesternChart"
+                },
+                {
+                    "type": "Table",
+                    "expand": true,
+                    "header": "DUMMY",
+                    "groups": [
+                        {
+                            "autoHeader": false,
+                            "planets": [
+                                "Sun",
+                                "Moon",
+                                "Mercury",
+                                "Venus",
+                                "Mars",
+                                "Jupiter",
+                                "Saturn"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": false,
+                            "planets": [
+                                "Uranus",
+                                "Neptune",
+                                "Pluto",
+                                "AscNode"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": false,
+                            "planets": [
+                                "House1",
+                                "House2",
+                                "House3",
+                                "House10",
+                                "House11",
+                                "House12"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Aspectarium",
+                    "maxTextFormat": "Short"
+                }
+            ]
+        }
+    ]
+}

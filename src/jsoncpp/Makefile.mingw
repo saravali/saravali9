@@ -1,0 +1,19 @@
+include ../makevars.mingw
+
+.SUFFIXES: .o.cpp
+
+
+CPPFLAGS = -I.
+
+JSONCPPLIB = libjsoncpp.a
+
+all: $(JSONCPPLIB)
+
+OBS = json_reader.o json_value.o json_writer.o
+
+$(JSONCPPLIB) : $(OBS)
+	$(AR) $(JSONCPPLIB) $(OBS)
+
+clean:
+	rm -f *.o libjson*
+	

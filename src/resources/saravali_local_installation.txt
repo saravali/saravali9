@@ -1,0 +1,2 @@
+This file is used to determine that the program is running in local mode,
+i.e. the resources are under src/resources instead of /usr/share/saravali9

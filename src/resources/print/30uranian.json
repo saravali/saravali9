@@ -1,0 +1,246 @@
+{
+    "configs": [
+        {
+            "name": "Uranian all alternative order",
+            "description": "Uranian D-1 chart with all 8 Transneptunian planets, factors beginning with Meridian",
+            "viewpoint": "Uranian",
+            "items": [
+                {
+                    "type": "Table",
+                    "groups": [
+                        {
+                            "autoHeader": false,
+                            "basedata": [
+                                "Name",
+                                "LocalDate",
+                                "LocalTime",
+                                "UniversalTime",
+                                "Timezone",
+                                "DaylightSaving"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": false,
+                            "basedata": [
+                                "LocationName",
+                                "LocationLongitude",
+                                "LocationLatitude",
+                                "SiderealTime",
+                                "HouseSystem"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "UranianChart",
+                    "division": 1
+                },
+                {
+                    "type": "Table",
+                    "expand": false,
+                    "maxTextFormat": "Medium",
+                    "groups": [
+                        {
+                            "planets": [
+                                "Meridian",
+                                "Sun",
+                                "Ascendant",
+                                "Moon",
+                                "AscNode",
+                                "Mercury",
+                                "Venus",
+                                "Mars",
+                                "Jupiter",
+                                "Saturn"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude",
+                                "Longitude90"
+                            ]
+                        },
+                        {},
+                        {
+                            "planets": [
+                                "InnerTNP",
+                                "OuterTNP"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude",
+                                "Longitude90"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": false,
+                            "planets": [
+                                "SixHouses"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Uranian 4 TNP",
+            "description": "Uranian D-1 chart with 4 inner Transneptunian planets",
+            "viewpoint": "Uranian",
+            "items": [
+                {
+                    "type": "Table",
+                    "groups": [
+                        {
+                            "autoHeader": false,
+                            "basedata": [
+                                "Name",
+                                "LocalDate",
+                                "LocalTime",
+                                "UniversalTime",
+                                "Timezone",
+                                "DaylightSaving"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": false,
+                            "basedata": [
+                                "LocationName",
+                                "LocationLongitude",
+                                "LocationLatitude",
+                                "SiderealTime",
+                                "HouseSystem"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "UranianChart",
+                    "division": 1
+                },
+                {
+                    "type": "Table",
+                    "expand": false,
+                    "maxTextFormat": "Medium",
+                    "groups": [
+                        {
+                            "planets": [
+                                "Inner"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude",
+                                "Longitude90"
+                            ]
+                        },
+                        {},
+                        {
+                            "planets": [
+                                "Outer",
+                                "AscNode",
+                                "InnerTNP"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude",
+                                "Longitude90"
+                            ]
+                        },
+                        {},
+                        {
+                            "autoHeader": false,
+                            "planets": [
+                                "Ascendant",
+                                "Meridian",
+                                "House1",
+                                "House2",
+                                "House3",
+                                "House11",
+                                "House12"
+                            ],
+                            "columnGroups": [
+                                "ObjectName",
+                                "Longitude"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Uranian comprehensive",
+            "description": "Uranian chart with 8 TNP, D-4 and D-8 chart, several Sensitive Points tables",
+            "extends": "Uranian Default",
+            "viewpoint": "Uranian",
+            "items": [
+                {
+                    "type": "PageBreak"
+                },
+                {
+                    "type": "UranianChart",
+                    "width": 80,
+                    "division": 4
+                },
+                {
+                    "type": "UranianChart",
+                    "width": 80,
+                    "division": 8
+                }
+            ]
+        },
+        {
+            "name": "Uranian 4 TNP comprehensive",
+            "description": "Uranian chart with 4 TNP, D-4 and D-8 chart",
+            "extends": "Uranian 4 TNP",
+            "viewpoint": "Uranian",
+            "items": [
+                {
+                    "type": "PageBreak"
+                },
+                {
+                    "type": "UranianChart",
+                    "width": 80,
+                    "division": 4
+                },
+                {
+                    "type": "UranianChart",
+                    "width": 80,
+                    "division": 8
+                },
+                {
+                    "type": "PageBreak",
+                    "orientation": "Landscape"
+                },
+                {
+                    "type": "SPTable",
+                    "termId": "Midpoint",
+                    "division": 4
+                },
+                {
+                    "type": "SPTable",
+                    "termId": "Midpoint",
+                    "division": 8
+                },
+                {
+                    "type": "PageBreak",
+                    "orientation": "Landscape"
+                },
+                {
+                    "type": "SPTable",
+                    "termId": "Midpoint",
+                    "division": 16
+                },
+                {
+                    "type": "SPTable",
+                    "termId": "Sum",
+                    "division": 4
+                }
+            ]
+        }
+    ]
+}

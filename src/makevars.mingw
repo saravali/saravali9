@@ -1,0 +1,36 @@
+MAKEFILE = Makefile.mingw
+
+CPP = g++ 
+CC = gcc
+
+AR = ar r
+RM = rm -f
+RMR = rm -fr
+MKDIR = mkdir -p
+CP = cp
+CPR = cp -r
+
+MINGWDIR=/mingw64
+
+MINGWINCLUDE = $(MINGWDIR)/include
+MINGWlib = $(MINGWDIR)/lib
+MINGWBIN = $(MINGWDIR)/bin
+
+BASECPPFLAGS = -w -g -D_MINGW_ -DCPP26 -std=c++26 -freflection \
+	-I/usr/include -I/usr/local/include -I../jsoncpp -I$(MINGWINCLUDE) -I. -I.. -I../../ -fpermissive
+BASECFLAGS = -w -g -D_MINGW_ -I/usr/include -I/usr/local/include -I$(MINGWINCLUDE) -I. -I.. -I../../ 
+
+WXCONFIG=$(MINGWBIN)/wx-config
+WXCPPFLAGS=`$(WXCONFIG) --cppflags`
+WXLDLIBS = `$(WXCONFIG) --libs` 
+
+.cpp.o :
+	$(CPP) -c -o$@ $*.cpp $(CPPFLAGS)
+
+.cc.o :
+	$(CPP) -c -o$@ $*.cc $(CPPFLAGS)
+
+.c.o:
+	$(CC) -c -o$@ $*.c $(CFLAGS)
+
+

@@ -1,0 +1,97 @@
+#ifndef _yy_defines_h_
+#define _yy_defines_h_
+
+#define LPAR 257
+#define RPAR 258
+#define COLON 259
+#define COMMA 260
+#define PERCENT 261
+#define DIGIT 262
+#define OR 263
+#define AND 264
+#define NOT 265
+#define ISMUTUALKENDRA 266
+#define ISMUTUALTRIKONA 267
+#define DESCR 268
+#define GETLORDOFHOUSE 269
+#define ISPLANETINRASI 270
+#define ISEQUAL 271
+#define ISNOTEQUAL 272
+#define EQUAL 273
+#define RETURN 274
+#define PLANET 275
+#define GETRASI 276
+#define GETBHAVA 277
+#define PLUS 278
+#define MINUS 279
+#define MULT 280
+#define DIV 281
+#define MOD 282
+#define LT 283
+#define LE 284
+#define GT 285
+#define GE 286
+#define COUNTPLANETSINSIGN 287
+#define COUNTPLANETSINHOUSE 288
+#define NUMBER_OF_OCCUPIED_SIGNS 289
+#define ISGRAHADRISHTI 290
+#define ISRASIDRISHTI 291
+#define GETLORD 292
+#define ISBENEFIC 293
+#define ISMALEFIC 294
+#define ISPLANETINKENDRA 295
+#define ISPLANETINAPOKLIMA 296
+#define ISPLANETINPANAPHARA 297
+#define ISPLANETINDUALRASI 298
+#define ISPLANETINFIXEDRASI 299
+#define ISPLANETINMOVABLERASI 300
+#define RED12 301
+#define GETNAKSHATRA 302
+#define RED27 303
+#define ISPLANETINEXALTATIONSIGN 304
+#define ISPLANETINDEBILATIONSIGN 305
+#define ISPLANETINMULATRIKONASIGN 306
+#define ISPLANETINSIGN 307
+#define ISPLANETINHOUSE 308
+#define ISRELATIVEHOUSEOCCUPIEDBY 309
+#define GETLONGITUDE 310
+#define ISRETROGRADE 311
+#define ISINVARGOTTAMA 312
+#define ISINMULATRIKONA 313
+#define GETRASIINVARGA 314
+#define GETHOUSEINVARGA 315
+#define HOUSE 316
+#define SIGN 317
+#define NAKSHATRA 318
+#define BOOLEAN 319
+#define VARGA 320
+#define EQUALSONEOF 321
+#define TYPE_INT 322
+#define TYPE_DOUBLE 323
+#define TYPE_PLANET 324
+#define TYPE_SIGN 325
+#define TYPE_NAKSHATRA 326
+#define TYPE_HOUSE 327
+#define TYPE_BOOLEAN 328
+#define TYPE_VARGA 329
+#define FLOAT 330
+#define VARIABLE 331
+#define planetsinsign_exp 332
+#define planetsinhouse_exp 333
+#define GETLORDOFSIGN 334
+#ifdef YYSTYPE
+#undef  YYSTYPE_IS_DECLARED
+#define YYSTYPE_IS_DECLARED 1
+#endif
+#ifndef YYSTYPE_IS_DECLARED
+#define YYSTYPE_IS_DECLARED 1
+typedef union YYSTYPE {
+  int ival;
+	char *sval;
+	double dval;
+	Expression *expval;
+} YYSTYPE;
+#endif /* !YYSTYPE_IS_DECLARED */
+extern YYSTYPE yylval;
+
+#endif /* _yy_defines_h_ */
