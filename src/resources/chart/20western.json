@@ -9,6 +9,56 @@
             "Aspects": {}
 				},
         {
+            "name": "Number Two",
+            "Signs": {},
+            "Houses": {},
+            "Angles": {},
+            "WesternPlanetRing": {
+							"radius": 92,
+							"innerRadius": 79,
+							"rLabels": 72
+						},
+            "Aspects": {}
+				},
+        {
+            "name": "New Default",
+            "Signs": {
+							"radius": 90,
+							"innerRadius": 75,
+							"rLabels": 85
+						},
+            "Angles": {
+							"radius": 100,
+							"innerRadius": 35,
+							"rLabels": 95
+						},
+            "WesternPlanetRing": {
+							"radius": 90,
+							"innerRadius": 75,
+							"rLabels": 65
+						},
+            "Houses": {
+							"radius": 75,
+							"innerRadius": 50,
+							"rLabels": 55
+						},
+            "Aspects": {
+							"radius": 50
+						}
+				},
+        {
+            "name": "New Default/ alternative",
+            "extends": "New Default",
+            "Signs": {
+							"degreeMarker": {
+								"wDegree1" : -1,
+								"wDegree5" : -2,
+								"wDegree10" : -3,
+								"show10DegreeFrame" : true
+							}
+						}
+				},
+        {
             "name": "Western Alternative",
             "Signs": {
                 "radius": 90,
