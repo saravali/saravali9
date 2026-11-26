@@ -57,6 +57,7 @@ OBS = \
 	WesternAngles.o \
 	WesternAspects.o \
 	WesternHouses.o \
+	WesternPlanets.o \
 	WesternSigns.o 
 
 all : $(GDI_LIB)
