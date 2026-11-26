@@ -42,6 +42,7 @@ enum class IconSize;
 enum class WidgetExportType;
 enum class ChartShape;
 enum class WesternChartOrientation;
+enum class UranianChartOrigin;
 enum class Element;
 enum class SignQuality;
 enum class ChartSide;
@@ -235,139 +236,143 @@ void string_to_enum( const wxString&, ChartShape& );
 wxString enum_to_string( const WesternChartOrientation& );
 void string_to_enum( const wxString&, WesternChartOrientation& );
 
-// Element (src/base/constants.h line 795)
+// UranianChartOrigin (src/base/constants.h line 770)
+wxString enum_to_string( const UranianChartOrigin& );
+void string_to_enum( const wxString&, UranianChartOrigin& );
+
+// Element (src/base/constants.h line 807)
 wxString enum_to_string( const Element& );
 void string_to_enum( const wxString&, Element& );
 
-// SignQuality (src/base/constants.h line 806)
+// SignQuality (src/base/constants.h line 818)
 wxString enum_to_string( const SignQuality& );
 void string_to_enum( const wxString&, SignQuality& );
 
-// ChartSide (src/base/constants.h line 816)
+// ChartSide (src/base/constants.h line 828)
 wxString enum_to_string( const ChartSide& );
 void string_to_enum( const wxString&, ChartSide& );
 
-// Varga (src/base/constants.h line 830)
+// Varga (src/base/constants.h line 842)
 wxString enum_to_string( const Varga& );
 void string_to_enum( const wxString&, Varga& );
 
-// VargaGroup (src/base/constants.h line 871)
+// VargaGroup (src/base/constants.h line 883)
 wxString enum_to_string( const VargaGroup& );
 void string_to_enum( const wxString&, VargaGroup& );
 
-// InfluenceType (src/base/constants.h line 881)
+// InfluenceType (src/base/constants.h line 893)
 wxString enum_to_string( const InfluenceType& );
 void string_to_enum( const wxString&, InfluenceType& );
 
-// PlanetaryFriendship (src/base/constants.h line 890)
+// PlanetaryFriendship (src/base/constants.h line 902)
 wxString enum_to_string( const PlanetaryFriendship& );
 void string_to_enum( const wxString&, PlanetaryFriendship& );
 
-// Dignity (src/base/constants.h line 902)
+// Dignity (src/base/constants.h line 914)
 wxString enum_to_string( const Dignity& );
 void string_to_enum( const wxString&, Dignity& );
 
-// CharaKaraka (src/base/constants.h line 917)
+// CharaKaraka (src/base/constants.h line 929)
 wxString enum_to_string( const CharaKaraka& );
 void string_to_enum( const wxString&, CharaKaraka& );
 
-// Varna (src/base/constants.h line 932)
+// Varna (src/base/constants.h line 944)
 wxString enum_to_string( const Varna& );
 void string_to_enum( const wxString&, Varna& );
 
-// Gana (src/base/constants.h line 943)
+// Gana (src/base/constants.h line 955)
 wxString enum_to_string( const Gana& );
 void string_to_enum( const wxString&, Gana& );
 
-// Nadi (src/base/constants.h line 953)
+// Nadi (src/base/constants.h line 965)
 wxString enum_to_string( const Nadi& );
 void string_to_enum( const wxString&, Nadi& );
 
-// Vashya (src/base/constants.h line 963)
+// Vashya (src/base/constants.h line 975)
 wxString enum_to_string( const Vashya& );
 void string_to_enum( const wxString&, Vashya& );
 
-// AvType (src/base/constants.h line 975)
+// AvType (src/base/constants.h line 987)
 wxString enum_to_string( const AvType& );
 void string_to_enum( const wxString&, AvType& );
 
-// VedicAspectStrength (src/base/constants.h line 987)
+// VedicAspectStrength (src/base/constants.h line 999)
 wxString enum_to_string( const VedicAspectStrength& );
 void string_to_enum( const wxString&, VedicAspectStrength& );
 
-// DasaLevel (src/base/constants.h line 1000)
+// DasaLevel (src/base/constants.h line 1012)
 wxString enum_to_string( const DasaLevel& );
 void string_to_enum( const wxString&, DasaLevel& );
 
-// NakshatraPortionMode (src/base/constants.h line 1015)
+// NakshatraPortionMode (src/base/constants.h line 1027)
 wxString enum_to_string( const NakshatraPortionMode& );
 void string_to_enum( const wxString&, NakshatraPortionMode& );
 
-// KalachakraMode (src/base/constants.h line 1026)
+// KalachakraMode (src/base/constants.h line 1038)
 wxString enum_to_string( const KalachakraMode& );
 void string_to_enum( const wxString&, KalachakraMode& );
 
-// DasaShowDateMode (src/base/constants.h line 1039)
+// DasaShowDateMode (src/base/constants.h line 1051)
 wxString enum_to_string( const DasaShowDateMode& );
 void string_to_enum( const wxString&, DasaShowDateMode& );
 
-// VedicChartType (src/base/constants.h line 1051)
+// VedicChartType (src/base/constants.h line 1063)
 wxString enum_to_string( const VedicChartType& );
 void string_to_enum( const wxString&, VedicChartType& );
 
-// NorthIndianChartType (src/base/constants.h line 1061)
+// NorthIndianChartType (src/base/constants.h line 1073)
 wxString enum_to_string( const NorthIndianChartType& );
 void string_to_enum( const wxString&, NorthIndianChartType& );
 
-// VedicChartCenterType (src/base/constants.h line 1073)
+// VedicChartCenterType (src/base/constants.h line 1085)
 wxString enum_to_string( const VedicChartCenterType& );
 void string_to_enum( const wxString&, VedicChartCenterType& );
 
-// Nakshatra28 (src/base/constants.h line 1087)
+// Nakshatra28 (src/base/constants.h line 1099)
 wxString enum_to_string( const Nakshatra28& );
 void string_to_enum( const wxString&, Nakshatra28& );
 
-// Nakshatra27 (src/base/constants.h line 1100)
+// Nakshatra27 (src/base/constants.h line 1112)
 wxString enum_to_string( const Nakshatra27& );
 void string_to_enum( const wxString&, Nakshatra27& );
 
-// DasaId (src/base/constants.h line 1131)
+// DasaId (src/base/constants.h line 1143)
 wxString enum_to_string( const DasaId& );
 void string_to_enum( const wxString&, DasaId& );
 
-// KalachakraGroup (src/base/constants.h line 1151)
+// KalachakraGroup (src/base/constants.h line 1163)
 wxString enum_to_string( const KalachakraGroup& );
 void string_to_enum( const wxString&, KalachakraGroup& );
 
-// KalachakraSubgroup (src/base/constants.h line 1161)
+// KalachakraSubgroup (src/base/constants.h line 1173)
 wxString enum_to_string( const KalachakraSubgroup& );
 void string_to_enum( const wxString&, KalachakraSubgroup& );
 
-// KalachakraGati (src/base/constants.h line 1173)
+// KalachakraGati (src/base/constants.h line 1185)
 wxString enum_to_string( const KalachakraGati& );
 void string_to_enum( const wxString&, KalachakraGati& );
 
-// DasaReportType (src/base/constants.h line 1185)
+// DasaReportType (src/base/constants.h line 1197)
 wxString enum_to_string( const DasaReportType& );
 void string_to_enum( const wxString&, DasaReportType& );
 
-// KalavelaLord (src/base/constants.h line 1197)
+// KalavelaLord (src/base/constants.h line 1209)
 wxString enum_to_string( const KalavelaLord& );
 void string_to_enum( const wxString&, KalavelaLord& );
 
-// KalavelaPortion (src/base/constants.h line 1212)
+// KalavelaPortion (src/base/constants.h line 1224)
 wxString enum_to_string( const KalavelaPortion& );
 void string_to_enum( const wxString&, KalavelaPortion& );
 
-// ViewId (src/base/constants.h line 1226)
+// ViewId (src/base/constants.h line 1238)
 wxString enum_to_string( const ViewId& );
 void string_to_enum( const wxString&, ViewId& );
 
-// ConfigResource (src/base/constants.h line 1271)
+// ConfigResource (src/base/constants.h line 1283)
 wxString enum_to_string( const ConfigResource& );
 void string_to_enum( const wxString&, ConfigResource& );
 
-// ConfigResourceStoreType (src/base/constants.h line 1290)
+// ConfigResourceStoreType (src/base/constants.h line 1302)
 wxString enum_to_string( const ConfigResourceStoreType& );
 void string_to_enum( const wxString&, ConfigResourceStoreType& );
 

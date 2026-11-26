@@ -94,7 +94,7 @@ protected:
 	{
 		Horoscope_ptr h = chart->getFirstHoroscope();
 		debuglog << "DiamondChart::setupFieldRectangles";
-		CgVedicChartGrid *cg = getCg();
+		CgVedicChartGrid *cg = getGeom();
 
 		if ( h )
 		{
@@ -112,7 +112,7 @@ protected:
 		}
 
 		const MComplex center = chart->getCenter();
-		const MComplex nw_outer = discPointToXy( 135, cg );
+		const MComplex nw_outer = diskPointToXy( 135, cg );
 		const double xr = center.real() - nw_outer.real();
 		const double yr = center.imag() - nw_outer.imag();
 		const double xi = .5 * xr;

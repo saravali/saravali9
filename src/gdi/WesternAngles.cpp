@@ -1,7 +1,7 @@
 /***********************************************************************
  This is the source code of Saravali, a program for Vedic and western astrology.
 
- File       src/gdi/CeAngles.cpp
+ File       src/gdi/WesternAngles.cpp
  Release    9.0
 
  This is free and unencumbered software released into the public domain.
@@ -31,7 +31,7 @@
 
 ************************************************************************/
 
-#include "CePlanetsBase.h"
+#include "PlanetRing.h"
 
 #include "ContextProperties.h"
 #include "Horoscope.h"
@@ -41,117 +41,128 @@
 
 /*************************************************//**
 *
-*   Chart element containing the angles of a Western chart.
+*  Chart element containing the angles of a Western chart.
 *  
 *  The angles of western chart are shown as arrows in the direction of
 *  Ascendant and Meridian.
+*
 *  According to the configuration labels are shown for up to four angles.
 *
-*  Angles are only painted for the first chart (most frequently radix)
+*  Angles are only painted for the first chart (radix)
+*
+*  This class inherits from PlanetRing because responsive event handling is identical.
 *
 ******************************************************/
-class CeAngles : public CePlanetsBase
+class WesternAngles : public PlanetRing
 {
 public:
 
-	CeAngles( HybridChart *chart, CgPlanetScale *a ) : CePlanetsBase( chart, a )
+	WesternAngles( HybridChart *chart, CgPlanetRing *a ) : PlanetRing( chart, a )
 	{
 		drawStackPosition = 3;
-		doPaintMarker = false;
 	}
 
 	/*****************************************************
 	**
-	**   CeAngles   ---   paint
+	**   WesternAngles   ---   paint
 	**
 	******************************************************/
-	virtual void paint( Painter *painter, const MRect& refreshRect ) override
+	virtual void paint( Painter *painter, const MRect& /*refreshRect*/ ) override
 	{
 		Horoscope_ptr h = chart->getFirstHoroscope();
 		if ( ! h ) return;
 
 		setInheritedStyle( painter );
-		const Viewpoint &viewpoint = chart->getViewpoint();
+		const Viewpoint viewpoint = chart->getViewpoint();
 		const double aries = chart->getAries();
 
-		CgLabelledAnnulus *annulus = getCg();
+		CgLabelledAnnulus *annulus = getGeom();
+		assert( annulus );
 		if ( ! annulus->show ) return;
 		setInheritedStyle( painter );
-		double l;
-		MComplex p1, p2, p3, p4;
+		MComplex p1, p2;
 
-		const std::list<PlanetId> angles = { PlanetId::Ascendant, PlanetId::Meridian };
-		for( const PlanetId p : angles )
+		for( const PlanetId p : { PlanetId::Ascendant, PlanetId::Meridian } )
 		{
 			// arrow
-			l = red_deg( aries + h->getLongitude( p, viewpoint ));
-			p1 = discPointToXy( l, annulus->innerRadius, annulus->geometryType );
-			p2 = discPointToXy( l, annulus );
+			const double l = red_deg( aries + h->getLongitude( p, viewpoint ));
+			p1 = diskPointToXy( l, annulus->innerRadius, annulus->geometryType );
+			p2 = diskPointToXy( l, annulus );
 			painter->drawArrow( p1, p2 );
 
-			// opposite part of arrow
-			p3 = discPointToXy( l + 180, annulus->innerRadius, annulus->geometryType );
-			p4 = discPointToXy( l + 180, annulus );
-			painter->drawLine( p3, p4 );
+			// opposite part of arrow is a line
+			p1 = diskPointToXy( l + 180, annulus->innerRadius, annulus->geometryType );
+			p2 = diskPointToXy( l + 180, annulus );
+			painter->drawLine( p1, p2 );
 		}
 
-		CePlanetsBase::paint( painter, refreshRect );
+		for( PlanetRingItem *item : items[ HoroscopeRole::Radix ] )
+		{
+			// geht nicht
+			//item->correctedLongitude = red_deg( item->longitude - deltaDeg );
+			if ( formatRequired )
+			{
+				item->format( painter );
+			}
+			item->paint( painter );
+		}
+		formatRequired = false;
+		chart->setGraphicFont( painter );
 	}
-
-protected:
 
 	/*****************************************************
 	**
-	**   CeAngles   ---   onCoordinatesChanged
+	**   WesternAngles   ---   createTerms
 	**
 	******************************************************/
-	virtual void onCoordinatesChanged() override
+	virtual std::list<MTerm> createTerms( const HoroscopeRole & role ) override
 	{
-		debuglog << "ChartElementAngles::onCoordinatesChanged";
-		clearItems();
-
-		Horoscope_ptr h = chart->getFirstHoroscope();
-		if ( ! h ) return;
-
-		const double aries = chart->getAries();
-		std::list<PlanetId> angles;
-		double l;
-
+		std::list<MTerm> terms;
 		const Viewpoint &viewpoint = chart->getViewpoint();
 		ContextProps_ptr props = chart->getProps();
 
-		CgLabelledAnnulus *annulus = getCg();
-		if ( ! annulus->show ) return;
-
-		// text/symbol will will be written at position + delta
-		const double deltaDeg = 3;
-
-#if 0
-		for( const auto &p : { PlanetId::Ascendant, PlanetId::Meridian, PlanetId::Descendant, PlanetId::ImumCoeli } )
+		if ( role == HoroscopeRole::Radix )
 		{
-			if ( props->hasPlanetId( p, viewpoint )) angles.push_back( p );
+			if ( props->hasPlanetId( PlanetId::Ascendant, viewpoint ))
+				terms.push_back( PlanetId::Ascendant );
+			if ( props->hasPlanetId( PlanetId::Meridian, viewpoint ))
+				terms.push_back( PlanetId::Meridian );
+			if ( props->hasPlanetId( PlanetId::Descendant, viewpoint ))
+				terms.push_back( PlanetId::Descendant );
+			if ( props->hasPlanetId( PlanetId::ImumCoeli, viewpoint ))
+				terms.push_back( PlanetId::ImumCoeli );
 		}
-#else
-		if ( props->hasPlanetId( PlanetId::Ascendant, viewpoint ))
-			angles.push_back( PlanetId::Ascendant );
-		if ( props->hasPlanetId( PlanetId::Meridian, viewpoint ))
-			angles.push_back( PlanetId::Meridian );
-		if ( props->hasPlanetId( PlanetId::Descendant, viewpoint ))
-			angles.push_back( PlanetId::Descendant );
-		if ( props->hasPlanetId( PlanetId::ImumCoeli, viewpoint ))
-			angles.push_back( PlanetId::ImumCoeli );
-#endif
+		return terms;
+	}
 
-		const HoroscopeRole role = chart->getFirstRole();
-		for( const PlanetId &planet : angles )
+	/*****************************************************
+	**
+	**   WesternAngles   ---   adjustLongitudes
+	**
+	******************************************************/
+	virtual void adjustLongitudes( const uint &roleId ) override
+	{
+		constexpr double deltaDeg = 3;
+		if ( roleId != 0 || chartRoles.size() == 0 ) return;
+
+		CgPlanetRing *geom = getGeom();
+		assert( geom );
+		const double radius = getLabelRadiusForRoleIndex( roleId );
+
+		const auto a = items.find( chartRoles[roleId] );
+		for( PlanetRingItem *item : a->second )
 		{
-			l = red_deg( aries + h->getLongitude( planet, viewpoint ));
-			const MComplex point = discPointToXy( red_deg( l + deltaDeg ), annulus );
-
-			addItem( this, role, point, planet, l );
+			item->correctedLongitude = red_deg( item->longitude + deltaDeg );
+			item->point = diskPointToXy( item->correctedLongitude, radius, geom->geometryType );
 		}
 	}
 
+	virtual double getOuterRadius() override
+	{
+		CgPlanetRing *geom = getGeom();
+		assert( geom );
+		return geom->radius;
+	}
 };
 
 /*****************************************************
@@ -161,8 +172,8 @@ protected:
 ******************************************************/
 ChartElementBase *ChartElementFactory::createAngles( CgElement *cge ) const
 {
-	CgPlanetScale *a = dynamic_cast<CgPlanetScale*>( cge );
+	auto *a = dynamic_cast<CgPlanetRing*>( cge );
 	assert( a );
-	return new CeAngles( chart, a );
+	return new WesternAngles( chart, a );
 }
 

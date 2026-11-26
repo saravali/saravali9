@@ -52,7 +52,7 @@
 extern Astroconfig *astroconfig;
 extern Gdiconfig *gdiconfig;
 
-//#define DEBUG_HYBRIDCHART
+#define DEBUG_HYBRIDCHART
 
 /*****************************************************
 **
@@ -251,6 +251,12 @@ void HybridChart::paintWidgets( Painter *painter, const MRect& refreshRect )
 	{
 		errorlog << "Exception: " << e.what();
 	}
+#if 1
+	painter->setDefaults();
+	painter->setTransparentBrush();
+	painter->setPen( *wxGREEN );
+	painter->drawEllipse( 0, 0, rect.width, rect.height );
+#endif
 }
 
 /*****************************************************
@@ -364,15 +370,15 @@ void HybridChart::setRect( const MRect &r )
 #endif
 
 	double decrease = 1.0;
-	double maxradius = 90;
+	double maxradius = 100;
 
-	const int lastRoleId = chartRoles.size() + 1;
 	for( auto &elem : elements )
 	{
+		maxradius = std::max( maxradius, elem->getOuterRadius());
 #ifdef DEBUG_HYBRIDCHART
-		debuglog << "HybridChart::setRect element radius " << elem->getOuterRadius( lastRoleId );
+		debuglog << "HybridChart::setRect element type " << (int)elem->getElementType() << " radius " << elem->getOuterRadius()
+			<< " new maxradius " << maxradius;
 #endif
-		maxradius = std::max( maxradius, elem->getOuterRadius( lastRoleId ));
 	}
 
 	//if ( maxradius > 100 ) decrease = 100.0 / ( maxradius - 20 );
@@ -654,49 +660,101 @@ double HybridChart::calculateAries()
 #ifdef DEBUG_HYBRIDCHART
 	debuglog << "HybridChart::calculateAries category " << category;
 #endif
+	ChartConfig *chartCfg = getChartConfig( category );
+	assert( chartCfg );
 
-	// orientation only used in western chart. otherwise Cancer0 will be used, i.e. aries is one the left
-	const WesternChartOrientation orient = category == WidgetCategory::WesternChart
-		? getChartConfig( WidgetCategory::WesternChart )->chartOrientation
-		: WesternChartOrientation::Cancer0;
-	assert_valid_enum<WesternChartOrientation>( orient );
-
-	switch( orient )
+	switch( category )
 	{
-		case WesternChartOrientation::Ascendant:
-			return getFirstHoroscope()
-				? red_deg( 180 - getFirstHoroscope()->getLongitude( PlanetId::Ascendant, getViewpoint() )) : 180;
+		case WidgetCategory::WesternChart:
+		{
+			const WesternChartOrientation orient = category == WidgetCategory::WesternChart
+				? getChartConfig( WidgetCategory::WesternChart )->chartOrientation
+				: WesternChartOrientation::Cancer0;
+			assert_valid_enum<WesternChartOrientation>( orient );
+
+			switch( chartCfg->chartOrientation )
+			{
+				case WesternChartOrientation::Ascendant:
+					return getFirstHoroscope()
+						? red_deg( 180 - getFirstHoroscope()->getLongitude( PlanetId::Ascendant, getViewpoint() )) : 180;
+				break;
+				case WesternChartOrientation::House1:
+					return getFirstHoroscope()
+						? red_deg( 180 - getFirstHoroscope()->getHouseCusp( House::h1, getViewpoint() ) ) : 180;
+				break;
+				case WesternChartOrientation::Meridian:
+					return getFirstHoroscope()
+						? red_deg( 90 - getFirstHoroscope()->getLongitude( PlanetId::Meridian, getViewpoint() )) : 180;
+				break;
+				default: 
+				break;
+			}
+			static const std::list<std::pair<WesternChartOrientation,int>> fixed_orientations =
+			{
+				{ WesternChartOrientation::Aries0, 90 },
+				{ WesternChartOrientation::Aries15, 75 },
+				{ WesternChartOrientation::Cancer0, 0 },
+				{ WesternChartOrientation::Cancer15, 345 },
+				{ WesternChartOrientation::Leo0, 330 },
+				{ WesternChartOrientation::Libra0, 270 },
+				{ WesternChartOrientation::Libra15, 255 },
+				{ WesternChartOrientation::Capricorn0, 180 },
+				{ WesternChartOrientation::Capricorn15, 165 }
+			};
+			for( auto &o : fixed_orientations )
+			{
+				if ( chartCfg->chartOrientation == o.first ) return (double)o.second;
+			}
+		}
 		break;
-		case WesternChartOrientation::House1:
-			return getFirstHoroscope()
-				? red_deg( 180 - getFirstHoroscope()->getHouseCusp( House::h1, getViewpoint() ) ) : 180;
+		case WidgetCategory::UranianChart:
+			assert( usection );
+			if ( usection->chartDivision > 1 )
+			{
+				switch( chartCfg->uranianChartOrigin )
+				{
+					case UranianChartOrigin::Top:
+						return 90.0;
+					break;
+					case UranianChartOrigin::Left:
+						return 180.0;
+					break;
+					case UranianChartOrigin::Bottom:
+						return 270.0;
+					break;
+					case UranianChartOrigin::Right:
+					default:
+						return 0.0;
+					break;
+				}
+			}
+			else return 0.0;
+			
 		break;
-		case WesternChartOrientation::Meridian:
-			return getFirstHoroscope()
-				? red_deg( 90 - getFirstHoroscope()->getLongitude( PlanetId::Meridian, getViewpoint() )) : 180;
-		break;
-		default: 
+		case WidgetCategory::VargaChart:
+		case WidgetCategory::SarvatobhadraChart:
+		default:
+			return 0.0;
 		break;
 	}
-	static const std::list<std::pair<WesternChartOrientation,int>> fixed_orientations =
-	{
-		{ WesternChartOrientation::Aries0, 90 },
-		{ WesternChartOrientation::Aries15, 75 },
-		{ WesternChartOrientation::Cancer0, 0 },
-		{ WesternChartOrientation::Cancer15, 345 },
-		{ WesternChartOrientation::Leo0, 330 },
-		{ WesternChartOrientation::Libra0, 270 },
-		{ WesternChartOrientation::Libra15, 255 },
-		{ WesternChartOrientation::Capricorn0, 180 },
-		{ WesternChartOrientation::Capricorn15, 165 }
-	};
-	for( auto &o : fixed_orientations )
-	{
-		if ( orient == o.first ) return (double)o.second;
-	}
-	assert( false );
 	return 0.0;
 }
+
+/*****************************************************
+**
+**   HybridChart   ---   getEffectiveLongitude
+**
+******************************************************/
+double HybridChart::getEffectiveLongitude( const double &l )
+{
+	const int division = usection ? usection->chartDivision : 1;
+	assert( division );
+	double a =  division * d_red( l + getAries(), division );
+	double b = red_deg( getAries() + division * d_red( l, division ));
+	debuglog << "OTTO3 l " << l << " division " << division << " value " << a <<  " aries " << getAries() << " total " << b;;
+	return red_deg( getAries() + division * d_red( l, division ));
+}
+
 
 /*****************************************************
 **

@@ -42,7 +42,7 @@
 
 #include <math.h>
 
-//#define DEBUG_CHARTELEMENT
+#define DEBUG_CHARTELEMENT
 
 /*****************************************************
 **
@@ -64,11 +64,11 @@ ChartElementBase::ChartElementBase( HybridChart *chart )
 wxPen ChartElementBase::getPen() const
 {
 #ifdef DEBUG_CHARTELEMENT
-	debuglog << "ChartElementBase::getPen ok1 " << getCgPen().IsOk();
+	debuglog << "ChartElementBase::getPen ok1 " << getGeomPen().IsOk();
 #endif
 
 	wxPen pen = chart->getSkinnedPen();
-	softOverridePen( pen, getCgPen());
+	softOverridePen( pen, getGeomPen());
 	return pen;
 }
 
@@ -79,7 +79,7 @@ wxPen ChartElementBase::getPen() const
 ******************************************************/
 MBrush ChartElementBase::getBrush( const bool inheritFromSkin ) const
 {
-	if ( getCgBrush().isOk()) return getCgBrush();
+	if ( getGeomBrush().isOk()) return getGeomBrush();
 	else
 	{
 		if ( inheritFromSkin )
@@ -101,7 +101,7 @@ MBrush ChartElementBase::getBrush( const bool inheritFromSkin ) const
 ******************************************************/
 wxColour ChartElementBase::getTextColor() const
 {
-	if ( getCgTextColor().IsOk() ) return getCgTextColor();
+	if ( getGeomTextColor().IsOk() ) return getGeomTextColor();
 	else return chart->getSkinnedTextColor();
 }
 
@@ -119,13 +119,13 @@ void ChartElementBase::setInheritedStyle( Painter *painter, const bool inheritBr
 
 /*****************************************************
 **
-**   ChartElementBase   ---   discPointToXy
+**   ChartElementBase   ---   diskPointToXy
 **
 ******************************************************/
-MComplex ChartElementBase::discPointToXy( const double &angle, const double &radius, const ChartShape &shape )
+MComplex ChartElementBase::diskPointToXy( const double &angle, const double &radius, const ChartShape &shape ) const
 {
 #ifdef DEBUG_CHARTELEMENT
-	debuglog << "ChartElementBase::discPointToXy angle " << angle << " center " << chart->getCenter()
+	debuglog << "ChartElementBase::diskPointToXy angle " << angle << " center " << chart->getCenter()
 		<< " xymax " << chart->getXyMax();
 #endif
 
@@ -256,7 +256,7 @@ MComplex ChartElementBase::discPointToXy( const double &angle, const double &rad
 		break;
 
 		default:
-			warnlog << "ChartElementBase::discPointToXy Invalid chart border types "
+			warnlog << "ChartElementBase::diskPointToXy Invalid chart border types "
 				<< (int)chart->getGeometry().geometryType << "/" << (int)shape;
 			assert( false );
 		break;
@@ -266,45 +266,44 @@ MComplex ChartElementBase::discPointToXy( const double &angle, const double &rad
 
 /*****************************************************
 **
-**   ChartElementBase   ---   discPointToXy
+**   ChartElementBase   ---   diskPointToXy
 **
 ******************************************************/
-MComplex ChartElementBase::discPointToXy( const double &angle,  CgDisc *disc )
+MComplex ChartElementBase::diskPointToXy( const double &angle,  CgDisk *disc ) const
 {
 	assert( disc );
-	return discPointToXy( angle, disc->radius, disc->geometryType );	
+	return diskPointToXy( angle, disc->radius, disc->geometryType );	
 }
 
 /*****************************************************
 **
-**   ChartElementBase   ---   paintDisc
+**   ChartElementBase   ---   paintDisk
 **
 ******************************************************/
-void ChartElementBase::paintDisc( Painter *painter, CgDisc *disc )
+void ChartElementBase::paintDisk( Painter *painter, CgDisk *disc )
 {
-	paintDisc( painter, *disc );
+	paintDisk( painter, *disc );
 }
 
 /*****************************************************
 **
-**   ChartElementBase   ---   paintDisc
+**   ChartElementBase   ---   paintDisk
 **
 ******************************************************/
-void ChartElementBase::paintDisc( Painter *painter, CgDisc disc )
+void ChartElementBase::paintDisk( Painter *painter, const double &radius, const ChartShape geometryType ) const
 {
-	if ( ! disc.show ) return;
 	assert( painter );
 
 	const MComplex center = chart->getCenter();
 	const MComplex xymax = chart->getXyMax();
 	const double rmax = chart->getRMax();
 #ifdef DEBUG_CHARTELEMENT
-	debuglog << "ChartElementBase::paintDisc center " << center << " yxmax "
-		<< xymax << " rmax " << rmax << " disc.radius " << disc.radius;
+	debuglog << "ChartElementBase::paintDisk center " << center << " yxmax "
+		<< xymax << " rmax " << rmax << " disc.radius " << radius;
 #endif
 
 	const ChartGeometry &parentGeom = chart->getGeometry();
-	const ChartShape geom = ( disc.geometryType == ChartShape::Inherited ? parentGeom.geometryType : disc.geometryType );
+	const ChartShape geom = ( geometryType == ChartShape::Inherited ? parentGeom.geometryType : geometryType );
 
 	//painter->setTransparentBrush();
 	//painter->setDefaults();
@@ -313,39 +312,39 @@ void ChartElementBase::paintDisc( Painter *painter, CgDisc disc )
 	{
 		case ChartShape::Circle:
 		{
-			const double r = rmax * disc.radius / 100.0;
+			const double r = rmax * radius / 100.0;
 			painter->drawEllipse( center.real() - r, center.imag() - r, 2 * r, 2 * r );
 			//debuglog << "->drawcircle( " << center.real() << " rad " <<  disc.radius << " " << center.imag() << " r " << r;
 		}
 		break;
 		case ChartShape::Ellipse:
 		{
-			const double xradius = xymax.real() * disc.radius / 100;
-			const double yradius = xymax.imag() * disc.radius / 100;
+			const double xradius = xymax.real() * radius / 100;
+			const double yradius = xymax.imag() * radius / 100;
 			painter->drawEllipse( center.real() - xradius, center.imag() - yradius, 2 * xradius, 2 * yradius );
 			//debuglog << "->drawEllipse( " << center.real() << " " <<  xradius << " y " << yradius << " " << center.imag();
 		}
 		break;
 		case ChartShape::Square:
 		{
-			const double r = rmax * disc.radius / 100.0;
+			const double r = rmax * radius / 100.0;
 			painter->drawRectangle( center.real() - r, center.imag() - r, 2 * r, 2 * r );
 		}
 		break;
 		case ChartShape::Rect2:
 		case ChartShape::Rectangle:
 		{
-			const double xradius = xymax.real() * disc.radius / 100;
-			const double yradius = xymax.imag() * disc.radius / 100;
+			const double xradius = xymax.real() * radius / 100;
+			const double yradius = xymax.imag() * radius / 100;
 			painter->drawRectangle( center.real() - xradius, center.imag() - yradius, 2 * xradius, 2 * yradius );
 		}
 		break;
 		case ChartShape::Triangle:
 		{
 			std::vector<MComplex> points;
-			points.push_back( discPointToXy( 90, &disc ));
-			points.push_back( discPointToXy( 210, &disc ));
-			points.push_back( discPointToXy( 330, &disc ));
+			points.push_back( diskPointToXy( 90, radius, geometryType ));
+			points.push_back( diskPointToXy( 210, radius, geometryType ));
+			points.push_back( diskPointToXy( 330, radius, geometryType ));
 			painter->drawPolygon( points );
 		}
 		break;
@@ -355,6 +354,16 @@ void ChartElementBase::paintDisc( Painter *painter, CgDisc disc )
 	}
 }
 
+/*****************************************************
+**
+**   ChartElementBase   ---   paintDisk
+**
+******************************************************/
+void ChartElementBase::paintDisk( Painter *painter, CgDisk disk )
+{
+	if ( ! disk.show ) return;
+	paintDisk( painter, disk.radius, disk.geometryType );
+}
 
 /*****************************************************
 **
@@ -392,15 +401,15 @@ void ChartElementBase::drawAnnulusSegment( Painter *painter, CgAnnulus *annulus,
 
 			for ( i = 0; i <= nbsteps; i++ )
 			{
-				//points.push_back( discPointToXy( a, annulus->innerDisc() ));
-				points.push_back( discPointToXy( a, annulus->innerRadius, annulus->geometryType ));
+				//points.push_back( diskPointToXy( a, annulus->innerDisc() ));
+				points.push_back( diskPointToXy( a, annulus->innerRadius, annulus->geometryType ));
 				a += astep;
 			}
 			a = a1;
 			for ( i = nbsteps + 1; i < ntotal; i++ )
 			{
-				//points.push_back( discPointToXy( a, *annulus ));
-				points.push_back( discPointToXy( a, annulus->radius, annulus->geometryType ));
+				//points.push_back( diskPointToXy( a, *annulus ));
+				points.push_back( diskPointToXy( a, annulus->radius, annulus->geometryType ));
 				a -= astep;
 			}
 			painter->drawPolygon( points );
@@ -418,12 +427,12 @@ void ChartElementBase::drawAnnulusSegment( Painter *painter, CgAnnulus *annulus,
 
 			std::vector<MComplex> points;
 
-			points.push_back( discPointToXy( a0, annulus->innerRadius, annulus->geometryType ));
-			if ( qdrchange ) points.push_back( discPointToXy( qdrcorner, annulus->innerRadius, annulus->geometryType ));
-			points.push_back( discPointToXy( a1, annulus->innerRadius, annulus->geometryType ));
-			points.push_back( discPointToXy( a1, annulus->radius, annulus->geometryType ));
-			if ( qdrchange ) points.push_back( discPointToXy( qdrcorner, annulus->radius, annulus->geometryType ));
-			points.push_back( discPointToXy( a0, annulus->radius, annulus->geometryType ));
+			points.push_back( diskPointToXy( a0, annulus->innerRadius, annulus->geometryType ));
+			if ( qdrchange ) points.push_back( diskPointToXy( qdrcorner, annulus->innerRadius, annulus->geometryType ));
+			points.push_back( diskPointToXy( a1, annulus->innerRadius, annulus->geometryType ));
+			points.push_back( diskPointToXy( a1, annulus->radius, annulus->geometryType ));
+			if ( qdrchange ) points.push_back( diskPointToXy( qdrcorner, annulus->radius, annulus->geometryType ));
+			points.push_back( diskPointToXy( a0, annulus->radius, annulus->geometryType ));
 			painter->drawPolygon( points );
 		}
 		break;
@@ -442,13 +451,13 @@ void ChartElementBase::drawAnnulusSegment( Painter *painter, CgAnnulus *annulus,
 **   ChartElementBase   ---   paintAnnulusConnector
 **
 ******************************************************/
-void ChartElementBase::paintAnnulusConnector( Painter *painter, const double &angle, const CgDisc &disc, const double &r )
+void ChartElementBase::paintAnnulusConnector( Painter *painter, const double &angle, const CgDisk &disc, const double &r )
 {
 	paintAnnulusConnector( painter, angle, disc.radius, disc.radius + r, disc.geometryType );
 	/*
 	assert( painter );
-	const MComplex p1 = discPointToXy( a, disc.radius + r, disc.geometryType );
-	const MComplex p2 = discPointToXy( a, disc.radius, disc.geometryType );
+	const MComplex p1 = diskPointToXy( a, disc.radius + r, disc.geometryType );
+	const MComplex p2 = diskPointToXy( a, disc.radius, disc.geometryType );
 	painter->drawLine( p1, p2 );
 	*/
 }
@@ -462,8 +471,8 @@ void ChartElementBase::paintAnnulusConnector( Painter *painter, const double &an
 	const double &r2, const ChartShape &geom )
 {
 	assert( painter ); 
-	const MComplex p1 = discPointToXy( angle, r2, geom );
-	const MComplex p2 = discPointToXy( angle, r1, geom );
+	const MComplex p1 = diskPointToXy( angle, r2, geom );
+	const MComplex p2 = diskPointToXy( angle, r1, geom );
 #ifdef DEBUG_CHARTELEMENT
 	debuglog << "ChartElementBase::paintAnnulusConnector angle " << angle << " r1 " << r1 << " r2 " << r2
 		<< " p1 " << p1 << " p2 " << p2;
@@ -473,15 +482,87 @@ void ChartElementBase::paintAnnulusConnector( Painter *painter, const double &an
 
 /*****************************************************
 **
+**   ChartElementBase   ---   paintDegreeScale
+**
+******************************************************/
+void ChartElementBase::paintDegreeScale( Painter *painter, const double &radius, const DegreeMarkerConfig &cfg,
+	const int division, const bool paintDegreeNumbers )
+{
+	assert( painter );
+	assert( division > 0 );
+
+	if ( ! cfg.show ) return;
+	
+	const double origin = chart->getAries();
+	const double stepWidth = division;
+	const ChartShape shape = ChartShape::Inherited;
+
+	int numberStepWidth = 10;
+	if ( division > 1 )
+	{
+		numberStepWidth = 5;
+	}
+	if ( division > 6 )
+	{
+		numberStepWidth = 1;
+	}
+
+#ifdef DEBUG_CHARTELEMENT
+	debuglog << "ChartElementBase::paintDegreeScale radius " << radius << " division " << division
+		<< " stepWidth " << stepWidth;
+#endif
+	double l = 0;
+	int step = 0;
+	while( l < 360 )
+	{
+		if ( ! ( step % 10 ))
+		{
+			paintAnnulusConnector( painter, l + origin, radius, radius - cfg.wDegree10, shape );
+		}
+		else if ( ! ( step % 5 ))
+		{
+			paintAnnulusConnector( painter, l + origin, radius, radius - cfg.wDegree5, shape );
+		}
+		else
+		{
+			paintAnnulusConnector( painter, l + origin, radius, radius - cfg.wDegree1, shape );
+		}
+
+		if ( paintDegreeNumbers && ! ( step % numberStepWidth ))
+		{
+			MComplex p = diskPointToXy( l + origin, radius - cfg.wDegree10, shape );
+			painter->drawRotatedText( std::format( "{}", step ), p.real(), p.imag(), l + origin - 90 );
+		}
+
+		step++;
+		l += stepWidth;
+	}
+	if ( cfg.show1DegreeFrame )
+	{
+		paintDisk( painter, radius - cfg.wDegree1, shape );
+	}
+	if ( cfg.show5DegreeFrame )
+	{
+		paintDisk( painter, radius - cfg.wDegree5, shape );
+	}
+	if ( cfg.show10DegreeFrame )
+	{
+		paintDisk( painter, radius - cfg.wDegree10, shape );
+	}
+
+}
+
+/*****************************************************
+**
 **   ChartElementBase   ---   paintMarkerLine
 **
 ******************************************************/
-void ChartElementBase::paintMarkerLine( Painter *painter, const double &longitude, CgDisc disc )
+void ChartElementBase::paintMarkerLine( Painter *painter, const double &longitude, CgDisk disc )
 {
 	assert( painter );
 
-	const MComplex p1 = discPointToXy( longitude, disc.radius - disc.markerLength, disc.geometryType );
-	const MComplex p2 = discPointToXy( longitude, disc.radius + disc.markerLength, disc.geometryType );
+	const MComplex p1 = diskPointToXy( longitude, disc.radius - disc.markerLength, disc.geometryType );
+	const MComplex p2 = diskPointToXy( longitude, disc.radius + disc.markerLength, disc.geometryType );
 	painter->drawLine( p1, p2 );
 }
 
@@ -528,7 +609,7 @@ ChartElementBase_ptr ChartElementFactory::createChartElement( CgElement *cge ) c
 	{
 		using enum CgElementType;
 
-		case Disc:
+		case Disk:
 			elem = createDisc( cge );
 		break;
 		case Annulus:
@@ -544,22 +625,24 @@ ChartElementBase_ptr ChartElementFactory::createChartElement( CgElement *cge ) c
 			elem = createAngles( cge );
 		break;
 
-		case WesternPlanets:
-			elem = createWesternPlanets( cge );
-		break;
-		case UranianPlanets:
-			elem = createUranianPlanets( cge );
+		case WesternPlanetRing:
+			elem = createWesternPlanetRing( cge );
 		break;
 
-		case UranianDial:
-			elem = createUranianDial( cge );
+		case UranianPlanetRing:
+			elem = createUranianPlanetRing( cge );
 		break;
+
+		case UranianDisk:
+			elem = createUranianDisk( cge );
+		break;
+
 		case UranianAspects:
 			elem = createUranianAspects( cge );
 		break;
 
 		case Signs:
-			elem = createSigns( cge );
+			elem = createWesternSigns( cge );
 		break;
 		case Houses:
 			elem = createHouses( cge );

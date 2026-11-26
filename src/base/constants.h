@@ -767,6 +767,18 @@ enum class WesternChartOrientation
   Last = Capricorn15
 };
 
+enum class UranianChartOrigin
+{
+	// json:enum
+	None = -1,
+	Right = 0,
+	Top,
+	Left,
+	Bottom,
+	First = Right,
+	Last = Bottom
+};
+
 /*************************************************//**
 *
 * 

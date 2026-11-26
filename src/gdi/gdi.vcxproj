@@ -23,7 +23,6 @@
     <ClInclude Include="BarDiagram.h" />
     <ClInclude Include="CeFieldGrid.h" />
     <ClInclude Include="CeLabelledAnnulus.h" />
-    <ClInclude Include="CePlanetsBase.h" />
     <ClInclude Include="ChartElement.h" />
     <ClInclude Include="ChartElementImpl.h" />
     <ClInclude Include="ChartField.h" />
@@ -40,6 +39,7 @@
     <ClInclude Include="ImageProvider.h" />
     <ClInclude Include="MatchmapDiagram.h" />
     <ClInclude Include="Painter.h" />
+    <ClInclude Include="PlanetRing.h" />
     <ClInclude Include="PdfGenerator.h" />
     <ClInclude Include="PpTree.h" />
     <ClInclude Include="PrintoutTextHelper.h" />
@@ -56,7 +56,6 @@
     <ClCompile Include="CeImage.cpp" />
     <ClCompile Include="CeLabelledAnnulus.cpp" />
     <ClCompile Include="CeNakshatras.cpp" />
-    <ClCompile Include="CePlanetsBase.cpp" />
     <ClCompile Include="ChartElement.cpp" />
     <ClCompile Include="ChartElementImpl.cpp" />
     <ClCompile Include="ChartField.cpp" />
@@ -75,6 +74,7 @@
     <ClCompile Include="ImageProvider.cpp" />
     <ClCompile Include="MatchmapDiagram.cpp" />
     <ClCompile Include="Painter.cpp" />
+    <ClCompile Include="PlanetRing.cpp" />
     <ClCompile Include="PdfGenerator.cpp" />
     <ClCompile Include="PdfPainter.cpp" />
     <ClCompile Include="PpTree.cpp" />
@@ -85,7 +85,7 @@
     <ClCompile Include="textclient.cpp" />
     <ClCompile Include="TimelineDiagram.cpp" />
     <ClCompile Include="UranianAspects.cpp" />
-    <ClCompile Include="UranianDial.cpp" />
+    <ClCompile Include="UranianDisk.cpp" />
     <ClCompile Include="UranianPlanets.cpp" />
     <ClCompile Include="VargaDiagrams.cpp" />
     <ClCompile Include="WesternAngles.cpp" />

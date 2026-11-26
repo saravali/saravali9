@@ -23,8 +23,6 @@ libsaravali_gdi_a_SOURCES = \
 	CeLabelledAnnulus.cpp \
 	CeLabelledAnnulus.h \
 	CeNakshatras.cpp \
-	CePlanetsBase.cpp \
-	CePlanetsBase.h \
 	ChartElement.cpp \
 	ChartElement.h \
 	ChartElementImpl.cpp \
@@ -59,6 +57,8 @@ libsaravali_gdi_a_SOURCES = \
 	MatchmapDiagram.h \
 	Painter.cpp \
 	Painter.h \
+	PlanetRing.cpp \
+	PlanetRing.h \
 	PdfGenerator.cpp \
 	PdfGenerator.h \
 	PdfPainter.cpp \
@@ -73,7 +73,7 @@ libsaravali_gdi_a_SOURCES = \
 	textclient.cpp \
 	TimelineDiagram.cpp \
 	TimelineDiagram.h \
-	UranianDial.cpp \
+	UranianDisk.cpp \
 	UranianAspects.cpp \
 	UranianPlanets.cpp \
 	VargaDiagrams.cpp \

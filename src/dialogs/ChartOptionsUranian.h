@@ -67,10 +67,11 @@ protected:
 	// begin wxGlade: ChartOptionsUranian::attributes
 	wxCheckBox* check_coloredplanets;
 	wxCheckBox* check_use_sign_colors;
+	wxStaticText* label_chartorigin;
+	wxChoice* choice_chart_origin;
 	wxStaticText* label_chartcenter;
 	wxChoice* choice_chart_center;
 	wxCheckBox* check_showmatches;
-	wxCheckBox* check_show_eha;
 	// end wxGlade
 }; // wxGlade: end class
 

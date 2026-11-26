@@ -68,7 +68,7 @@ public:
 
 	virtual double getRadius() const = 0;
 
-	virtual double getOuterRadius( const int& ) = 0;
+	virtual double getOuterRadius() { return 100.0; }
 
 	virtual CgElementType getElementType() const = 0;
 
@@ -108,8 +108,6 @@ public:
 
 	HybridChart *getChart() const { return chart; }
 
-protected:
-
 	/**
 	*	Calculate all coordinate/geom based parameters of a chart element.
 	*
@@ -123,32 +121,40 @@ protected:
 	*/
 	virtual void onCoordinatesChanged() {}
 
+protected:
+
 	/*
 	* hint for order of drawing addressing the problem of wrong order an override
 	*/
 	int drawStackPosition;
 
-	virtual wxPen &getCgPen() const = 0;
+	virtual wxPen &getGeomPen() const = 0;
 
-	virtual MBrush &getCgBrush() const = 0;
+	virtual MBrush &getGeomBrush() const = 0;
 
-	virtual wxColour &getCgTextColor() const = 0;
+	virtual wxColour &getGeomTextColor() const = 0;
 
-	MComplex discPointToXy( const double &angle, const double &radius, const ChartShape& );
+	MComplex diskPointToXy( const double &angle, const double &radius, const ChartShape& ) const;
 
-	MComplex discPointToXy( const double &angle, CgDisc* );
+	MComplex diskPointToXy( const double &angle, CgDisk* ) const;
 
-	void paintDisc( Painter*, CgDisc );
+	// TODO raus?
+	void paintDisk( Painter*, CgDisk );
 
-	void paintDisc( Painter*, CgDisc* );
+	// TODO raus?
+	void paintDisk( Painter*, CgDisk* );
 
-	void paintMarkerLine( Painter*, const double &longitude, CgDisc );
+	void paintDisk( Painter*, const double &radius, const ChartShape = ChartShape::Inherited ) const;
+
+	void paintMarkerLine( Painter*, const double &longitude, CgDisk );
 
 	void drawAnnulusSegment( Painter*, CgAnnulus*, const double &alfa0, const double &alfa1 );
 
 	void paintAnnulusConnector( Painter*, const double &angle, const double &r1, const double &r2, const ChartShape& );
 
-	void paintAnnulusConnector( Painter*, const double &angle, const CgDisc &disc, const double &r );
+	void paintAnnulusConnector( Painter*, const double &angle, const CgDisk &disc, const double &r );
+
+	void paintDegreeScale( Painter*, const double &radius, const DegreeMarkerConfig&, const int division = 1, const bool paintDegreeNumbers = false );
 
 	HybridChart *chart;
 
@@ -171,9 +177,9 @@ public:
 
 	std::list<ChartElementBase_ptr> createElements( const ChartGeometry& ) const;
 
-private:
-
 	ChartElementBase_ptr createChartElement( CgElement* ) const;
+
+private:
 
 	ChartElementBase *createDisc( CgElement* ) const;
 	ChartElementBase *createAnnulus( CgElement* ) const;
@@ -182,15 +188,15 @@ private:
 	ChartElementBase *createError( CgElement* ) const;
 
 	ChartElementBase *createHouses( CgElement* ) const;
-	ChartElementBase *createSigns( CgElement* ) const;
+	ChartElementBase *createWesternSigns( CgElement* ) const;
 	ChartElementBase *createNakshatras( CgElement* ) const;
 	ChartElementBase *createDasaLords( CgElement* ) const;
 
-	ChartElementBase *createWesternPlanets( CgElement* ) const;
-	ChartElementBase *createUranianPlanets( CgElement* ) const;
+	ChartElementBase *createWesternPlanetRing( CgElement* ) const;
+	ChartElementBase *createUranianPlanetRing( CgElement* ) const;
 	ChartElementBase *createAngles( CgElement* ) const;
 
-	ChartElementBase *createUranianDial( CgElement* ) const;
+	ChartElementBase *createUranianDisk( CgElement* ) const;
 	ChartElementBase *createUranianAspects( CgElement* ) const;
 
 	ChartElementBase *createEastIndianChartGrid( CgElement* ) const;

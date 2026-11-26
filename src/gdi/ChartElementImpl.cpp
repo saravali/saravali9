@@ -43,11 +43,11 @@
 void CeDisc::paint( Painter *painter, const MRect& /*refreshRect*/ )
 {
 	//debuglog << "CeDisc::paint pen ok " << cg->pen.isOk();
-	CgDisc *disc = getCg();
+	CgDisk *disc = getGeom();
 	if ( ! disc->show ) return;
 
 	setInheritedStyle( painter );
-	paintDisc( painter, *disc );
+	paintDisk( painter, *disc );
 }
 
 /*****************************************************
@@ -58,13 +58,13 @@ void CeDisc::paint( Painter *painter, const MRect& /*refreshRect*/ )
 void CeError::paint( Painter *painter, const MRect& /*refreshRect*/ )
 {
 	//debuglog << "CeError::paint pen ok " << cg->pen.isOk();
-	CgDisc *disc = getCg();
+	CgDisk *disc = getGeom();
 	DocHelper( painter ).formatAndDrawTextItem( MString( message ), chart->getRect(), Align::Center );
 
 	if ( ! disc->show ) return;
 
 	setInheritedStyle( painter );
-	paintDisc( painter, *disc );
+	paintDisk( painter, *disc );
 }
 
 /*****************************************************
@@ -75,7 +75,7 @@ void CeError::paint( Painter *painter, const MRect& /*refreshRect*/ )
 void CeAnnulus::paint( Painter *painter, const MRect& /*refreshRect*/ )
 {
 	//debuglog << "ChartElementTorus::paint pen ok " << cg->pen.isOk();
-	CgAnnulus *annulus = getCg();
+	CgAnnulus *annulus = getGeom();
 	assert( annulus );
 	if ( ! annulus->show ) return;
 
@@ -84,11 +84,11 @@ void CeAnnulus::paint( Painter *painter, const MRect& /*refreshRect*/ )
 
 	if ( annulus->showOuterFrame )
 	{
-		paintDisc( painter, annulus );
+		paintDisk( painter, annulus );
 	}
 	if ( annulus->showInnerFrame )
 	{
-		paintDisc( painter, annulus->innerDisc() );
+		paintDisk( painter, annulus->innerDisc() );
 	}
 }
 
@@ -99,7 +99,7 @@ void CeAnnulus::paint( Painter *painter, const MRect& /*refreshRect*/ )
 ******************************************************/
 ChartElementBase *ChartElementFactory::createDisc( CgElement *cge ) const
 {
-	CgDisc *disc = dynamic_cast<CgDisc*>( cge );
+	CgDisk *disc = dynamic_cast<CgDisk*>( cge );
 	assert( disc );
 	return new CeDisc( chart, disc );
 }

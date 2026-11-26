@@ -288,7 +288,7 @@ mostream& operator <<( mostream &o, const MRect &a )
 }
 
 
-// IN class CgElement defined in src/base/geometry.h line 76
+// IN class CgElement defined in src/base/geometry.h line 78
 void CgElement::fromJsonValue( const Json::Value &v, JsonHandler &jh )
 {
 	if ( v[ "radius" ] )
@@ -314,7 +314,7 @@ void CgElement::fromJsonValue( const Json::Value &v, JsonHandler &jh )
 }
 
 
-// OUT class CgElement defined in src/base/geometry.h line 76
+// OUT class CgElement defined in src/base/geometry.h line 78
 Json::Value CgElement::toJsonValue( JsonHandler &jh ) const
 {
 	Json::Value v;
@@ -327,8 +327,8 @@ Json::Value CgElement::toJsonValue( JsonHandler &jh ) const
 }
 
 
-// IN class CgDisc defined in src/base/geometry.h line 121
-void CgDisc::fromJsonValue( const Json::Value &v, JsonHandler &jh )
+// IN class CgDisk defined in src/base/geometry.h line 121
+void CgDisk::fromJsonValue( const Json::Value &v, JsonHandler &jh )
 {
 	if ( v[ "markerLength" ] )
 	{
@@ -365,8 +365,8 @@ void CgDisc::fromJsonValue( const Json::Value &v, JsonHandler &jh )
 }
 
 
-// OUT class CgDisc defined in src/base/geometry.h line 121
-Json::Value CgDisc::toJsonValue( JsonHandler &jh ) const
+// OUT class CgDisk defined in src/base/geometry.h line 121
+Json::Value CgDisk::toJsonValue( JsonHandler &jh ) const
 {
 	Json::Value v;
 	v[ "markerLength" ] = writeToJson( markerLength, jh );
@@ -637,116 +637,16 @@ Json::Value CgAnnulus::toJsonValue( JsonHandler &jh ) const
 }
 
 
-// IN class CgLabelledAnnulus defined in src/base/geometry.h line 274
-void CgLabelledAnnulus::fromJsonValue( const Json::Value &v, JsonHandler &jh )
+// IN class DegreeMarkerConfig defined in src/base/geometry.h line 274
+void DegreeMarkerConfig::fromJsonValue( const Json::Value &v, JsonHandler &jh )
 {
-	if ( v[ "rLabels" ] )
+	if ( v[ "show" ] )
 	{
-		extractFromJson( v[ "rLabels" ], rLabels, jh ); 
-	}
-	if ( v[ "labelSize" ] )
-	{
-		extractFromJson( v[ "labelSize" ], labelSize, jh ); 
-	}
-	if ( v[ "useSymbols" ] )
-	{
-		extractFromJson( v[ "useSymbols" ], useSymbols, jh ); 
-	}
-	if ( v[ "textLength" ] )
-	{
-		extractFromJson( v[ "textLength" ], textLength, jh ); 
-	}
-	if ( v[ "showLabels" ] )
-	{
-		extractFromJson( v[ "showLabels" ], showLabels, jh ); 
-	}
-	if ( v[ "showConnectors" ] )
-	{
-		extractFromJson( v[ "showConnectors" ], showConnectors, jh ); 
-	}
-	if ( v[ "rotateLabels" ] )
-	{
-		extractFromJson( v[ "rotateLabels" ], rotateLabels, jh ); 
-	}
-	if ( v[ "innerRadius" ] )
-	{
-		extractFromJson( v[ "innerRadius" ], innerRadius, jh ); 
-	}
-	if ( v[ "showInnerFrame" ] )
-	{
-		extractFromJson( v[ "showInnerFrame" ], showInnerFrame, jh ); 
-	}
-	if ( v[ "showOuterFrame" ] )
-	{
-		extractFromJson( v[ "showOuterFrame" ], showOuterFrame, jh ); 
-	}
-	if ( v[ "markerLength" ] )
-	{
-		extractFromJson( v[ "markerLength" ], markerLength, jh ); 
-	}
-	if ( v[ "markerPen" ] )
-	{
-		extractFromJson( v[ "markerPen" ], markerPen, jh ); 
-	}
-	if ( v[ "geometryType" ] )
-	{
-		extractFromJson( v[ "geometryType" ], geometryType, jh ); 
+		extractFromJson( v[ "show" ], show, jh ); 
 	}
 	if ( v[ "radius" ] )
 	{
 		extractFromJson( v[ "radius" ], radius, jh ); 
-	}
-	if ( v[ "show" ] )
-	{
-		extractFromJson( v[ "show" ], show, jh ); 
-	}
-	if ( v[ "pen" ] )
-	{
-		extractFromJson( v[ "pen" ], pen, jh ); 
-	}
-	if ( v[ "brush" ] )
-	{
-		extractFromJson( v[ "brush" ], brush, jh ); 
-	}
-	if ( v[ "textColor" ] )
-	{
-		extractFromJson( v[ "textColor" ], textColor, jh ); 
-	}
-}
-
-
-// OUT class CgLabelledAnnulus defined in src/base/geometry.h line 274
-Json::Value CgLabelledAnnulus::toJsonValue( JsonHandler &jh ) const
-{
-	Json::Value v;
-	v[ "rLabels" ] = writeToJson( rLabels, jh );
-	v[ "labelSize" ] = writeToJson( labelSize, jh );
-	v[ "useSymbols" ] = writeToJson( useSymbols, jh );
-	v[ "textLength" ] = writeToJson( textLength, jh );
-	v[ "showLabels" ] = writeToJson( showLabels, jh );
-	v[ "showConnectors" ] = writeToJson( showConnectors, jh );
-	v[ "rotateLabels" ] = writeToJson( rotateLabels, jh );
-	v[ "innerRadius" ] = writeToJson( innerRadius, jh );
-	v[ "showInnerFrame" ] = writeToJson( showInnerFrame, jh );
-	v[ "showOuterFrame" ] = writeToJson( showOuterFrame, jh );
-	v[ "markerLength" ] = writeToJson( markerLength, jh );
-	v[ "markerPen" ] = writeToJson( markerPen, jh );
-	v[ "geometryType" ] = writeToJson( geometryType, jh );
-	v[ "radius" ] = writeToJson( radius, jh );
-	v[ "show" ] = writeToJson( show, jh );
-	v[ "pen" ] = writeToJson( pen, jh );
-	v[ "brush" ] = writeToJson( brush, jh );
-	v[ "textColor" ] = writeToJson( textColor, jh );
-	return v;
-}
-
-
-// IN class CgDegreeMarker defined in src/base/geometry.h line 318
-void CgDegreeMarker::fromJsonValue( const Json::Value &v, JsonHandler &jh )
-{
-	if ( v[ "show" ] )
-	{
-		extractFromJson( v[ "show" ], show, jh ); 
 	}
 	if ( v[ "wDegree1" ] )
 	{
@@ -787,11 +687,12 @@ void CgDegreeMarker::fromJsonValue( const Json::Value &v, JsonHandler &jh )
 }
 
 
-// OUT class CgDegreeMarker defined in src/base/geometry.h line 318
-Json::Value CgDegreeMarker::toJsonValue( JsonHandler &jh ) const
+// OUT class DegreeMarkerConfig defined in src/base/geometry.h line 274
+Json::Value DegreeMarkerConfig::toJsonValue( JsonHandler &jh ) const
 {
 	Json::Value v;
 	v[ "show" ] = writeToJson( show, jh );
+	v[ "radius" ] = writeToJson( radius, jh );
 	v[ "wDegree1" ] = writeToJson( wDegree1, jh );
 	v[ "wDegree5" ] = writeToJson( wDegree5, jh );
 	v[ "wDegree10" ] = writeToJson( wDegree10, jh );
@@ -805,33 +706,9 @@ Json::Value CgDegreeMarker::toJsonValue( JsonHandler &jh ) const
 }
 
 
-// IN class CgPlanetScale defined in src/base/geometry.h line 345
-void CgPlanetScale::fromJsonValue( const Json::Value &v, JsonHandler &jh )
+// IN class CgLabelledAnnulus defined in src/base/geometry.h line 303
+void CgLabelledAnnulus::fromJsonValue( const Json::Value &v, JsonHandler &jh )
 {
-	if ( v[ "secondaryScaleOffset" ] )
-	{
-		extractFromJson( v[ "secondaryScaleOffset" ], secondaryScaleOffset, jh ); 
-	}
-	if ( v[ "furtherScaleOffset" ] )
-	{
-		extractFromJson( v[ "furtherScaleOffset" ], furtherScaleOffset, jh ); 
-	}
-	if ( v[ "furtherScaleLabelOffset" ] )
-	{
-		extractFromJson( v[ "furtherScaleLabelOffset" ], furtherScaleLabelOffset, jh ); 
-	}
-	if ( v[ "firstScaleMarker" ] )
-	{
-		extractFromJson( v[ "firstScaleMarker" ], firstScaleMarker, jh ); 
-	}
-	if ( v[ "secondaryScaleMarker" ] )
-	{
-		extractFromJson( v[ "secondaryScaleMarker" ], secondaryScaleMarker, jh ); 
-	}
-	if ( v[ "furtherScaleMarker" ] )
-	{
-		extractFromJson( v[ "furtherScaleMarker" ], furtherScaleMarker, jh ); 
-	}
 	if ( v[ "rLabels" ] )
 	{
 		extractFromJson( v[ "rLabels" ], rLabels, jh ); 
@@ -859,6 +736,10 @@ void CgPlanetScale::fromJsonValue( const Json::Value &v, JsonHandler &jh )
 	if ( v[ "rotateLabels" ] )
 	{
 		extractFromJson( v[ "rotateLabels" ], rotateLabels, jh ); 
+	}
+	if ( v[ "degreeMarkerCfg" ] )
+	{
+		extractFromJson( v[ "degreeMarkerCfg" ], degreeMarkerCfg, jh ); 
 	}
 	if ( v[ "innerRadius" ] )
 	{
@@ -907,16 +788,10 @@ void CgPlanetScale::fromJsonValue( const Json::Value &v, JsonHandler &jh )
 }
 
 
-// OUT class CgPlanetScale defined in src/base/geometry.h line 345
-Json::Value CgPlanetScale::toJsonValue( JsonHandler &jh ) const
+// OUT class CgLabelledAnnulus defined in src/base/geometry.h line 303
+Json::Value CgLabelledAnnulus::toJsonValue( JsonHandler &jh ) const
 {
 	Json::Value v;
-	v[ "secondaryScaleOffset" ] = writeToJson( secondaryScaleOffset, jh );
-	v[ "furtherScaleOffset" ] = writeToJson( furtherScaleOffset, jh );
-	v[ "furtherScaleLabelOffset" ] = writeToJson( furtherScaleLabelOffset, jh );
-	v[ "firstScaleMarker" ] = writeToJson( firstScaleMarker, jh );
-	v[ "secondaryScaleMarker" ] = writeToJson( secondaryScaleMarker, jh );
-	v[ "furtherScaleMarker" ] = writeToJson( furtherScaleMarker, jh );
 	v[ "rLabels" ] = writeToJson( rLabels, jh );
 	v[ "labelSize" ] = writeToJson( labelSize, jh );
 	v[ "useSymbols" ] = writeToJson( useSymbols, jh );
@@ -924,6 +799,7 @@ Json::Value CgPlanetScale::toJsonValue( JsonHandler &jh ) const
 	v[ "showLabels" ] = writeToJson( showLabels, jh );
 	v[ "showConnectors" ] = writeToJson( showConnectors, jh );
 	v[ "rotateLabels" ] = writeToJson( rotateLabels, jh );
+	v[ "degreeMarkerCfg" ] = writeToJson( degreeMarkerCfg, jh );
 	v[ "innerRadius" ] = writeToJson( innerRadius, jh );
 	v[ "showInnerFrame" ] = writeToJson( showInnerFrame, jh );
 	v[ "showOuterFrame" ] = writeToJson( showOuterFrame, jh );
@@ -939,24 +815,12 @@ Json::Value CgPlanetScale::toJsonValue( JsonHandler &jh ) const
 }
 
 
-// IN class CgUranianDial defined in src/base/geometry.h line 392
-void CgUranianDial::fromJsonValue( const Json::Value &v, JsonHandler &jh )
+// IN class CgPlanetRing defined in src/base/geometry.h line 375
+void CgPlanetRing::fromJsonValue( const Json::Value &v, JsonHandler &jh )
 {
-	if ( v[ "degreeLabelSize" ] )
+	if ( v[ "nextOuterRadiusDelta" ] )
 	{
-		extractFromJson( v[ "degreeLabelSize" ], degreeLabelSize, jh ); 
-	}
-	if ( v[ "rDegreeLabels" ] )
-	{
-		extractFromJson( v[ "rDegreeLabels" ], rDegreeLabels, jh ); 
-	}
-	if ( v[ "higherDivisionInnerRadius" ] )
-	{
-		extractFromJson( v[ "higherDivisionInnerRadius" ], higherDivisionInnerRadius, jh ); 
-	}
-	if ( v[ "showHigherDivisionSigns" ] )
-	{
-		extractFromJson( v[ "showHigherDivisionSigns" ], showHigherDivisionSigns, jh ); 
+		extractFromJson( v[ "nextOuterRadiusDelta" ], nextOuterRadiusDelta, jh ); 
 	}
 	if ( v[ "rLabels" ] )
 	{
@@ -985,6 +849,10 @@ void CgUranianDial::fromJsonValue( const Json::Value &v, JsonHandler &jh )
 	if ( v[ "rotateLabels" ] )
 	{
 		extractFromJson( v[ "rotateLabels" ], rotateLabels, jh ); 
+	}
+	if ( v[ "degreeMarkerCfg" ] )
+	{
+		extractFromJson( v[ "degreeMarkerCfg" ], degreeMarkerCfg, jh ); 
 	}
 	if ( v[ "innerRadius" ] )
 	{
@@ -1033,14 +901,11 @@ void CgUranianDial::fromJsonValue( const Json::Value &v, JsonHandler &jh )
 }
 
 
-// OUT class CgUranianDial defined in src/base/geometry.h line 392
-Json::Value CgUranianDial::toJsonValue( JsonHandler &jh ) const
+// OUT class CgPlanetRing defined in src/base/geometry.h line 375
+Json::Value CgPlanetRing::toJsonValue( JsonHandler &jh ) const
 {
 	Json::Value v;
-	v[ "degreeLabelSize" ] = writeToJson( degreeLabelSize, jh );
-	v[ "rDegreeLabels" ] = writeToJson( rDegreeLabels, jh );
-	v[ "higherDivisionInnerRadius" ] = writeToJson( higherDivisionInnerRadius, jh );
-	v[ "showHigherDivisionSigns" ] = writeToJson( showHigherDivisionSigns, jh );
+	v[ "nextOuterRadiusDelta" ] = writeToJson( nextOuterRadiusDelta, jh );
 	v[ "rLabels" ] = writeToJson( rLabels, jh );
 	v[ "labelSize" ] = writeToJson( labelSize, jh );
 	v[ "useSymbols" ] = writeToJson( useSymbols, jh );
@@ -1048,6 +913,171 @@ Json::Value CgUranianDial::toJsonValue( JsonHandler &jh ) const
 	v[ "showLabels" ] = writeToJson( showLabels, jh );
 	v[ "showConnectors" ] = writeToJson( showConnectors, jh );
 	v[ "rotateLabels" ] = writeToJson( rotateLabels, jh );
+	v[ "degreeMarkerCfg" ] = writeToJson( degreeMarkerCfg, jh );
+	v[ "innerRadius" ] = writeToJson( innerRadius, jh );
+	v[ "showInnerFrame" ] = writeToJson( showInnerFrame, jh );
+	v[ "showOuterFrame" ] = writeToJson( showOuterFrame, jh );
+	v[ "markerLength" ] = writeToJson( markerLength, jh );
+	v[ "markerPen" ] = writeToJson( markerPen, jh );
+	v[ "geometryType" ] = writeToJson( geometryType, jh );
+	v[ "radius" ] = writeToJson( radius, jh );
+	v[ "show" ] = writeToJson( show, jh );
+	v[ "pen" ] = writeToJson( pen, jh );
+	v[ "brush" ] = writeToJson( brush, jh );
+	v[ "textColor" ] = writeToJson( textColor, jh );
+	return v;
+}
+
+
+// IN class CgUranianDisk defined in src/base/geometry.h line 407
+void CgUranianDisk::fromJsonValue( const Json::Value &v, JsonHandler &jh )
+{
+	if ( v[ "degreeMarker" ] )
+	{
+		extractFromJson( v[ "degreeMarker" ], degreeMarker, jh ); 
+	}
+	if ( v[ "degreeLabelSize" ] )
+	{
+		extractFromJson( v[ "degreeLabelSize" ], degreeLabelSize, jh ); 
+	}
+	if ( v[ "paintDegreeNumbers" ] )
+	{
+		extractFromJson( v[ "paintDegreeNumbers" ], paintDegreeNumbers, jh ); 
+	}
+	if ( v[ "showSigns" ] )
+	{
+		extractFromJson( v[ "showSigns" ], showSigns, jh ); 
+	}
+	if ( v[ "signInnerRadius" ] )
+	{
+		extractFromJson( v[ "signInnerRadius" ], signInnerRadius, jh ); 
+	}
+	if ( v[ "signOuterRadius" ] )
+	{
+		extractFromJson( v[ "signOuterRadius" ], signOuterRadius, jh ); 
+	}
+	if ( v[ "signRLabels" ] )
+	{
+		extractFromJson( v[ "signRLabels" ], signRLabels, jh ); 
+	}
+	if ( v[ "showHouses" ] )
+	{
+		extractFromJson( v[ "showHouses" ], showHouses, jh ); 
+	}
+	if ( v[ "houseInnerRadius" ] )
+	{
+		extractFromJson( v[ "houseInnerRadius" ], houseInnerRadius, jh ); 
+	}
+	if ( v[ "houseOuterRadius" ] )
+	{
+		extractFromJson( v[ "houseOuterRadius" ], houseOuterRadius, jh ); 
+	}
+	if ( v[ "houseRLabels" ] )
+	{
+		extractFromJson( v[ "houseRLabels" ], houseRLabels, jh ); 
+	}
+	if ( v[ "rLabels" ] )
+	{
+		extractFromJson( v[ "rLabels" ], rLabels, jh ); 
+	}
+	if ( v[ "labelSize" ] )
+	{
+		extractFromJson( v[ "labelSize" ], labelSize, jh ); 
+	}
+	if ( v[ "useSymbols" ] )
+	{
+		extractFromJson( v[ "useSymbols" ], useSymbols, jh ); 
+	}
+	if ( v[ "textLength" ] )
+	{
+		extractFromJson( v[ "textLength" ], textLength, jh ); 
+	}
+	if ( v[ "showLabels" ] )
+	{
+		extractFromJson( v[ "showLabels" ], showLabels, jh ); 
+	}
+	if ( v[ "showConnectors" ] )
+	{
+		extractFromJson( v[ "showConnectors" ], showConnectors, jh ); 
+	}
+	if ( v[ "rotateLabels" ] )
+	{
+		extractFromJson( v[ "rotateLabels" ], rotateLabels, jh ); 
+	}
+	if ( v[ "degreeMarkerCfg" ] )
+	{
+		extractFromJson( v[ "degreeMarkerCfg" ], degreeMarkerCfg, jh ); 
+	}
+	if ( v[ "innerRadius" ] )
+	{
+		extractFromJson( v[ "innerRadius" ], innerRadius, jh ); 
+	}
+	if ( v[ "showInnerFrame" ] )
+	{
+		extractFromJson( v[ "showInnerFrame" ], showInnerFrame, jh ); 
+	}
+	if ( v[ "showOuterFrame" ] )
+	{
+		extractFromJson( v[ "showOuterFrame" ], showOuterFrame, jh ); 
+	}
+	if ( v[ "markerLength" ] )
+	{
+		extractFromJson( v[ "markerLength" ], markerLength, jh ); 
+	}
+	if ( v[ "markerPen" ] )
+	{
+		extractFromJson( v[ "markerPen" ], markerPen, jh ); 
+	}
+	if ( v[ "geometryType" ] )
+	{
+		extractFromJson( v[ "geometryType" ], geometryType, jh ); 
+	}
+	if ( v[ "radius" ] )
+	{
+		extractFromJson( v[ "radius" ], radius, jh ); 
+	}
+	if ( v[ "show" ] )
+	{
+		extractFromJson( v[ "show" ], show, jh ); 
+	}
+	if ( v[ "pen" ] )
+	{
+		extractFromJson( v[ "pen" ], pen, jh ); 
+	}
+	if ( v[ "brush" ] )
+	{
+		extractFromJson( v[ "brush" ], brush, jh ); 
+	}
+	if ( v[ "textColor" ] )
+	{
+		extractFromJson( v[ "textColor" ], textColor, jh ); 
+	}
+}
+
+
+// OUT class CgUranianDisk defined in src/base/geometry.h line 407
+Json::Value CgUranianDisk::toJsonValue( JsonHandler &jh ) const
+{
+	Json::Value v;
+	v[ "degreeMarker" ] = writeToJson( degreeMarker, jh );
+	v[ "degreeLabelSize" ] = writeToJson( degreeLabelSize, jh );
+	v[ "paintDegreeNumbers" ] = writeToJson( paintDegreeNumbers, jh );
+	v[ "showSigns" ] = writeToJson( showSigns, jh );
+	v[ "signInnerRadius" ] = writeToJson( signInnerRadius, jh );
+	v[ "signOuterRadius" ] = writeToJson( signOuterRadius, jh );
+	v[ "signRLabels" ] = writeToJson( signRLabels, jh );
+	v[ "showHouses" ] = writeToJson( showHouses, jh );
+	v[ "houseInnerRadius" ] = writeToJson( houseInnerRadius, jh );
+	v[ "houseOuterRadius" ] = writeToJson( houseOuterRadius, jh );
+	v[ "houseRLabels" ] = writeToJson( houseRLabels, jh );
+	v[ "rLabels" ] = writeToJson( rLabels, jh );
+	v[ "labelSize" ] = writeToJson( labelSize, jh );
+	v[ "useSymbols" ] = writeToJson( useSymbols, jh );
+	v[ "textLength" ] = writeToJson( textLength, jh );
+	v[ "showLabels" ] = writeToJson( showLabels, jh );
+	v[ "showConnectors" ] = writeToJson( showConnectors, jh );
+	v[ "rotateLabels" ] = writeToJson( rotateLabels, jh );
+	v[ "degreeMarkerCfg" ] = writeToJson( degreeMarkerCfg, jh );
 	v[ "innerRadius" ] = writeToJson( innerRadius, jh );
 	v[ "showInnerFrame" ] = writeToJson( showInnerFrame, jh );
 	v[ "showOuterFrame" ] = writeToJson( showOuterFrame, jh );
@@ -2017,6 +2047,10 @@ void ChartConfig::fromJsonValue( const Json::Value &v, JsonHandler &jh )
 	{
 		extractFromJson( v[ "houseNumberStyle" ], houseNumberStyle, jh ); 
 	}
+	if ( v[ "uranianChartOrigin" ] )
+	{
+		extractFromJson( v[ "uranianChartOrigin" ], uranianChartOrigin, jh ); 
+	}
 	if ( v[ "showMatchesOnMouseOver" ] )
 	{
 		extractFromJson( v[ "showMatchesOnMouseOver" ], showMatchesOnMouseOver, jh ); 
@@ -2028,10 +2062,6 @@ void ChartConfig::fromJsonValue( const Json::Value &v, JsonHandler &jh )
 	if ( v[ "chartCenterType" ] )
 	{
 		extractFromJson( v[ "chartCenterType" ], chartCenterType, jh ); 
-	}
-	if ( v[ "showEarthHoroscopeAnglesInShiftedCharts" ] )
-	{
-		extractFromJson( v[ "showEarthHoroscopeAnglesInShiftedCharts" ], showEarthHoroscopeAnglesInShiftedCharts, jh ); 
 	}
 	if ( v[ "showArudhas" ] )
 	{
@@ -2096,10 +2126,10 @@ Json::Value ChartConfig::toJsonValue( JsonHandler &jh ) const
 	v[ "showHouseColors" ] = writeToJson( showHouseColors, jh );
 	v[ "chartOrientation" ] = writeToJson( chartOrientation, jh );
 	v[ "houseNumberStyle" ] = writeToJson( houseNumberStyle, jh );
+	v[ "uranianChartOrigin" ] = writeToJson( uranianChartOrigin, jh );
 	v[ "showMatchesOnMouseOver" ] = writeToJson( showMatchesOnMouseOver, jh );
 	v[ "division" ] = writeToJson( division, jh );
 	v[ "chartCenterType" ] = writeToJson( chartCenterType, jh );
-	v[ "showEarthHoroscopeAnglesInShiftedCharts" ] = writeToJson( showEarthHoroscopeAnglesInShiftedCharts, jh );
 	v[ "showArudhas" ] = writeToJson( showArudhas, jh );
 	v[ "showAshtakavarga" ] = writeToJson( showAshtakavarga, jh );
 	v[ "northIndianSignDisplayType" ] = writeToJson( northIndianSignDisplayType, jh );

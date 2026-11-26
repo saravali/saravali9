@@ -1,7 +1,7 @@
 /***********************************************************************
  This is the source code of Saravali, a program for Vedic and western astrology.
 
- File       src/gdi/CeSigns.cpp
+ File       src/gdi/WesternSigns.cpp
  Release    9.0
 
  This is free and unencumbered software released into the public domain.
@@ -53,22 +53,44 @@ extern Gdiconfig *gdiconfig;
 * 
 *
 ******************************************************/
-class CeSigns : public CeLabelledAnnulus
+class WesternSigns : public CeLabelledAnnulus
 {
 public:
 
-	CeSigns( HybridChart *chart, CgLabelledAnnulus *annulus )
-		: CeLabelledAnnulus( chart, annulus, 12 )
+	/*****************************************************
+	**
+	**   WesternSigns   ---   Constructor
+	**
+	******************************************************/
+	WesternSigns( HybridChart *chart, CgLabelledAnnulus *geom )
+		: CeLabelledAnnulus( chart, geom, 12 )
 	{
+	}
+
+	/*****************************************************
+	**
+	**   WesternSigns   ---   paint
+	**
+	******************************************************/
+	void paint( Painter *painter, const MRect& refreshRect )
+	{
+		CgLabelledAnnulus *geom = getGeom();
+		assert( geom );
+
+		CeLabelledAnnulus::paint( painter, refreshRect );
+		if ( geom->degreeMarkerCfg.show )
+		{
+			paintDegreeScale( painter, geom->innerRadius, geom->degreeMarkerCfg );
+		}
 	}
 
 protected:
 
 	virtual std::pair<wxString, wxColour> getLabel( const int &f )
 	{
-		CgLabelledAnnulus *annulus = getCg();
+		CgLabelledAnnulus *annulus = getGeom();
 		assert( annulus );
-		debuglog << "CeSigns::paint useSymbols " << annulus->useSymbols;
+		debuglog << "WesternSigns::paint useSymbols " << annulus->useSymbols;
 		const Viewpoint viewpoint = chart->getViewpoint();
 
 		const wxColour color = chart->getChartConfig( WidgetCategory::WesternChart )->showSignColors ?
@@ -106,10 +128,10 @@ protected:
 **   Grid element factory methods
 **
 ******************************************************/
-ChartElementBase *ChartElementFactory::createSigns( CgElement *cge ) const
+ChartElementBase *ChartElementFactory::createWesternSigns( CgElement *cge ) const
 {
-	CgLabelledAnnulus *annulus = dynamic_cast<CgLabelledAnnulus*>( cge );
-	assert( annulus );
-	return new CeSigns( chart, annulus );
+	CgLabelledAnnulus *geom = dynamic_cast<CgLabelledAnnulus*>( cge );
+	assert( geom );
+	return new WesternSigns( chart, geom );
 }
 

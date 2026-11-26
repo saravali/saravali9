@@ -49,7 +49,7 @@ release:
 	$(CPR) $(RESOURCE_DIR)/pic/24x24 $(RESOURCE_TARGET_DIR)/pic
 	$(CPR) $(RESOURCE_DIR)/pic/32x32 $(RESOURCE_TARGET_DIR)/pic
 	# other resources
-	for dir in dasa geom sheet skin table uranian yoga; \
+	for dir in chart dasa print skin table yoga; \
 	do \
 		$(MKDIR) $(RESOURCE_TARGET_DIR)/$$dir; \
 		$(CP) $(RESOURCE_DIR)/$$dir/*.json $(RESOURCE_TARGET_DIR)/$$dir; \

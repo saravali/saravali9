@@ -305,7 +305,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-dist_pkgdata_DATA = 10western.json 20vedic.json 30uranian.json
+dist_pkgdata_DATA = 10vedic.json 20western.json 30uranian.json
 all: all-am
 
 .SUFFIXES:

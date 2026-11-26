@@ -64,7 +64,7 @@ protected:
 
 	virtual std::pair<wxString, wxColour> getLabel( const int &f )
 	{
-		CgLabelledAnnulus *annulus = getCg();
+		CgLabelledAnnulus *annulus = getGeom();
 		assert( annulus );
 
 		// this is not correct

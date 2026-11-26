@@ -41,21 +41,23 @@
 enum class CgElementType
 {
 	None = -1,
-	Disc = 0,
+	Disk = 0,
 	Annulus,
 
 	Signs,
 	Houses,
 	Nakshatras,
 	DasaLords,
-	WesternPlanets,
-	UranianPlanets,
+
+	WesternSigns,
+	WesternPlanetRing,
 	Angles,
 	Aspects,
 	Image,
 
-	UranianDial,
+	UranianDisk,
 	UranianAspects,
+	UranianPlanetRing,
 
 	EastGrid,
 	SouthGrid,
@@ -63,7 +65,7 @@ enum class CgElementType
 	SbcGrid,
 
 	Error,
-	First = Disc,
+	First = Disk,
 	Last = Error
 };
 mostream& operator <<( mostream&, const CgElementType& );
@@ -88,8 +90,6 @@ public:
 	CgElementType getElementType() const { return type; }
 
 	virtual CgElement* clone() = 0;
-
-	virtual double getOuterRadius( const int& ) const { return radius; }
 
 private: 
 	const CgElementType type;
@@ -118,10 +118,10 @@ public:
 *
 *
 ******************************************************/
-class CgDisc : public CgElement
+class CgDisk : public CgElement
 {
 public:
-	CgDisc( const CgElementType type = CgElementType::Disc, const double r = 100.0,
+	CgDisk( const CgElementType type = CgElementType::Disk, const double r = 100.0,
 		const ChartShape geom = ChartShape::Inherited )
 		: CgElement( type, r ),
 			geometryType( geom )
@@ -129,11 +129,11 @@ public:
 		markerLength = 1.0;
 	}
 
-	virtual CgElement* clone() override { return new CgDisc( *this ); }
+	virtual CgElement* clone() override { return new CgDisk( *this ); }
 
-	CgDisc magnify( const double &w ) const
+	CgDisk magnify( const double &w ) const
 	{
-		CgDisc disc( *this );
+		CgDisk disc( *this );
 		disc.radius += w;
 		return disc;
 	}
@@ -155,12 +155,12 @@ public:
 *
 *
 ******************************************************/
-class CgError : public CgDisc
+class CgError : public CgDisk
 {
 public:
 	CgError( wxString s, const double r = 100.0,
 		const ChartShape geom = ChartShape::Inherited )
-		: CgDisc( CgElementType::Error, r, geom ),
+		: CgDisk( CgElementType::Error, r, geom ),
 		message( s )
 	{
 	}
@@ -180,11 +180,11 @@ public:
 *
 *
 ******************************************************/
-class CgInlayImage : public CgDisc
+class CgInlayImage : public CgDisk
 {
 public:
 	CgInlayImage( const double radius = 100.0, const ChartShape geom = ChartShape::Inherited )
-	 : CgDisc( CgElementType::Image, radius, geom )
+	 : CgDisk( CgElementType::Image, radius, geom )
 	 {
 			align = Align::Center;
 	 }
@@ -205,14 +205,14 @@ public:
 *
 *
 ******************************************************/
-class CgVedicChartGrid : public CgDisc
+class CgVedicChartGrid : public CgDisk
 {
 public:
 	CgVedicChartGrid(
 		const CgElementType &type,
 		const double radius = 90.0,
 		const ChartShape geom = ChartShape::Inherited )
-	 : CgDisc( type, radius, geom )
+	 : CgDisk( type, radius, geom )
 	 {
 			straightFrame = false;
 			showFieldNames = false;
@@ -237,15 +237,15 @@ public:
 *
 *
 ******************************************************/
-class CgAnnulus : public CgDisc
+class CgAnnulus : public CgDisk
 {
 public:
 	CgAnnulus(
-		const CgElementType type = CgElementType::Annulus,
+		const CgElementType &type,
 		const double radius = 100.0,
 		const double innerRadius = 50.0,
 		const ChartShape geom = ChartShape::Inherited )
-	 : CgDisc( type, radius, geom ),
+	 : CgDisk( type, radius, geom ),
 	 	innerRadius( innerRadius )
 	 {
 			showInnerFrame = true;
@@ -254,7 +254,7 @@ public:
 
 	virtual CgElement* clone() override { return new CgAnnulus( *this ); }
 
-	CgDisc innerDisc() const { return CgDisc( CgElementType::Disc, innerRadius, geometryType ); }
+	CgDisk innerDisc() const { return CgDisk( CgElementType::Disk, innerRadius, geometryType ); }
 
 	// json:start
 	double innerRadius;
@@ -265,6 +265,35 @@ public:
 	virtual void fromJsonValue( const Json::Value&, JsonHandler& ) override;
 	virtual Json::Value toJsonValue( JsonHandler& ) const override;
 };
+
+/*************************************************//**
+*
+*
+*
+******************************************************/
+struct DegreeMarkerConfig : public Jsonable
+{
+	// json:start
+	bool show = true;
+	double radius = 100;
+
+	double wDegree1 = 3;
+	double wDegree5 = 4;
+	double wDegree10 = 5;
+
+	bool show1DegreeFrame = false;
+	bool show5DegreeFrame = false;
+	bool show10DegreeFrame = false;
+
+	wxPen pen1;
+	wxPen pen5;
+	wxPen pen10;
+
+	// impls in jsonstubs.cpp
+	virtual void fromJsonValue( const Json::Value&, JsonHandler& ) override;
+	virtual Json::Value toJsonValue( JsonHandler& ) const override;
+};
+
 
 /*************************************************//**
 *
@@ -305,32 +334,7 @@ public:
 
 	bool rotateLabels = false;
 
-	// impls in jsonstubs.cpp
-	virtual void fromJsonValue( const Json::Value&, JsonHandler& ) override;
-	virtual Json::Value toJsonValue( JsonHandler& ) const override;
-};
-
-/*************************************************//**
-*
-*
-*
-******************************************************/
-struct CgDegreeMarker : public Jsonable
-{
-	// json:start
-	bool show = true;
-
-	double wDegree1 = 3;
-	double wDegree5 = 4;
-	double wDegree10 = 5;
-
-	bool show1DegreeFrame = false;
-	bool show5DegreeFrame = false;
-	bool show10DegreeFrame = false;
-
-	wxPen pen1;
-	wxPen pen5;
-	wxPen pen10;
+	DegreeMarkerConfig degreeMarkerCfg;
 
 	// impls in jsonstubs.cpp
 	virtual void fromJsonValue( const Json::Value&, JsonHandler& ) override;
@@ -339,45 +343,56 @@ struct CgDegreeMarker : public Jsonable
 
 /*************************************************//**
 *
+* Data structure of planets in western and uranian chart, used in calss PlanetRing.
 *
+	Params
+	------
+	radius: outer radius of the planets
+	innerRadius: connection with the disk (can be larger in case of western chart)
+	rLabels. radius of first role planets
+	markerLength: radius of the markers from disk to the point where the markers get a buckle (in case of corrected lomgitude)
+	nextOuterRadiusDelta: distance from ring radius to next ring radius
+
+	Remark: PlanetRing does not prolabels a degree scale
+
+	Scenarios
+	---------
+	1. All Planets outside a disk (UranianDisk or (unusual) zodiacal signs with no planets inside
+	Condition: rLabels >= radius.
+	 - First set of planets is at rLabels
+	 - Area of next role begins at radius + n * nextOuterRadiusDelta
+	 - Next set of planets rLabels + n * nextOuterRadiusDelta
+	 - innerRadius is UNUSED
+
+	2. First set of planets (radix) inside, other sets (like directions, solar, second partner) outside the disk: Western chart
+	Condition: rLabels < radius
+	 - First set of planets is at rLabels
+	 - Marker lines of first set from innerRadius to rLabels
+	 - Next set of planets at TODO
+	 - Next area of planets at radius + n * nextOuterRadiusDelta
 *
 ******************************************************/
-class CgPlanetScale : public CgLabelledAnnulus 
+class CgPlanetRing : public CgLabelledAnnulus 
 {
 public:
 
-	CgPlanetScale(
-		const CgElementType type = CgElementType::WesternPlanets,
-		const double radius = 79,
-		const double innerRadius = 50.0,
-		const double rLabels = 73,
+	CgPlanetRing(
+		const CgElementType &type,
+		const double radius = 100,
+		const double innerRadius = 84,
+		const double rLabels = 95,
 		const ChartShape geom = ChartShape::Inherited )
 		: CgLabelledAnnulus( type, radius, innerRadius, rLabels, geom )
 	{
 		labelSize = 200;
+		markerLength = 2.0;
+		nextOuterRadiusDelta = 20;
 	}
 
-	// implementation in ChartGeometry.cpp
-	virtual CgElement* clone() override { return new CgPlanetScale( *this ); }
-
-	// implementation in ChartGeometry.cpp
-	virtual double getOuterRadius( const int& ) const override;
-
-	// returns radius/rLabels for all ChartIds
-	std::pair<double, double> getParams4ChartId( const int& ) const;
+	virtual CgElement* clone() override { return new CgPlanetRing( *this ); }
 
 	// json:start
-	int secondaryScaleOffset = 15;
-
-	int furtherScaleOffset = 10;
-
-	int furtherScaleLabelOffset = 5;
-
-	CgDegreeMarker firstScaleMarker;
-
-	CgDegreeMarker secondaryScaleMarker;
-
-	CgDegreeMarker furtherScaleMarker;
+	double nextOuterRadiusDelta;
 
 	// impls in jsonstubs.cpp
 	virtual void fromJsonValue( const Json::Value&, JsonHandler& ) override;
@@ -389,32 +404,44 @@ public:
 *
 *
 ******************************************************/
-class CgUranianDial : public CgLabelledAnnulus
+class CgUranianDisk : public CgLabelledAnnulus
 {
 public:
-	CgUranianDial(
-		const double radius = 79.0,
-		const double innerRadius = 59.0,
-		const double rLabels = 68,
+	CgUranianDisk(
+		const double radius = 84.0,
+		const double innerRadius = 15.0,
+		const double rLabels = 78,
 		const ChartShape geom = ChartShape::Inherited )
-		: CgLabelledAnnulus( CgElementType::UranianDial, radius, innerRadius, rLabels, geom )
+		: CgLabelledAnnulus( CgElementType::UranianDisk, radius, innerRadius, rLabels, geom )
 	{
+		signOuterRadius = .8 * radius;
+		signInnerRadius = .6 * radius;
+		signRLabels = .7 * radius;
+
+		houseOuterRadius = .6 * radius;
+		houseInnerRadius = .4 * radius;
+		houseRLabels = .5 * radius;
 	}
 
-	virtual CgElement* clone() override { return new CgUranianDial( *this ); }
+	virtual CgElement* clone() override { return new CgUranianDisk( *this ); }
 
 	// json:start
-	// there are degree labels in higher divisions
+	DegreeMarkerConfig degreeMarker;
+
 	int degreeLabelSize = 70;
 
-	// radius of degree labels
-	double rDegreeLabels = 75;
+	bool paintDegreeNumbers = true;
 
-	// annulus will have different annulus radius if this param is set
-	double higherDivisionInnerRadius = innerRadius;
+	// all radius items below are relative, i.e. between 0..1
+  bool showSigns = true;
+  double signInnerRadius;
+  double signOuterRadius;
+  double signRLabels;
 
-	// show zodial signs in divisions D-2,3,4,6
-	bool showHigherDivisionSigns = true;
+  bool showHouses = true;
+  double houseInnerRadius;
+  double houseOuterRadius;
+  double houseRLabels;
 
 	// impls in jsonstubs.cpp
 	virtual void fromJsonValue( const Json::Value&, JsonHandler& ) override;

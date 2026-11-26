@@ -23,7 +23,6 @@ OBS = \
 	CeImage.o \
 	CeLabelledAnnulus.o \
 	CeNakshatras.o \
-	CePlanetsBase.o \
 	ChartElement.o \
 	ChartElementImpl.o \
 	ChartField.o \
@@ -42,6 +41,7 @@ OBS = \
 	ImageProvider.o \
 	MatchmapDiagram.o \
 	Painter.o \
+	PlanetRing.o \
 	PdfGenerator.o \
 	PdfPainter.o \
 	PpTree.o \
@@ -50,7 +50,7 @@ OBS = \
 	ShadbalaDiagrams.o \
 	SouthIndianChart.o \
 	TimelineDiagram.o \
-	UranianDial.o \
+	UranianDisk.o \
 	UranianAspects.o \
 	UranianPlanets.o \
 	VargaDiagrams.o \

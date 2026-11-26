@@ -80,7 +80,7 @@ void CeFieldGrid::onCoordinatesChanged()
 	debuglog << "Start CeFieldGrid::onCoordinatesChanged";
 #endif
 	assert( proxy );
-	CgVedicChartGrid *cg = getCg();
+	CgVedicChartGrid *cg = getGeom();
 
 	for( ChartField &field: fields ) { field.clear(); }
 	//writePlanetFields();
@@ -88,27 +88,27 @@ void CeFieldGrid::onCoordinatesChanged()
 	pFieldSplit = MComplex( 0, 0 );
 
 	// right
-	p_east = discPointToXy( 0, cg );
+	p_east = diskPointToXy( 0, cg );
 
 	// top
-	p_north = discPointToXy( 90, cg );
+	p_north = diskPointToXy( 90, cg );
 #ifdef DEBUG_CEFIELDGRID
 	debuglog << "Start CeFieldGrid::onCoordinatesChanged p_north " << p_north;
 #endif
 
 	// left
-	p_west = discPointToXy( 180, cg );
+	p_west = diskPointToXy( 180, cg );
 
 	// bottom
-	p_south = discPointToXy( 270, cg );
+	p_south = diskPointToXy( 270, cg );
 
 	assert( p_east.real() >= p_west.real());
 	assert( p_south.imag() >= p_north.imag());
 
-	p_northwest = discPointToXy( 135, cg );
-	p_southwest = discPointToXy( 225, cg );
-	p_southeast = discPointToXy( 315, cg );
-	p_northeast = discPointToXy( 45, cg );
+	p_northwest = diskPointToXy( 135, cg );
+	p_southwest = diskPointToXy( 225, cg );
+	p_southeast = diskPointToXy( 315, cg );
+	p_northeast = diskPointToXy( 45, cg );
 
 	// delegate to impl class
 	setupFieldRectangles();
@@ -126,7 +126,7 @@ void CeFieldGrid::paint( Painter *painter, const MRect &refreshRect )
 	ChartConfig *cfg = chart->getChartConfig();
 	ContextProps_ptr props = chart->getProps();
 
-	CgVedicChartGrid *cg = getCg();
+	CgVedicChartGrid *cg = getGeom();
 #ifdef DEBUG_CEFIELDGRID
 	debuglog << "CeFieldGrid::paint geom " << (int)cg->geometryType
 		<< " field status " << debugFieldStatus( fieldStatus ) << " rect " << refreshRect;
@@ -137,7 +137,7 @@ void CeFieldGrid::paint( Painter *painter, const MRect &refreshRect )
 	
 	setInheritedStyle( painter );
 	painter->setTransparentBrush();
-	paintDisc( painter, *cg );
+	paintDisk( painter, *cg );
 
 	painter->setPen( getPen() );
 

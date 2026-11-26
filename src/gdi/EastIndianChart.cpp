@@ -92,20 +92,20 @@ protected:
 		//debuglog << "EastIndianChart::setupFieldRectangles straightFrame " << cg->straightFrame;
 		{
 			constexpr double l0 = 12;
-			CgVedicChartGrid *cg = getCg();
+			CgVedicChartGrid *cg = getGeom();
 
-			p_aries = discPointToXy( 90 - l0, cg );
-			p_taurus = discPointToXy( 90 + l0, cg );
-			p_gemini = discPointToXy( 135, cg );
-			p_cancer = discPointToXy( 180 - l0, cg );
-			p_leo = discPointToXy( 180 + l0, cg );
-			p_virgo = discPointToXy( 225, cg );
-			p_libra = discPointToXy( 270 - l0, cg );
-			p_scorpio = discPointToXy( 270 + l0, cg );
-			p_sagittarius = discPointToXy( 315, cg );
-			p_capricorn = discPointToXy( - l0, cg );
-			p_aquarius = discPointToXy( l0, cg );
-			p_pisces = discPointToXy( 45, cg );
+			p_aries = diskPointToXy( 90 - l0, cg );
+			p_taurus = diskPointToXy( 90 + l0, cg );
+			p_gemini = diskPointToXy( 135, cg );
+			p_cancer = diskPointToXy( 180 - l0, cg );
+			p_leo = diskPointToXy( 180 + l0, cg );
+			p_virgo = diskPointToXy( 225, cg );
+			p_libra = diskPointToXy( 270 - l0, cg );
+			p_scorpio = diskPointToXy( 270 + l0, cg );
+			p_sagittarius = diskPointToXy( 315, cg );
+			p_capricorn = diskPointToXy( - l0, cg );
+			p_aquarius = diskPointToXy( l0, cg );
+			p_pisces = diskPointToXy( 45, cg );
 		}
 
 		cgemini = MComplex( p_taurus.real(), p_cancer.imag());
@@ -144,7 +144,7 @@ protected:
 	******************************************************/
 	virtual void paintGrid( Painter *painter, const MRect& /*refreshRect*/ ) override
 	{
-		CgVedicChartGrid *cg = getCg();
+		CgVedicChartGrid *cg = getGeom();
 
 		std::list<std::pair<MComplex,MComplex>> l;
 		l = {
@@ -162,7 +162,7 @@ protected:
 		painter->drawLine( p_virgo, cvirgo );
 		painter->drawLine( p_sagittarius, csagittarius );
 		painter->drawLine( p_pisces, cpisces );
-		paintDisc( painter, *cg );
+		paintDisk( painter, *cg );
 	}
 
 	MComplex p_aries, p_taurus, p_gemini,

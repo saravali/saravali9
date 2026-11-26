@@ -152,7 +152,6 @@ src/gdi/CeFieldGrid.cpp
 src/gdi/CeImage.cpp
 src/gdi/CeLabelledAnnulus.cpp
 src/gdi/CeNakshatras.cpp
-src/gdi/CePlanetsBase.cpp
 src/gdi/ChartElement.cpp
 src/gdi/ChartElementImpl.cpp
 src/gdi/ChartField.cpp
@@ -174,6 +173,7 @@ src/gdi/MatchmapDiagram.cpp
 src/gdi/Painter.cpp
 src/gdi/PdfGenerator.cpp
 src/gdi/PdfPainter.cpp
+src/gdi/PlanetRing.cpp
 src/gdi/PpTree.cpp
 src/gdi/PrintoutTextHelper.cpp
 src/gdi/Sbc.cpp
@@ -182,7 +182,7 @@ src/gdi/SouthIndianChart.cpp
 src/gdi/textclient.cpp
 src/gdi/TimelineDiagram.cpp
 src/gdi/UranianAspects.cpp
-src/gdi/UranianDial.cpp
+src/gdi/UranianDisk.cpp
 src/gdi/UranianPlanets.cpp
 src/gdi/VargaDiagrams.cpp
 src/gdi/WesternAngles.cpp

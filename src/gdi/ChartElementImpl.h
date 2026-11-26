@@ -66,29 +66,23 @@ public:
 
 	virtual double getRadius() const override { assert( cg ); return cg->radius; }
 
-	virtual double getOuterRadius( const int &id ) override
-	{
-		assert( cg ); 
-		return cg->getOuterRadius( id );
-	}
-
 	virtual CgElementType getElementType() const override { return cg->getElementType(); }
 
-	T *getCg() { return cg; }
+	T *getGeom() { return cg; }
 
 protected:
 
-	virtual wxPen &getCgPen() const override
+	virtual wxPen &getGeomPen() const override
 	{
 		return cg->pen;
 	}
 
-	virtual MBrush &getCgBrush() const override
+	virtual MBrush &getGeomBrush() const override
 	{
 		return cg->brush;
 	}
 
-	virtual wxColour &getCgTextColor() const override
+	virtual wxColour &getGeomTextColor() const override
 	{
 		return cg->textColor;
 	}
@@ -101,11 +95,11 @@ protected:
 *   Simple chart element containing only a disc.
 *
 ******************************************************/
-class CeDisc : public ChartElement<CgDisc>
+class CeDisc : public ChartElement<CgDisk>
 {
 public:
 
-	CeDisc( HybridChart *chart, CgDisc *disc )
+	CeDisc( HybridChart *chart, CgDisk *disc )
 		: ChartElement( chart, disc ) {}
 
 	virtual void paint( Painter*, const MRect& refreshRect ) override;
@@ -133,11 +127,11 @@ public:
 *  
 *
 ******************************************************/
-class CeError : public ChartElement<CgDisc>
+class CeError : public ChartElement<CgDisk>
 {
 public:
 
-	CeError( HybridChart *chart, CgDisc *disc, wxString message )
+	CeError( HybridChart *chart, CgDisk *disc, wxString message )
 		: ChartElement( chart, disc ),
 		message( message ){}
 

@@ -53,13 +53,12 @@
 #include <wx/stattext.h>
 #include <wx/valgen.h>
 
-#define DEBUG_SIDEBAR
+//#define DEBUG_SIDEBAR
 
 // Side bar gui element IDs for event handling
 enum
 {
 	// Choices
-	//SBE_SORTORDER = wxID_HIGHEST + 1300,
 	SBE_SORTORDER = SBE_BUTTON_UPDATE + 1,
 	SBE_HOUSETYPE,
 	SBE_CHART_DIVISION,

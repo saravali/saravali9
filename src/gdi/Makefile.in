@@ -124,19 +124,20 @@ am_libsaravali_gdi_a_OBJECTS = AshtakavargaDiagrams.$(OBJEXT) \
 	BarDiagram.$(OBJEXT) CeDasaLords.$(OBJEXT) \
 	CeFieldGrid.$(OBJEXT) CeImage.$(OBJEXT) \
 	CeLabelledAnnulus.$(OBJEXT) CeNakshatras.$(OBJEXT) \
-	CePlanetsBase.$(OBJEXT) ChartElement.$(OBJEXT) \
-	ChartElementImpl.$(OBJEXT) ChartField.$(OBJEXT) \
-	DasaTree.$(OBJEXT) DasaChart.$(OBJEXT) DiamondChart.$(OBJEXT) \
-	DocHelper.$(OBJEXT) EastIndianChart.$(OBJEXT) \
-	EphemDiagram.$(OBJEXT) FieldWriter.$(OBJEXT) \
-	GcPainter.$(OBJEXT) GdiHelper.$(OBJEXT) GdiWidget.$(OBJEXT) \
-	GdiWidgetGrid.$(OBJEXT) HybridChart.$(OBJEXT) \
-	ImageProvider.$(OBJEXT) MatchmapDiagram.$(OBJEXT) \
-	Painter.$(OBJEXT) PdfGenerator.$(OBJEXT) PdfPainter.$(OBJEXT) \
-	PpTree.$(OBJEXT) PrintoutTextHelper.$(OBJEXT) Sbc.$(OBJEXT) \
+	ChartElement.$(OBJEXT) ChartElementImpl.$(OBJEXT) \
+	ChartField.$(OBJEXT) DasaTree.$(OBJEXT) DasaChart.$(OBJEXT) \
+	DiamondChart.$(OBJEXT) DocHelper.$(OBJEXT) \
+	EastIndianChart.$(OBJEXT) EphemDiagram.$(OBJEXT) \
+	FieldWriter.$(OBJEXT) GcPainter.$(OBJEXT) GdiHelper.$(OBJEXT) \
+	GdiWidget.$(OBJEXT) GdiWidgetGrid.$(OBJEXT) \
+	HybridChart.$(OBJEXT) ImageProvider.$(OBJEXT) \
+	MatchmapDiagram.$(OBJEXT) Painter.$(OBJEXT) \
+	PlanetRing.$(OBJEXT) PdfGenerator.$(OBJEXT) \
+	PdfPainter.$(OBJEXT) PpTree.$(OBJEXT) \
+	PrintoutTextHelper.$(OBJEXT) Sbc.$(OBJEXT) \
 	ShadbalaDiagrams.$(OBJEXT) SouthIndianChart.$(OBJEXT) \
 	textclient.$(OBJEXT) TimelineDiagram.$(OBJEXT) \
-	UranianDial.$(OBJEXT) UranianAspects.$(OBJEXT) \
+	UranianDisk.$(OBJEXT) UranianAspects.$(OBJEXT) \
 	UranianPlanets.$(OBJEXT) VargaDiagrams.$(OBJEXT) \
 	WesternAngles.$(OBJEXT) WesternAspects.$(OBJEXT) \
 	WesternHouses.$(OBJEXT) WesternPlanets.$(OBJEXT) \
@@ -168,21 +169,21 @@ am__depfiles_remade = ./$(DEPDIR)/AshtakavargaDiagrams.Po \
 	./$(DEPDIR)/BarDiagram.Po ./$(DEPDIR)/CeDasaLords.Po \
 	./$(DEPDIR)/CeFieldGrid.Po ./$(DEPDIR)/CeImage.Po \
 	./$(DEPDIR)/CeLabelledAnnulus.Po ./$(DEPDIR)/CeNakshatras.Po \
-	./$(DEPDIR)/CePlanetsBase.Po ./$(DEPDIR)/ChartElement.Po \
-	./$(DEPDIR)/ChartElementImpl.Po ./$(DEPDIR)/ChartField.Po \
-	./$(DEPDIR)/DasaChart.Po ./$(DEPDIR)/DasaTree.Po \
-	./$(DEPDIR)/DiamondChart.Po ./$(DEPDIR)/DocHelper.Po \
-	./$(DEPDIR)/EastIndianChart.Po ./$(DEPDIR)/EphemDiagram.Po \
-	./$(DEPDIR)/FieldWriter.Po ./$(DEPDIR)/GcPainter.Po \
-	./$(DEPDIR)/GdiHelper.Po ./$(DEPDIR)/GdiWidget.Po \
-	./$(DEPDIR)/GdiWidgetGrid.Po ./$(DEPDIR)/HybridChart.Po \
-	./$(DEPDIR)/ImageProvider.Po ./$(DEPDIR)/MatchmapDiagram.Po \
-	./$(DEPDIR)/Painter.Po ./$(DEPDIR)/PdfGenerator.Po \
-	./$(DEPDIR)/PdfPainter.Po ./$(DEPDIR)/PpTree.Po \
+	./$(DEPDIR)/ChartElement.Po ./$(DEPDIR)/ChartElementImpl.Po \
+	./$(DEPDIR)/ChartField.Po ./$(DEPDIR)/DasaChart.Po \
+	./$(DEPDIR)/DasaTree.Po ./$(DEPDIR)/DiamondChart.Po \
+	./$(DEPDIR)/DocHelper.Po ./$(DEPDIR)/EastIndianChart.Po \
+	./$(DEPDIR)/EphemDiagram.Po ./$(DEPDIR)/FieldWriter.Po \
+	./$(DEPDIR)/GcPainter.Po ./$(DEPDIR)/GdiHelper.Po \
+	./$(DEPDIR)/GdiWidget.Po ./$(DEPDIR)/GdiWidgetGrid.Po \
+	./$(DEPDIR)/HybridChart.Po ./$(DEPDIR)/ImageProvider.Po \
+	./$(DEPDIR)/MatchmapDiagram.Po ./$(DEPDIR)/Painter.Po \
+	./$(DEPDIR)/PdfGenerator.Po ./$(DEPDIR)/PdfPainter.Po \
+	./$(DEPDIR)/PlanetRing.Po ./$(DEPDIR)/PpTree.Po \
 	./$(DEPDIR)/PrintoutTextHelper.Po ./$(DEPDIR)/Sbc.Po \
 	./$(DEPDIR)/ShadbalaDiagrams.Po \
 	./$(DEPDIR)/SouthIndianChart.Po ./$(DEPDIR)/TimelineDiagram.Po \
-	./$(DEPDIR)/UranianAspects.Po ./$(DEPDIR)/UranianDial.Po \
+	./$(DEPDIR)/UranianAspects.Po ./$(DEPDIR)/UranianDisk.Po \
 	./$(DEPDIR)/UranianPlanets.Po ./$(DEPDIR)/VargaDiagrams.Po \
 	./$(DEPDIR)/WesternAngles.Po ./$(DEPDIR)/WesternAspects.Po \
 	./$(DEPDIR)/WesternHouses.Po ./$(DEPDIR)/WesternPlanets.Po \
@@ -405,8 +406,6 @@ libsaravali_gdi_a_SOURCES = \
 	CeLabelledAnnulus.cpp \
 	CeLabelledAnnulus.h \
 	CeNakshatras.cpp \
-	CePlanetsBase.cpp \
-	CePlanetsBase.h \
 	ChartElement.cpp \
 	ChartElement.h \
 	ChartElementImpl.cpp \
@@ -441,6 +440,8 @@ libsaravali_gdi_a_SOURCES = \
 	MatchmapDiagram.h \
 	Painter.cpp \
 	Painter.h \
+	PlanetRing.cpp \
+	PlanetRing.h \
 	PdfGenerator.cpp \
 	PdfGenerator.h \
 	PdfPainter.cpp \
@@ -455,7 +456,7 @@ libsaravali_gdi_a_SOURCES = \
 	textclient.cpp \
 	TimelineDiagram.cpp \
 	TimelineDiagram.h \
-	UranianDial.cpp \
+	UranianDisk.cpp \
 	UranianAspects.cpp \
 	UranianPlanets.cpp \
 	VargaDiagrams.cpp \
@@ -530,7 +531,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CeImage.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CeLabelledAnnulus.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CeNakshatras.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CePlanetsBase.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ChartElement.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ChartElementImpl.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ChartField.Po@am__quote@ # am--include-marker
@@ -551,6 +551,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Painter.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/PdfGenerator.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/PdfPainter.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/PlanetRing.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/PpTree.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/PrintoutTextHelper.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Sbc.Po@am__quote@ # am--include-marker
@@ -558,7 +559,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/SouthIndianChart.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TimelineDiagram.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/UranianAspects.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/UranianDial.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/UranianDisk.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/UranianPlanets.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/VargaDiagrams.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/WesternAngles.Po@am__quote@ # am--include-marker
@@ -717,7 +718,6 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/CeImage.Po
 	-rm -f ./$(DEPDIR)/CeLabelledAnnulus.Po
 	-rm -f ./$(DEPDIR)/CeNakshatras.Po
-	-rm -f ./$(DEPDIR)/CePlanetsBase.Po
 	-rm -f ./$(DEPDIR)/ChartElement.Po
 	-rm -f ./$(DEPDIR)/ChartElementImpl.Po
 	-rm -f ./$(DEPDIR)/ChartField.Po
@@ -738,6 +738,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/Painter.Po
 	-rm -f ./$(DEPDIR)/PdfGenerator.Po
 	-rm -f ./$(DEPDIR)/PdfPainter.Po
+	-rm -f ./$(DEPDIR)/PlanetRing.Po
 	-rm -f ./$(DEPDIR)/PpTree.Po
 	-rm -f ./$(DEPDIR)/PrintoutTextHelper.Po
 	-rm -f ./$(DEPDIR)/Sbc.Po
@@ -745,7 +746,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/SouthIndianChart.Po
 	-rm -f ./$(DEPDIR)/TimelineDiagram.Po
 	-rm -f ./$(DEPDIR)/UranianAspects.Po
-	-rm -f ./$(DEPDIR)/UranianDial.Po
+	-rm -f ./$(DEPDIR)/UranianDisk.Po
 	-rm -f ./$(DEPDIR)/UranianPlanets.Po
 	-rm -f ./$(DEPDIR)/VargaDiagrams.Po
 	-rm -f ./$(DEPDIR)/WesternAngles.Po
@@ -806,7 +807,6 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/CeImage.Po
 	-rm -f ./$(DEPDIR)/CeLabelledAnnulus.Po
 	-rm -f ./$(DEPDIR)/CeNakshatras.Po
-	-rm -f ./$(DEPDIR)/CePlanetsBase.Po
 	-rm -f ./$(DEPDIR)/ChartElement.Po
 	-rm -f ./$(DEPDIR)/ChartElementImpl.Po
 	-rm -f ./$(DEPDIR)/ChartField.Po
@@ -827,6 +827,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/Painter.Po
 	-rm -f ./$(DEPDIR)/PdfGenerator.Po
 	-rm -f ./$(DEPDIR)/PdfPainter.Po
+	-rm -f ./$(DEPDIR)/PlanetRing.Po
 	-rm -f ./$(DEPDIR)/PpTree.Po
 	-rm -f ./$(DEPDIR)/PrintoutTextHelper.Po
 	-rm -f ./$(DEPDIR)/Sbc.Po
@@ -834,7 +835,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/SouthIndianChart.Po
 	-rm -f ./$(DEPDIR)/TimelineDiagram.Po
 	-rm -f ./$(DEPDIR)/UranianAspects.Po
-	-rm -f ./$(DEPDIR)/UranianDial.Po
+	-rm -f ./$(DEPDIR)/UranianDisk.Po
 	-rm -f ./$(DEPDIR)/UranianPlanets.Po
 	-rm -f ./$(DEPDIR)/VargaDiagrams.Po
 	-rm -f ./$(DEPDIR)/WesternAngles.Po

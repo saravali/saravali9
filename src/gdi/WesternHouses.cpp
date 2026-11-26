@@ -1,7 +1,7 @@
 /***********************************************************************
  This is the source code of Saravali, a program for Vedic and western astrology.
 
- File       src/gdi/CeHouses.cpp
+ File       src/gdi/WesternHouses.cpp
  Release    9.0
 
  This is free and unencumbered software released into the public domain.
@@ -53,11 +53,12 @@ extern Gdiconfig *gdiconfig;
 * 
 *
 ******************************************************/
-class CeHouses : public CeLabelledAnnulus
+class WesternHouses : public CeLabelledAnnulus
 {
+	friend class UranianDisk;
 public:
 
-	CeHouses( HybridChart *chart, CgLabelledAnnulus *annulus )
+	WesternHouses( HybridChart *chart, CgLabelledAnnulus *annulus )
 		: CeLabelledAnnulus( chart, annulus, 12 )
 	{
 		usection = chart->getUranianSection();
@@ -65,6 +66,16 @@ public:
 		// no symbols available
 		assert( annulus );
 		annulus->useSymbols = false;
+	}
+
+	virtual void onCoordinatesChanged() override
+	{
+		if ( !  chart->getFirstHoroscope()) return;
+
+		const Viewpoint &viewpoint = chart->getViewpoint();
+		const PlanetId planetId = usection ? usection->houseSystemPlanetId : PlanetId::Meridian;
+
+		houses = UranianHelper::get()->calculateHouses( chart->getFirstHoroscope(), viewpoint, planetId );
 	}
 
 protected:
@@ -91,19 +102,9 @@ protected:
 		return &skin.housePattern;
 	}
 
-	virtual void onCoordinatesChanged() override
-	{
-		if ( !  chart->getFirstHoroscope()) return;
-
-		const Viewpoint &viewpoint = chart->getViewpoint();
-		const PlanetId planetId = usection ? usection->houseSystemPlanetId : PlanetId::Meridian;
-
-		houses = UranianHelper::get()->calculateHouses( chart->getFirstHoroscope(), viewpoint, planetId );
-	}
-
 	/*****************************************************
 	**
-	**   CeHouses   ---   getSegmentStartLongitude
+	**   WesternHouses   ---   getSegmentStartLongitude
 	**
 	******************************************************/
 	virtual double getSegmentStartLongitude( const int &f ) override
@@ -127,5 +128,5 @@ ChartElementBase *ChartElementFactory::createHouses( CgElement *cge ) const
 {
 	CgLabelledAnnulus *annulus = dynamic_cast<CgLabelledAnnulus*>( cge );
 	assert( annulus );
-	return new CeHouses( chart, annulus );
+	return new WesternHouses( chart, annulus );
 }

@@ -1,206 +1,49 @@
 {
     "configs": [
 				{
-            "name": "Factors inside",
-						"UranianPlanets" : {
-								"radius":  69,
-								"higherDivisionInnerRadius":  62,
-								"rLabels": 62,
-								"labelSize": 250,
-								"secondaryScaleOffset" : 20,
-								"firstScaleMarker" : {
-										"wDegree1" : -1,
-										"wDegree5" : -2,
-										"wDegree10" : -3,
-										"show10DegreeFrame" : true,
-										"show1DegreeFrame" : false,
-										"show5DegreeFrame" : false
-								}
-						},
-						"UranianDial" : {
-								"radius": 89,
-								"innerRadius": 69,
-								"rLabels": 78
-						},
-						"Houses": {
-							"radius":  69,
-							"innerRadius":  25,
-							"rLabels":  30
-						},
-						"UranianAspects": {
-							"radius": 55
-						}
-				},
-				{
-            "name": "Uranian Default explicite",
-						"UranianDial" : {
-								"radius": 79,
-								"innerRadius": 59,
-								"rLabels": 68
-						},
-						"UranianAspects": {
-							"radius": 59
-						},
-						"UranianPlanets" : {
-								"radius":  79,
-								"innerRadius":  50,
-								"rLabels": 85,
-								"secondaryScaleOffset" : 20
-						}
-				},
-				{
-            "name": "Big Signs",
+            "name": "Uranian default/yellow disk",
             "extends": "Default Uranian Chart",
-						"UranianPlanets" : {
-								"radius":  59,
-								"rLabels": 55,
-								"innerRadius": 39,
-								"labelSize": 250,
-								"secondaryScaleOffset" : 20
-						},
-						"UranianDial" : {
-								"radius":  99,
-								"labelSize": 200
-						},
-						"UranianAspects": {
-							"radius": 59
-						}
-				},
-				{
-            "name": "Uranian: no signs in higher divisions",
-            "extends": "Default Uranian Chart",
-						"UranianDial": {
-							"showHigherDivisionSigns": false
-						}
-				},
-				{
-            "name": "Uranian: big annulus in higher divisions",
-            "extends": "Default Uranian Chart",
-						"UranianDial": {
-							"showHigherDivisionSigns": false,
-							"higherDivisionInnerRadius": 20
-						}
-				},
-				{
-            "name": "Uranian1",
-            "extends": "Default Uranian Chart",
-						"Houses": {
-							"radius":  59,
-							"innerRadius":  5,
-							"rLabels":  30
-						},
-						"UranianPlanets" : {
-							"radius":  59,
-							"rLabels": 55,
-							"labelSize": 250
-						}
-				},
-				{
-            "name": "Uranian Test1",
-						"UranianDial": {
-							"radius":  79,
-							"wLabels": -10,
-							"innerRadius":  39,
-							"rotateLabels": true
-						},
-						"Houses": {
-							"radius":  59,
-							"innerRadius":  15,
-							"rLabels":  30
-						},
-						"UranianAspects": {
-							"radius": 79
-						}
-        },
-				{
-            "name": "Uranian Test1a",
-            "extends": "Uranian Test1",
-						"UranianPlanets": {
-							"radius": 79,
-							"rLabels": 85,
-							"labelSize": 150,
-							"useSymbols": false,
-							"firstScaleMarker": {
-									"show10DegreeFrame": true
+						"UranianDisk": {
+							"brush" : {
+								"color" : "#fff8e0"
 							}
 						}
 				},
 				{
-            "name": "Uranian Test3",
-						"UranianDial": {
-							"radius":  79,
-							"wLabels": -10,
-							"innerRadius":  59,
-							"rotateLabels": true
-						},
-						"Houses": {
-							"radius":  59,
-							"innerRadius":  15,
-							"rLabels":  30
-						},
-						"UranianPlanets": {
-							"radius": 79,
-							"rLabels": 87
-						},
-						"UranianAspects": {
-							"radius": 79
-						}
-        },
-				{
-            "name": "Uranian Martin2",
-						"dial": {
-							"radius":  70,
-							"rLabels": 60,
-							"innerRadius":  50,
-							"higherDivisionInnerRadius":  50,
-							"rotateLabels": false
-						},
-						"UranianPlanets": {
-							"radius": 70,
-							"rLabels": 75,
-							"firstScaleMarker": {
-									"pen5": {
-											"width": 2
-									},
-									"pen10": {
-											"width": 2
-									},
-									"show10DegreeFrame": true
+            "name": "Uranian default/transparent disk",
+            "extends": "Default Uranian Chart",
+						"UranianDisk": {
+							"brush" : {
+								"color" : "#00000000",
+								"style" : "wxBRUSHSTYLE_TRANSPARENT"
 							}
-						},
-						"UranianAspects": {
-							"radius": 40
-						},
-						"Houses": {
-							"radius":  50,
-							"innerRadius":  40,
-							"rLabels":  45
 						}
 				},
 				{
-            "name": "Uranian Martin1",
-						"UranianDial": {
-							"radius":  75,
-							"wLabels": -10,
-							"innerRadius":  59,
-							"rotateLabels": true
-						},
-						"UranianAspects": {
-							"radius": 59
-						},
-						"UranianPlanets": {
-								"radius": 75,
-								"innerRadius": 60,
-								"rLabels": 80,
-								"firstScaleMarker" : {
-										"wDegree1" : 1,
-										"wDegree5" : 2,
-										"wDegree10" : 5,
-										"show10DegreeFrame" : false,
-										"show1DegreeFrame" : false,
-										"show5DegreeFrame" : false
-								}
+            "name": "Uranian default/wooden disk",
+            "extends": "Default Uranian Chart",
+						"UranianDisk": {
+							"brush" : {
+								"filename" : "madera.jpg"
+							}
 						}
+				},
+				{
+            "name": "Uranian Minimalistic",
+            "extends": "Default Uranian Chart",
+						"UranianDisk": {
+							"brush" : {
+								"color" : "#fff8e0"
+							},
+							"showSigns" : false,
+							"showHouses" : false,
+							"paintDegreeNumbers" : false
+						}
+				},
+				{
+            "name": "Uranian elliptic disk",
+            "extends": "Default Uranian Chart",
+						"geom": "Ellipse"
 				}
     ]
 }

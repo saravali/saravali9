@@ -34,6 +34,7 @@
 #include "ChartOptionsUranian.h"
 
 #include "ChartConfig.h"
+#include "enumserializer.h"
 #include "logger.h"
 
 #include <wx/checkbox.h>
@@ -64,10 +65,15 @@ ChartOptionsUranian::ChartOptionsUranian( wxWindow *parent, ContextProps_ptr pro
 	sizer_uranianoptions->Add(check_coloredplanets, 0, wxALL, 3);
 	check_use_sign_colors = new wxCheckBox(sizer_uranianoptions->GetStaticBox(), wxID_ANY, _("Use Colors for Signs"));
 	sizer_uranianoptions->Add(check_use_sign_colors, 0, wxALL|wxEXPAND, 3);
-	wxBoxSizer* sizer_1 = new wxBoxSizer(wxHORIZONTAL);
-	sizer_uranianoptions->Add(sizer_1, 1, wxEXPAND, 0);
+	wxFlexGridSizer* grid_sizer_1 = new wxFlexGridSizer(2, 2, 0, 0);
+	sizer_uranianoptions->Add(grid_sizer_1, 1, wxEXPAND, 0);
+	label_chartorigin = new wxStaticText(sizer_uranianoptions->GetStaticBox(), wxID_ANY, _("Origin for Higher Divisions"));
+	grid_sizer_1->Add(label_chartorigin, 1, wxALIGN_CENTER_VERTICAL|wxALL, 3);
+	const wxString *choice_chart_origin_choices = NULL;
+	choice_chart_origin = new wxChoice(sizer_uranianoptions->GetStaticBox(), wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, choice_chart_origin_choices);
+	grid_sizer_1->Add(choice_chart_origin, 0, wxALL|wxEXPAND, 3);
 	label_chartcenter = new wxStaticText(sizer_uranianoptions->GetStaticBox(), wxID_ANY, _("Center of Chart"));
-	sizer_1->Add(label_chartcenter, 1, wxALIGN_CENTER_VERTICAL|wxALL, 3);
+	grid_sizer_1->Add(label_chartcenter, 1, wxALIGN_CENTER_VERTICAL|wxALL, 3);
 	const wxString choice_chart_center_choices[] = {
 		_("Nothing"),
 		_("Division D-N"),
@@ -76,15 +82,11 @@ ChartOptionsUranian::ChartOptionsUranian( wxWindow *parent, ContextProps_ptr pro
 	};
 	choice_chart_center = new wxChoice(sizer_uranianoptions->GetStaticBox(), wxID_ANY, wxDefaultPosition, wxDefaultSize, 4, choice_chart_center_choices);
 	choice_chart_center->SetSelection(0);
-	sizer_1->Add(choice_chart_center, 0, wxALL|wxEXPAND, 3);
+	grid_sizer_1->Add(choice_chart_center, 0, wxALL|wxEXPAND, 3);
 	wxStaticBoxSizer* sizer_matches = new wxStaticBoxSizer(new wxStaticBox(this, wxID_ANY, _("Events")), wxVERTICAL);
 	sizer_main->Add(sizer_matches, 0, wxALL|wxEXPAND, 3);
 	check_showmatches = new wxCheckBox(sizer_matches->GetStaticBox(), wxID_ANY, _("Show Matches on Mouseover"));
 	sizer_matches->Add(check_showmatches, 0, wxALL, 3);
-	wxStaticBoxSizer* sizer_shifted = new wxStaticBoxSizer(new wxStaticBox(this, wxID_ANY, _("Shifted Charts")), wxVERTICAL);
-	sizer_main->Add(sizer_shifted, 0, wxALL|wxEXPAND, 3);
-	check_show_eha = new wxCheckBox(sizer_shifted->GetStaticBox(), wxID_ANY, _("Show Cardinal Points"));
-	sizer_shifted->Add(check_show_eha, 0, wxALL, 3);
 	
 	SetSizer(sizer_main);
 	sizer_main->Fit(this);
@@ -92,10 +94,16 @@ ChartOptionsUranian::ChartOptionsUranian( wxWindow *parent, ContextProps_ptr pro
 
 	check_coloredplanets->SetValidator( wxGenericValidator( &cfg->showPlanetColors ));
 	check_use_sign_colors->SetValidator( wxGenericValidator( &cfg->showSignColors ));
+
+	choice_chart_origin->Clear();
+	for ( const auto &o : Enum<UranianChartOrigin>() )
+	{
+		choice_chart_origin->Append( enum_to_string( o ));
+	}
+	choice_chart_origin->SetValidator( wxGenericValidator( (int*)&cfg->uranianChartOrigin ));
+
 	choice_chart_center->SetValidator( wxGenericValidator( &cfg->chartCenterType ));
 
 	check_showmatches->SetValidator( wxGenericValidator( &cfg->showMatchesOnMouseOver ));
-
-	check_show_eha->SetValidator( wxGenericValidator( &cfg->showEarthHoroscopeAnglesInShiftedCharts ));
 }
 

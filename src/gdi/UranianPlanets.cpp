@@ -33,7 +33,6 @@
 
 #include "ChartElementImpl.h"
 
-#include "CePlanetsBase.h"
 #include "ContextProperties.h"
 #include "Direction.h"
 #include "DocHelper.h"
@@ -44,6 +43,7 @@
 #include "HybridChart.h"
 #include "mathbase.h"
 #include "Painter.h"
+#include "PlanetRing.h"
 #include "TermList.h"
 #include "Uranian.h"
 
@@ -51,133 +51,54 @@
 
 /*************************************************//**
 *
-*   This class implements the display of planets, luminaries etc
-*   and degree scales.
 *
-*   Depending on the mode there may be multiple (or even no) sets of planets
 *
 ******************************************************/
-class UranianPlanets : public CePlanetsBase
+class UranianPlanetRing : public PlanetRing
 {
 public:
 
-	UranianPlanets( HybridChart *chart, CgPlanetScale *a ) : CePlanetsBase( chart, a )
+	/*****************************************************
+	**
+	**   UranianPlanetRing   ---   paint
+	**
+	******************************************************/
+	UranianPlanetRing( HybridChart *chart, CgPlanetRing *ring )
+	 : PlanetRing( chart, ring )
 	{
-		usection = chart->getUranianSection();
+	}
+
+	/*****************************************************
+	**
+	**   UranianPlanetRing   ---   createTerms
+	**
+	******************************************************/
+	virtual std::list<MTerm> createTerms( const HoroscopeRole &role ) override
+	{
+		UranianSection *usection = chart->getUranianSection();
 		assert( usection );
-
-		drawStackPosition = 3;
-	}
-
-	/*****************************************************
-	**
-	**   UranianPlanets   ---   paint
-	**
-	******************************************************/
-	virtual void paint( Painter *painter, const MRect &refreshRect ) override
-	{
-#ifdef DEBUG_UPLANETS
-		debuglog << "UranianPlanets::paint roles size " << chart->getChartRoles().size();
-#endif
-		CePlanetsBase::paint( painter, refreshRect );
-		paintDegreeScales( painter, refreshRect, usection->chartDivision );
-	}
-
-protected:
-
-	/*****************************************************
-	**
-	**   UranianPlanets   ---   onCoordinatesChanged
-	**
-	******************************************************/
-	virtual void onCoordinatesChanged() override
-	{
-#ifdef DEBUG_UPLANETS
-		debuglog << "UranianPlanets::onCoordinatesChanged Start roles size " << chart->getChartRoles().size();
-		for( const auto &role : chart->getChartRoles() )
-		{
-			debuglog << "UranianPlanets::onCoordinatesChanged -> ROLE " << role;
-		}
-		for( const auto a : usection->shiftPlanetIds )
-		{
-			debuglog << "UranianPlanets::onCoordinatesChanged -> SHIFT ID " << a.first << "/" << a.second;
-		}
-#endif
-		if ( ! getCg()->show ) return;
 
 		const Viewpoint viewpoint = chart->getViewpoint();
 		ContextProps_ptr props = chart->getProps();
-
 		auto obs = props->getPlanets( viewpoint, { FilterGroup::Houses } );
 
-		clearItems();
+		std::list<MTerm> terms;
+		Horoscope_ptr h = chart->getHoroscope( role );
+		if ( ! h ) return terms; // can happen on partner chart
 
-		std::list<TermId> terms;
 		for( const auto &def : Formulary::get()->getFormDefPairs( usection->chartFormulae, usection->includeAntiscia ))
 		{
-			terms.push_back( def.second );
-		}
-
-		const int division = usection->chartDivision;
-
-		// find out shift values for planets
-		std::map<HoroscopeRole,double> shiftValues;
-		for( const auto &role : chart->getChartRoles() )
-		{
-			shiftValues[ role ] = 0;
-			if ( usection->enablePlanetShift )
-			{
-				const auto a = usection->shiftPlanetIds.find( role );
-				if ( a != usection->shiftPlanetIds.end())
-				{
-					shiftValues[ role ] = chart->getHoroscope( role )->getLongitude( a->second, viewpoint );
-				}
-			}
-			debuglog << "UranianPlanets::onCoordinatesChanged -> SHIFT ROLE " << role << " value " << shiftValues[ role ];
-		}
-
-		for( const TermId &termid : terms )
-		{
-			for( auto term : TermList( obs, termid ))
+			for( auto term : TermList( obs, def.second ))
 			{
 				if ( term.applyFilter( usection->filter ))
 				{
-					for( const auto &role : chart->getChartRoles() )
-					{
-						Horoscope_ptr h = chart->getHoroscope( role );
-						if ( ! h ) return; // can happen on partner chart
-
-						// Antiscia only in chart #1
-						if ( MTerm::isAntiTermId( termid ) && role != chart->getFirstRole()) continue;
-
-						// skip earth horoscope angles if not relevant
-						if ( term.isPrimitive()
-							&& PlanetHelper::isCardinalPoint( term.getFirstPlanet())
-							&& ( ! h->getLongitudeOffset() || role == chart->getFirstRole())
-							)
-						continue;
-
-						const double longitude = getModuloLongitude( term.evaluate( h, viewpoint ) - shiftValues[ role ], division );
-
-#ifdef DEBUG_UPLANETS
-						debuglog << "UranianPlanets::onCoordinatesChanged role " << role
-							<< " is-shifted " << DirectionCalculator::get()->isShiftedRole( h->getRole())
-							<< " h offset " << h->getLongitudeOffset()
-							<< " partner offset " << shiftValues[ role ]
-							<< " primitive " << term.isPrimitive()
-							<< " Term: " << term
-							<< " longitude " << longitude;
-#endif
-						addItem( this, role, getCoordinatesForItem( role, longitude ), term, longitude );
-					}
+						if ( MTerm::isAntiTermId( term.getTermId() ) && role != chart->getFirstRole()) continue;
+						terms.push_back( term );
 				}
 			}
 		}
+		return terms;
 	}
-
-	UranianSection *usection = nullptr;
-
-	ActiveTerm lastMatchTerm = std::make_pair( MTerm( TermId::None ), HoroscopeRole::None );
 };
 
 /*****************************************************
@@ -185,10 +106,10 @@ protected:
 **   Chart element factory
 **
 ******************************************************/
-ChartElementBase *ChartElementFactory::createUranianPlanets( CgElement *cge ) const
+ChartElementBase *ChartElementFactory::createUranianPlanetRing( CgElement *cge ) const
 {
-	CgPlanetScale *a = dynamic_cast<CgPlanetScale*>( cge );
+	CgPlanetRing *a = dynamic_cast<CgPlanetRing*>( cge );
 	assert( a );
-	return new UranianPlanets( chart, a );
+	return new UranianPlanetRing( chart, a );
 }
 

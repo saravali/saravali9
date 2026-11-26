@@ -139,6 +139,14 @@ public:
 
 	double getAries() const { return aries; }
 
+	/**
+	* Calculates the effective lontitude of a planet, i.e. the longitude where it has to be painted.
+	* Zero means the right middle part of the chart (like in normal coordinate system).
+	*
+	* Division is integrated (if any) and the chart origins of western and uranian chart.
+	*/
+	double getEffectiveLongitude( const double& );
+
 	double getAyanamsa() const;
 
 	const ChartGeometry &getGeometry();

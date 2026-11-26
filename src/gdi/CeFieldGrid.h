@@ -67,9 +67,9 @@ public:
 
 	virtual WidgetResponse onResponsiveChartEvent( const MComplex &p, const int keymod = 0 ) override;
 
-protected:
-
 	virtual void onCoordinatesChanged() override;
+
+protected:
 
 	/**
 	*  Initial paint activities.

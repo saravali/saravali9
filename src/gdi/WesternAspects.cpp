@@ -1,7 +1,7 @@
 /***********************************************************************
  This is the source code of Saravali, a program for Vedic and western astrology.
 
- File       src/gdi/CeAspects.cpp
+ File       src/gdi/WesternAspects.cpp
  Release    9.0
 
  This is free and unencumbered software released into the public domain.
@@ -48,16 +48,16 @@ extern Gdiconfig *gdiconfig;
 *   Chart element showing aspects in Western charts. 
 *
 ******************************************************/
-class CeAspects : public ChartElement<CgDisc>
+class WesternAspects : public ChartElement<CgDisk>
 {
 public:
 
 	/*****************************************************
 	**
-	**   CeAspects   ---   Constructor
+	**   WesternAspects   ---   Constructor
 	**
 	******************************************************/
-	CeAspects( HybridChart *chart, CgDisc *disc )
+	WesternAspects( HybridChart *chart, CgDisk *disc )
 		: ChartElement( chart, disc )
 	{
 		drawStackPosition = 3;
@@ -65,7 +65,7 @@ public:
 
 	/*****************************************************
 	**
-	**   CeAspects   ---   paint
+	**   WesternAspects   ---   paint
 	**
 	******************************************************/
 	virtual void paint( Painter *painter, const MRect& /*refreshRect*/ ) override
@@ -78,15 +78,15 @@ public:
 		ChartConfig *cfg = chart->getChartConfig( WidgetCategory::WesternChart );
 
 		std::vector<HoroscopeRole> roles = chart->getChartRoles();
-		debuglog << "CeAspects::paint";
+		debuglog << "WesternAspects::paint";
 		for( const auto &role: roles )
 		{
-			debuglog << "CeAspects::paint role " << role;
+			debuglog << "WesternAspects::paint role " << role;
 		}
 
 		if ( roles.size() == 0 ) return; // no horoscope, nothing to do
 
-		CgDisc *disc = getCg();
+		CgDisk *disc = getGeom();
 		if ( ! disc->show ) return;
 
 		if ( ! aspects.size() && chart->getFirstHoroscope())
@@ -95,7 +95,7 @@ public:
 		}
 
 		setInheritedStyle( painter );
-		paintDisc( painter, *disc );
+		paintDisk( painter, disc );
 
 		const ActiveTerm &activeTerm = chart->getLeadingActiveTerm();
 		const PlanetId pActive = activeTerm.first.getTermId() == TermId::Single
@@ -109,7 +109,7 @@ public:
 
 		for ( const auto &event : aspects )
 		{
-			debuglog << "CeAspects::paint type " << event.type.first;
+			debuglog << "WesternAspects::paint type " << event.type.first;
 
 			double zoom = 1;
 
@@ -133,8 +133,8 @@ public:
 				}
 			}
 
-			const MComplex p1 = discPointToXy( aries + event.l1, disc );
-			const MComplex p2 = discPointToXy( aries + event.l2, disc );
+			const MComplex p1 = diskPointToXy( aries + event.l1, disc );
+			const MComplex p2 = diskPointToXy( aries + event.l2, disc );
 			debuglog << "Aspect " << (int)event.type.first << " aries " << aries << " l1 " << event.l1
 				<< " l2 " << event.l2 << " p1 " << p1 << " p2 " << p2 ;
 			AspectPaintHelper( painter ).paintWesternAspect( p1, p2, event.type, event.orbis, zoom );
@@ -152,7 +152,7 @@ public:
 
 	/*****************************************************
 	**
-	**   CeAspects   ---   onResponsiveChartEvent
+	**   WesternAspects   ---   onResponsiveChartEvent
 	**
 	******************************************************/
 	WidgetResponse onResponsiveChartEvent( const MComplex&, const int /*keymod*/ ) override
@@ -174,7 +174,7 @@ public:
 					*/
 					const bool useMixedAspects = chart->getSecondHoroscope() != nullptr;
 #if 0
-					debuglog << "CeAspects::onResponsiveChartEvent term " << at.first
+					debuglog << "WesternAspects::onResponsiveChartEvent term " << at.first
 						<< " useMixedAspects " << useMixedAspects
 						<< " event.planet1 " << (int)event.planet1
 						<< " event.planet2 " << (int)event.planet2;
@@ -210,7 +210,7 @@ public:
 			}
 			terms.unique();
 			chart->setActiveTerms( terms );
-			debuglog << "CeAspects::onResponsiveChartEvent activeTerms size " << terms.size();
+			debuglog << "WesternAspects::onResponsiveChartEvent activeTerms size " << terms.size();
 			return true;
 		}
 		else
@@ -223,7 +223,7 @@ protected:
 
 	/*****************************************************
 	**
-	**   CeAspects   ---   setupAspects
+	**   WesternAspects   ---   setupAspects
 	**
 	******************************************************/
 	void setupAspects()
@@ -231,7 +231,7 @@ protected:
 		WesternAspectExpert expert( chart->getProps() );
 		aspects = expert.calculate( chart->isCompositeChart() );
 		expert.sort( aspects, EventSortOrder::TypeReverse );
-		debuglog << "CeAspects::setupAspects size " << aspects.size();
+		debuglog << "WesternAspects::setupAspects size " << aspects.size();
 	}
 
 	std::list<WesternAspectEvent> aspects;
@@ -244,8 +244,8 @@ protected:
 ******************************************************/
 ChartElementBase *ChartElementFactory::createAspects( CgElement *cge ) const
 {
-	CgDisc *disc = dynamic_cast<CgDisc*>( cge );
+	CgDisk *disc = dynamic_cast<CgDisk*>( cge );
 	assert( disc );
-	return new CeAspects( chart, disc );
+	return new WesternAspects( chart, disc );
 }
 

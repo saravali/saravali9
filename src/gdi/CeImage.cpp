@@ -62,7 +62,7 @@ public:
 		const MComplex center = chart->getCenter();
 		const MComplex xymax = chart->getXyMax();
 
-		CgInlayImage *inlay = getCg();
+		CgInlayImage *inlay = getGeom();
 		assert( inlay );
 		if ( ! inlay->show ) return;
 		if ( inlay->filename.empty())
@@ -73,7 +73,7 @@ public:
 		debuglog << "CeImage::paint image filename " << inlay->filename;
 
 		setInheritedStyle( painter );
-		paintDisc( painter, *inlay );
+		paintDisk( painter, *inlay );
 
 		ImageProvider *ip = ImageProvider::get();
 		wxImage image = ip->getImage( inlay->filename );

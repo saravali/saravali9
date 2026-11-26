@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Saravali9\n"
 "Report-Msgid-Bugs-To: http://saravali.github.io/about.html\n"
-"POT-Creation-Date: 2026-11-17 14:22+0100\n"
+"POT-Creation-Date: 2026-11-26 07:28+0100\n"
 "PO-Revision-Date: 2017-03-18 22:18+0100\n"
 "Last-Translator: a <a>\n"
 "Language-Team: de <http://www.saravali.de/contact.html>\n"
@@ -171,7 +171,7 @@ msgstr "Mann"
 msgid "Bride"
 msgstr "Frau"
 
-#: src/astro/Ashtakoota.cpp:310 src/dialogs/Sidebar.cpp:877
+#: src/astro/Ashtakoota.cpp:310 src/dialogs/Sidebar.cpp:876
 msgid "Result"
 msgstr "Ergebnis"
 
@@ -866,7 +866,7 @@ msgstr "Untergruppe"
 msgid "No Matches"
 msgstr "Keine Matches"
 
-#: src/astro/MatchWriter.cpp:165 src/dialogs/Sidebar.cpp:166
+#: src/astro/MatchWriter.cpp:165 src/dialogs/Sidebar.cpp:165
 msgid "Matches"
 msgstr ""
 
@@ -875,12 +875,12 @@ msgid "filtered"
 msgstr ""
 
 #: src/astro/MatchWriter.cpp:207 src/astro/WesternAspect.cpp:432
-#: src/dialogs/Sidebar.cpp:649 src/dialogs/UranianControls.cpp:151
+#: src/dialogs/Sidebar.cpp:648 src/dialogs/UranianControls.cpp:151
 #: src/dialogs/WesternAspectConflet.cpp:153
 msgid "Orbis"
 msgstr ""
 
-#: src/astro/MatchWriter.cpp:208 src/dialogs/Sidebar.cpp:522
+#: src/astro/MatchWriter.cpp:208 src/dialogs/Sidebar.cpp:521
 msgid "Residuum"
 msgstr ""
 
@@ -888,7 +888,7 @@ msgstr ""
 msgid "deg/day"
 msgstr "Grad/Tag"
 
-#: src/astro/MatchWriter.cpp:210 src/dialogs/Sidebar.cpp:510
+#: src/astro/MatchWriter.cpp:210 src/dialogs/Sidebar.cpp:509
 #: src/dialogs/UranianControls.cpp:172
 msgid "Due Date"
 msgstr "Fälligkeit"
@@ -1210,7 +1210,7 @@ msgstr ""
 
 #: src/astro/SpWriter.cpp:111 src/base/Commands.cpp:300 src/base/Lang.cpp:156
 #: src/base/Lang.cpp:222 src/dialogs/PlanetPropertyConflet.cpp:146
-#: src/dialogs/Sidebar.cpp:527 src/dialogs/ToolbarConflet.cpp:112
+#: src/dialogs/Sidebar.cpp:526 src/dialogs/ToolbarConflet.cpp:112
 #: src/widgets/AshtakavargaWidget.cpp:108 src/widgets/ShadbalaWidget.cpp:145
 msgid "Text"
 msgstr ""
@@ -2290,7 +2290,7 @@ msgstr "Ringförmig total"
 msgid "unknown"
 msgstr "unbekannt"
 
-#: src/base/ChartGeometry.cpp:676
+#: src/base/ChartGeometry.cpp:628
 msgid "Unknown"
 msgstr "Unbekannt"
 
@@ -2508,8 +2508,8 @@ msgstr "Yoga-Editor"
 msgid "Atlas"
 msgstr ""
 
-#: src/base/Commands.cpp:347 src/dialogs/AboutDialog.cpp:219
-#: src/dialogs/AboutDialog.cpp:231
+#: src/base/Commands.cpp:347 src/dialogs/AboutDialog.cpp:225
+#: src/dialogs/AboutDialog.cpp:237
 msgid "About"
 msgstr "Über"
 
@@ -2621,7 +2621,7 @@ msgid "Goto"
 msgstr "Gehe zu"
 
 #: src/base/Commands.cpp:376 src/dialogs/AtlasDialog.cpp:274
-#: src/dialogs/Sidebar.cpp:177 src/dialogs/Sidebar.cpp:194
+#: src/dialogs/Sidebar.cpp:176 src/dialogs/Sidebar.cpp:193
 msgid "Filter"
 msgstr ""
 
@@ -2819,8 +2819,8 @@ msgid "PP"
 msgstr ""
 
 #: src/base/Lang.cpp:136 src/base/Lang.cpp:201
-#: src/dialogs/ChartOptionsUranian.cpp:80 src/dialogs/Sidebar.cpp:208
-#: src/dialogs/Sidebar.cpp:240 src/dialogs/Sidebar.cpp:318
+#: src/dialogs/ChartOptionsUranian.cpp:86 src/dialogs/Sidebar.cpp:207
+#: src/dialogs/Sidebar.cpp:239 src/dialogs/Sidebar.cpp:317
 msgid "Events"
 msgstr "Ereignisse"
 
@@ -4652,7 +4652,7 @@ msgstr "Antiszium"
 msgid "Declination"
 msgstr "Deklination"
 
-#: src/base/Viewpoint.cpp:636 src/dialogs/Sidebar.cpp:519
+#: src/base/Viewpoint.cpp:636 src/dialogs/Sidebar.cpp:518
 #: src/dialogs/UranianControls.cpp:166
 msgid "Speed"
 msgstr "Geschwindigkeit"
@@ -4721,16 +4721,16 @@ msgstr "AV Rekha-Punkte"
 msgid "Custom Key-Value"
 msgstr ""
 
-#: src/dialogs/AboutDialog.cpp:235
+#: src/dialogs/AboutDialog.cpp:241
 msgid "Version"
 msgstr "Version"
 
-#: src/dialogs/AboutDialog.cpp:237 src/dialogs/AboutDialog.cpp:241
-#: src/dialogs/AboutDialog.cpp:245 src/dialogs/AboutDialog.cpp:249
-#: src/dialogs/AboutDialog.cpp:253 src/dialogs/AboutDialog.cpp:257
-#: src/dialogs/AboutDialog.cpp:265 src/dialogs/AboutDialog.cpp:269
-#: src/dialogs/AboutDialog.cpp:273 src/dialogs/AboutDialog.cpp:277
-#: src/dialogs/AboutDialog.cpp:281 src/dialogs/AboutDialog.cpp:285
+#: src/dialogs/AboutDialog.cpp:243 src/dialogs/AboutDialog.cpp:247
+#: src/dialogs/AboutDialog.cpp:251 src/dialogs/AboutDialog.cpp:255
+#: src/dialogs/AboutDialog.cpp:259 src/dialogs/AboutDialog.cpp:263
+#: src/dialogs/AboutDialog.cpp:271 src/dialogs/AboutDialog.cpp:275
+#: src/dialogs/AboutDialog.cpp:279 src/dialogs/AboutDialog.cpp:283
+#: src/dialogs/AboutDialog.cpp:287 src/dialogs/AboutDialog.cpp:291
 #: src/dialogs/AtlasAliasDialog.cpp:76 src/dialogs/AtlasConflet.cpp:97
 #: src/dialogs/AtlasDialog.cpp:287 src/dialogs/AtlasDialog.cpp:288
 #: src/dialogs/AtlasDialog.cpp:289 src/dialogs/AtlasDialog.cpp:290
@@ -4776,55 +4776,55 @@ msgstr "Version"
 msgid "dummy"
 msgstr ""
 
-#: src/dialogs/AboutDialog.cpp:239
+#: src/dialogs/AboutDialog.cpp:245
 msgid "Author"
 msgstr "Autor"
 
-#: src/dialogs/AboutDialog.cpp:243
+#: src/dialogs/AboutDialog.cpp:249
 msgid "URL"
 msgstr ""
 
-#: src/dialogs/AboutDialog.cpp:247
+#: src/dialogs/AboutDialog.cpp:253
 msgid "Build Date"
 msgstr "Builddatum"
 
-#: src/dialogs/AboutDialog.cpp:251
+#: src/dialogs/AboutDialog.cpp:257
 msgid "Compiler"
 msgstr "Compiler"
 
-#: src/dialogs/AboutDialog.cpp:255
+#: src/dialogs/AboutDialog.cpp:261
 msgid "Current OS"
 msgstr "Aktuelles Betriebssystem"
 
-#: src/dialogs/AboutDialog.cpp:259
+#: src/dialogs/AboutDialog.cpp:265
 msgid "Integrated Software Versions"
 msgstr "Versionen integrierter Software"
 
-#: src/dialogs/AboutDialog.cpp:263
+#: src/dialogs/AboutDialog.cpp:269
 msgid "wxWidgets"
 msgstr "wxWidgets"
 
-#: src/dialogs/AboutDialog.cpp:267
+#: src/dialogs/AboutDialog.cpp:273
 msgid "Swiss Ephemeris"
 msgstr "Schweizer Ephemeride"
 
-#: src/dialogs/AboutDialog.cpp:271
+#: src/dialogs/AboutDialog.cpp:277
 msgid "sqlite3"
 msgstr ""
 
-#: src/dialogs/AboutDialog.cpp:275
+#: src/dialogs/AboutDialog.cpp:281
 msgid "wxsqlite3"
 msgstr ""
 
-#: src/dialogs/AboutDialog.cpp:279
+#: src/dialogs/AboutDialog.cpp:285
 msgid "wxpdfdoc"
 msgstr ""
 
-#: src/dialogs/AboutDialog.cpp:283
+#: src/dialogs/AboutDialog.cpp:289
 msgid "Jsoncpp"
 msgstr ""
 
-#: src/dialogs/AboutDialog.cpp:289 src/dialogs/AtlasAliasDialog.cpp:93
+#: src/dialogs/AboutDialog.cpp:295 src/dialogs/AtlasAliasDialog.cpp:93
 #: src/dialogs/AtlasDialog.cpp:399 src/dialogs/AtlasEditDialog.cpp:134
 #: src/dialogs/BirthDataDialog.cpp:179 src/dialogs/BrushDialog.cpp:176
 #: src/dialogs/ConfigurationDialog.cpp:110 src/dialogs/ExportDialog.cpp:79
@@ -5449,7 +5449,7 @@ msgstr "Füllung"
 msgid "Change Brush ..."
 msgstr "Füllung ändern ..."
 
-#: src/dialogs/ChartColorConflet.cpp:203 src/dialogs/Sidebar.cpp:635
+#: src/dialogs/ChartColorConflet.cpp:203 src/dialogs/Sidebar.cpp:634
 msgid "Houses"
 msgstr "Häuser"
 
@@ -5493,7 +5493,7 @@ msgstr "Schriftgröße"
 msgid "Retrogression Style"
 msgstr "Rückläufigkeits-Stil"
 
-#: src/dialogs/ChartConflet.cpp:159 src/dialogs/ChartOptionsUranian.cpp:72
+#: src/dialogs/ChartConflet.cpp:159 src/dialogs/ChartOptionsUranian.cpp:78
 #: src/dialogs/ChartOptionsVarga.cpp:95
 msgid "Nothing"
 msgstr "Nichts"
@@ -5534,45 +5534,41 @@ msgstr "Devanagari-Symbole anzeigen"
 msgid "Benefic/Malefic (B/M) in Nakshatras Names"
 msgstr ""
 
-#: src/dialogs/ChartOptionsUranian.cpp:61
+#: src/dialogs/ChartOptionsUranian.cpp:62
 msgid "Uranian Options"
 msgstr "Uranische Optionen"
 
-#: src/dialogs/ChartOptionsUranian.cpp:63
+#: src/dialogs/ChartOptionsUranian.cpp:64
 msgid "Use Colors for Planets"
 msgstr "Farben für Planeten verwenden"
 
-#: src/dialogs/ChartOptionsUranian.cpp:65
+#: src/dialogs/ChartOptionsUranian.cpp:66
 msgid "Use Colors for Signs"
 msgstr "Farben für Zeichen verwenden"
 
-#: src/dialogs/ChartOptionsUranian.cpp:69 src/dialogs/ChartOptionsVarga.cpp:92
+#: src/dialogs/ChartOptionsUranian.cpp:70
+msgid "Origin for Higher Divisions"
+msgstr ""
+
+#: src/dialogs/ChartOptionsUranian.cpp:75 src/dialogs/ChartOptionsVarga.cpp:92
 msgid "Center of Chart"
 msgstr "Mitte des Charts"
 
-#: src/dialogs/ChartOptionsUranian.cpp:73
+#: src/dialogs/ChartOptionsUranian.cpp:79
 msgid "Division D-N"
 msgstr "Unterteilung D-N"
 
-#: src/dialogs/ChartOptionsUranian.cpp:74
+#: src/dialogs/ChartOptionsUranian.cpp:80
 msgid "Total Degrees"
 msgstr "Grade"
 
-#: src/dialogs/ChartOptionsUranian.cpp:75
+#: src/dialogs/ChartOptionsUranian.cpp:81
 msgid "D-N + Total Degrees"
 msgstr ""
 
-#: src/dialogs/ChartOptionsUranian.cpp:82
+#: src/dialogs/ChartOptionsUranian.cpp:88
 msgid "Show Matches on Mouseover"
 msgstr "Treffer bei Mouse Over anzeigen"
-
-#: src/dialogs/ChartOptionsUranian.cpp:84
-msgid "Shifted Charts"
-msgstr "Vorgeschobene Charts"
-
-#: src/dialogs/ChartOptionsUranian.cpp:86
-msgid "Show Cardinal Points"
-msgstr "Kardinalpunkte anzeigen"
 
 #: src/dialogs/ChartOptionsVarga.cpp:63
 msgid "Varga Chart Options"
@@ -5879,8 +5875,8 @@ msgid "Western Planets"
 msgstr "Westliche Planeten"
 
 #: src/dialogs/ConfletFactory.cpp:143 src/dialogs/ConfletFactory.cpp:151
-#: src/dialogs/Sidebar.cpp:200 src/dialogs/Sidebar.cpp:231
-#: src/dialogs/Sidebar.cpp:310
+#: src/dialogs/Sidebar.cpp:199 src/dialogs/Sidebar.cpp:230
+#: src/dialogs/Sidebar.cpp:309
 msgid "Chart"
 msgstr ""
 
@@ -6553,7 +6549,7 @@ msgstr "Alle"
 msgid "Matching Side"
 msgstr "Matchende Seite"
 
-#: src/dialogs/PlanetFilterDialog.cpp:91 src/dialogs/Sidebar.cpp:628
+#: src/dialogs/PlanetFilterDialog.cpp:91 src/dialogs/Sidebar.cpp:627
 msgid "Both"
 msgstr "Beide"
 
@@ -6578,7 +6574,7 @@ msgstr "Termfilter konfigurieren"
 msgid "Configure active planets"
 msgstr "Aktive Planeten konfigurieren"
 
-#: src/dialogs/PlanetPropertyConflet.cpp:80 src/dialogs/Sidebar.cpp:503
+#: src/dialogs/PlanetPropertyConflet.cpp:80 src/dialogs/Sidebar.cpp:502
 #: src/gui/MenuProvider.cpp:661 src/gui/MenuProvider.cpp:810
 msgid "Columns"
 msgstr "Spalten"
@@ -6716,108 +6712,108 @@ msgstr "Aktuelles Element nach oben bewegen"
 msgid "Move current item down"
 msgstr "Aktuelle Element nach unten bewegen"
 
-#: src/dialogs/Sidebar.cpp:144 src/dialogs/Sidebar.cpp:183
-#: src/dialogs/Sidebar.cpp:254 src/dialogs/Sidebar.cpp:273
-#: src/dialogs/Sidebar.cpp:292 src/dialogs/Sidebar.cpp:333
-#: src/dialogs/Sidebar.cpp:351 src/dialogs/Sidebar.cpp:369
+#: src/dialogs/Sidebar.cpp:143 src/dialogs/Sidebar.cpp:182
+#: src/dialogs/Sidebar.cpp:253 src/dialogs/Sidebar.cpp:272
+#: src/dialogs/Sidebar.cpp:291 src/dialogs/Sidebar.cpp:332
+#: src/dialogs/Sidebar.cpp:350 src/dialogs/Sidebar.cpp:368
 msgid "Options"
 msgstr "Optionen"
 
-#: src/dialogs/Sidebar.cpp:156
+#: src/dialogs/Sidebar.cpp:155
 msgid "Calculation Filters"
 msgstr "Berechnungs-Filter"
 
-#: src/dialogs/Sidebar.cpp:160
+#: src/dialogs/Sidebar.cpp:159
 msgid "Update"
 msgstr ""
 
-#: src/dialogs/Sidebar.cpp:216 src/dialogs/Sidebar.cpp:248
-#: src/dialogs/Sidebar.cpp:267 src/dialogs/Sidebar.cpp:285
-#: src/dialogs/Sidebar.cpp:303 src/dialogs/Sidebar.cpp:363
-#: src/dialogs/Sidebar.cpp:380
+#: src/dialogs/Sidebar.cpp:215 src/dialogs/Sidebar.cpp:247
+#: src/dialogs/Sidebar.cpp:266 src/dialogs/Sidebar.cpp:284
+#: src/dialogs/Sidebar.cpp:302 src/dialogs/Sidebar.cpp:362
+#: src/dialogs/Sidebar.cpp:379
 msgid "Display filter"
 msgstr "Anzeige-Filter"
 
-#: src/dialogs/Sidebar.cpp:221
+#: src/dialogs/Sidebar.cpp:220
 msgid "Offset"
 msgstr "Offset"
 
-#: src/dialogs/Sidebar.cpp:326 src/dialogs/Sidebar.cpp:344
+#: src/dialogs/Sidebar.cpp:325 src/dialogs/Sidebar.cpp:343
 msgid "Filters"
 msgstr "Filter"
 
-#: src/dialogs/Sidebar.cpp:467
+#: src/dialogs/Sidebar.cpp:466
 msgid "Include Antiscia"
 msgstr "Antiszien hinzufügen"
 
-#: src/dialogs/Sidebar.cpp:470
+#: src/dialogs/Sidebar.cpp:469
 msgid "LR Permutations"
 msgstr ""
 
-#: src/dialogs/Sidebar.cpp:487
+#: src/dialogs/Sidebar.cpp:486
 msgid "Activate Offset"
 msgstr ""
 
-#: src/dialogs/Sidebar.cpp:514
+#: src/dialogs/Sidebar.cpp:513
 msgid "Show Time in Due Date"
 msgstr "Zeit im Fälligkeitsdatum anzeigen"
 
-#: src/dialogs/Sidebar.cpp:523
+#: src/dialogs/Sidebar.cpp:522
 msgid "Roles"
 msgstr ""
 
-#: src/dialogs/Sidebar.cpp:536
+#: src/dialogs/Sidebar.cpp:535
 msgid "Pp Options"
 msgstr "Pp-Optionen"
 
-#: src/dialogs/Sidebar.cpp:537
+#: src/dialogs/Sidebar.cpp:536
 msgid "Show Longitude"
 msgstr "Länge anzeigen"
 
-#: src/dialogs/Sidebar.cpp:538
+#: src/dialogs/Sidebar.cpp:537
 msgid "Show Score"
 msgstr "Score anzeigen"
 
-#: src/dialogs/Sidebar.cpp:561 src/widgets/EventFinderWidget.cpp:189
+#: src/dialogs/Sidebar.cpp:560 src/widgets/EventFinderWidget.cpp:189
 #: src/widgets/EventFinderWidget.cpp:237
 msgid "Start Update"
 msgstr "Update starten"
 
-#: src/dialogs/Sidebar.cpp:600
+#: src/dialogs/Sidebar.cpp:599
 msgid "Dial"
 msgstr ""
 
-#: src/dialogs/Sidebar.cpp:608 src/dialogs/UranianConflet.cpp:298
+#: src/dialogs/Sidebar.cpp:607 src/dialogs/UranianConflet.cpp:298
 #: src/dialogs/UranianControls.cpp:160 src/dialogs/UranianControls.cpp:478
 #: src/gui/ToolPanel.cpp:273
 msgid "Division"
 msgstr "Unterteilung"
 
-#: src/dialogs/Sidebar.cpp:616
+#: src/dialogs/Sidebar.cpp:615
 msgid "Order"
 msgstr "Sortierung"
 
-#: src/dialogs/Sidebar.cpp:623
+#: src/dialogs/Sidebar.cpp:622
 msgid "Progression Mode"
 msgstr "Progressions-Modus"
 
-#: src/dialogs/Sidebar.cpp:626
+#: src/dialogs/Sidebar.cpp:625
 msgid "Radix-Progression"
 msgstr ""
 
-#: src/dialogs/Sidebar.cpp:627
+#: src/dialogs/Sidebar.cpp:626
 msgid "Progression only"
 msgstr "Nur Progressiv"
 
-#: src/dialogs/Sidebar.cpp:654
+#: src/dialogs/Sidebar.cpp:653
 msgid "min"
 msgstr "min"
 
-#: src/dialogs/Sidebar.cpp:877
+#: src/dialogs/Sidebar.cpp:876
 msgid "matches"
 msgstr "Treffer"
 
-#: src/dialogs/Sidebar.cpp:881
+#: src/dialogs/Sidebar.cpp:880
 #, fuzzy
 #| msgid "No matches"
 msgid "WARN: too many matches"
@@ -7764,3 +7760,9 @@ msgstr "Alle Gruppen"
 #: src/widgets/YogaWidget.cpp:84
 msgid "All Sources"
 msgstr "Alle Quellen"
+
+#~ msgid "Shifted Charts"
+#~ msgstr "Vorgeschobene Charts"
+
+#~ msgid "Show Cardinal Points"
+#~ msgstr "Kardinalpunkte anzeigen"

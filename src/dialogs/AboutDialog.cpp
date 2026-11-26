@@ -60,6 +60,8 @@
 
 enum { ABOUT_TIMER = wxID_HIGHEST + 1, AD_NOTEBOOK };
 
+//#define DEBUG_ABOUTDIALOG
+
 #define PIC_X 546
 #define PIC_Y 205
 #define LOGO_FILE "logo.jpg"
@@ -73,7 +75,9 @@ enum { ABOUT_TIMER = wxID_HIGHEST + 1, AD_NOTEBOOK };
 LogoWidget::LogoWidget( wxWindow *parent, int id )
 		: wxWindow( parent, id )
 {
+#ifdef DEBUG_ABOUTDIALOG
 	debuglog << "loading logo image file " << LOGO_FILE;
+#endif
 	image = new wxImage( ImageProvider::get()->getImage( LOGO_FILE ));
 
 	xzoom = yzoom = 100;
@@ -169,7 +173,9 @@ void LogoWidget::OnTimer( wxTimerEvent& )
 ******************************************************/
 void LogoWidget::OnPaint(wxPaintEvent& )
 {
+#ifdef DEBUG_ABOUTDIALOG
 	debuglog << "LogoWidget::OnPaint xzoom " << xzoom << " yzoom " << yzoom;
+#endif
 
 	double axzoom = ( xzoom > 0 ? xzoom : -xzoom );
 	double ayzoom = ( yzoom > 0 ? yzoom : -yzoom );

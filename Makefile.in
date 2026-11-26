@@ -393,8 +393,8 @@ DIST_SUBDIRS = po src debian test
 
 # m4 not automatically included on OS X make dist
 EXTRA_DIST = config.h autogen.sh Makefile.mingw saravali9.desktop \
-	Doxyfile create_mac_release.sh MacOS/* m4/* \
-	saravali.sln json_metacompiler.py
+	Doxyfile create_mac_release.sh LICENSE MacOS/* m4/* \
+	Readme.md saravali.sln json_metacompiler.py
 
 dist_pkgdata_DATA = COPYING 
 

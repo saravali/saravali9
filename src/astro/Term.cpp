@@ -664,7 +664,7 @@ MString MTerm::firstMString( const PlanetConfig &cfg, const int *antisciaCfg ) c
 		case TermId::AntiTripleSum:
 		{
 			const int aCfg = antisciaCfg ? *antisciaCfg : astroconfig->uranian.antisciaDisplayStyle;
-			//switch ( astroconfig->uranian.antisciaDisplayStyle )
+			// * % @ -
 			switch ( aCfg )
 			{
 				case 1:
@@ -674,10 +674,10 @@ MString MTerm::firstMString( const PlanetConfig &cfg, const int *antisciaCfg ) c
 					s << "@" << s0;
 				break;
 				case 3:
-					s << "˟" << s0;
+					s << "-" << s0;
 				break;
 				default:
-					s << "-" << s0;
+					s << "*" << s0;
 				break;
 			}
 		}

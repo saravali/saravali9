@@ -63,7 +63,7 @@ protected:
 
 	virtual std::pair<wxString, wxColour> getLabel( const int &f )
 	{
-		CgLabelledAnnulus *annulus = getCg();
+		CgLabelledAnnulus *annulus = getGeom();
 		assert( annulus );
 
 		DasaExpert_ptr eptr( DasaExpertFactory().getDasaExpert( DasaId::Vimsottari ));

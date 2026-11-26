@@ -54,7 +54,7 @@ extern Gdiconfig *gdiconfig;
 *  Paint Uranian aspects. The match data is contained in the referenced chart.
 *
 ******************************************************/
-class UranianAspects : public ChartElement<CgDisc>
+class UranianAspects : public ChartElement<CgDisk>
 {
 public:
 
@@ -63,7 +63,7 @@ public:
 	**   UranianAspects   ---   Constructor
 	**
 	******************************************************/
-	UranianAspects( HybridChart *chart, CgDisc *disc )
+	UranianAspects( HybridChart *chart, CgDisk *disc )
 	: ChartElement( chart, disc )
 	{
 		drawStackPosition = 1;
@@ -89,14 +89,14 @@ public:
 	void paint( Painter *painter, const MRect& /*refreshRect*/ ) override
 	{
 		debuglog << "UranianAspects::paint Start";
-		const Viewpoint viewpoint = chart->getViewpoint();
+		//const Viewpoint viewpoint = chart->getViewpoint();
 
 		if ( ! gdiconfig->uranianAspectStyle.showAspects ) return;
 
 		const auto roles = chart->getChartRoles();
 		if ( roles.size() == 0 ) return;
 
-		CgDisc *disc = getCg();
+		CgDisk *disc = getGeom();
 		if ( ! disc->show ) return;
 
 		assert( chart );
@@ -175,7 +175,9 @@ public:
 				assert( match.e1->formula );
 				assert( match.e2->formula );
 
-				if ( at.first == *match.e1->formula )
+				if ( at.first == *match.e1->formula
+					|| ( match.e1->formula->isSingleTerm() && match.e2->formula->isSingleTerm() && at.first == *match.e2->formula )
+					)
 				{
 #ifdef DEBUG_URANIAN_ASPECTS
 					debuglog << "UranianAspects::paintAspects found: [first = e1] "
@@ -236,7 +238,7 @@ protected:
 		assert( match.e1 );
 		assert( match.e2 );
 
-		CgDisc *disc = getCg();
+		CgDisk *disc = getGeom();
 		const Viewpoint viewpoint = chart->getViewpoint();
 
 #ifdef DEBUG_URANIAN_ASPECTS
@@ -258,7 +260,7 @@ protected:
 		assert( match.e1 );
 		assert( match.e2 );
 
-		CgDisc *disc = getCg();
+		CgDisk *disc = getGeom();
 		const Viewpoint viewpoint = chart->getViewpoint();
 
 #ifdef DEBUG_URANIAN_ASPECTS
@@ -267,19 +269,19 @@ protected:
 						<< " division " << match.division;
 #endif
 
-		const MComplex proot = discPointToXy( getCorrectedLongitude( match.e1->longitude ), disc->radius, disc->geometryType );
+		const MComplex proot = diskPointToXy( chart->getEffectiveLongitude( match.e1->longitude ), disc->radius, disc->geometryType );
 		MComplex p1 = 0;
 		MComplex p2 = 0;
 		if ( match.e2->formula->isSingleTerm())
 		{
-			p1 = discPointToXy( getCorrectedLongitude( match.e2->longitude ), disc->radius, disc->geometryType );
+			p1 = diskPointToXy( chart->getEffectiveLongitude( match.e2->longitude ), disc->radius, disc->geometryType );
 		}
 		else
 		{
-			const double a = getCorrectedLongitude( horoscope->getLongitude( match.e2->formula->getFirstPlanet(), viewpoint ));
-			p1 = discPointToXy( a, disc->radius, disc->geometryType );
-			const double b = getCorrectedLongitude( horoscope->getLongitude( match.e2->formula->getSecondPlanet(), viewpoint ));
-			p2 = discPointToXy( b, disc->radius, disc->geometryType );
+			const double a = chart->getEffectiveLongitude( horoscope->getLongitude( match.e2->formula->getFirstPlanet(), viewpoint ));
+			p1 = diskPointToXy( a, disc->radius, disc->geometryType );
+			const double b = chart->getEffectiveLongitude( horoscope->getLongitude( match.e2->formula->getSecondPlanet(), viewpoint ));
+			p2 = diskPointToXy( b, disc->radius, disc->geometryType );
 		}
 		AspectPaintHelper( painter ).paintUranianAspect(
 			match.e2->formula->getTermId(),
@@ -288,21 +290,6 @@ protected:
 			p2,
 			match.division,
 			match.orbis );
-	}
-
-	/*****************************************************
-	**
-	**   UranianAspects   ---   getCorrectedLongitude
-	**
-	******************************************************/
-	double getCorrectedLongitude( const double &l )
-	{
-		assert( chart );
-		UranianSection *usection = chart->getUranianSection();
-		assert( usection );
-		const int division = usection ? usection->chartDivision : 1;
-		assert( division );
-		return division * d_red( l, division );
 	}
 
 protected:
@@ -321,7 +308,7 @@ protected:
 ******************************************************/
 ChartElementBase *ChartElementFactory::createUranianAspects( CgElement *cge ) const
 {
-	CgDisc *disc = dynamic_cast<CgDisc*>( cge );
+	CgDisk *disc = dynamic_cast<CgDisk*>( cge );
 	assert( disc );
 	return new UranianAspects( chart, disc );
 }

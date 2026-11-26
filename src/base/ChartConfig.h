@@ -65,13 +65,13 @@ struct ChartConfig : public Jsonable
 	HouseNumberFormat houseNumberStyle = HouseNumberFormat::Arabic;
 
 	// Uranian
+	UranianChartOrigin uranianChartOrigin = UranianChartOrigin::Right;
+
 	bool showMatchesOnMouseOver = true;
 
 	int division = 1;
 
 	int chartCenterType = 3;
-
-	bool showEarthHoroscopeAnglesInShiftedCharts = true;
 
 	// varga
 	bool showArudhas = false;

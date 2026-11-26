@@ -41,7 +41,7 @@
 #include "Painter.h"
 #include "Uranian.h"
 
-//#define CE_LABELLEDANNULUS
+#define CE_LABELLEDANNULUS
 
 /*****************************************************
 **
@@ -63,7 +63,7 @@ void CeLabelledAnnulus::paint( Painter *painter, const MRect& /*refreshRect*/ )
 {
 	if ( ! isPaintable()) return;
 
-	CgLabelledAnnulus *annulus = getCg();
+	CgLabelledAnnulus *annulus = getGeom();
 	assert( annulus );
 	if ( ! annulus->show ) return;
 
@@ -140,7 +140,7 @@ void CeLabelledAnnulus::paint( Painter *painter, const MRect& /*refreshRect*/ )
 #endif
 
 		paintAnnulusConnector( painter, field_cusp[i], *annulus, annulus->innerRadius - annulus->radius );
-		p = discPointToXy( field_center[i], annulus->rLabels, annulus->geometryType );
+		p = diskPointToXy( field_center[i], annulus->rLabels, annulus->geometryType );
 
 		const std::pair<wxString, wxColour> label = getLabel( i );
 
@@ -156,8 +156,8 @@ void CeLabelledAnnulus::paint( Painter *painter, const MRect& /*refreshRect*/ )
 	}
 	chart->setGraphicFont( painter );
 
-	if ( annulus->showOuterFrame ) paintDisc( painter, *annulus );
-	if ( annulus->showInnerFrame ) paintDisc( painter, annulus->innerDisc() );
+	if ( annulus->showOuterFrame ) paintDisk( painter, *annulus );
+	if ( annulus->showInnerFrame ) paintDisk( painter, annulus->innerDisc() );
 }
 
 /*****************************************************
@@ -177,7 +177,7 @@ void CeLabelledAnnulus::drawAnnulusSegment( Painter *painter, const double &alfa
 	ASSERT_VALID_DEGREE( a0 );
 	ASSERT_VALID_DEGREE( a1 );
 
-	CgAnnulus *annulus = getCg();
+	CgAnnulus *annulus = getGeom();
 	const ChartGeometry &parentGeom = chart->getGeometry();
 	const ChartShape geom = ( annulus->geometryType == ChartShape::Inherited ? parentGeom.geometryType
 		: annulus->geometryType );
@@ -194,15 +194,15 @@ void CeLabelledAnnulus::drawAnnulusSegment( Painter *painter, const double &alfa
 
 			for ( i = 0; i <= nbsteps; i++ )
 			{
-				//points.push_back( discPointToXy( a, annulus->innerDisc() ));
-				points.push_back( discPointToXy( a, annulus->innerRadius, annulus->geometryType ));
+				//points.push_back( diskPointToXy( a, annulus->innerDisc() ));
+				points.push_back( diskPointToXy( a, annulus->innerRadius, annulus->geometryType ));
 				a += astep;
 			}
 			a = a1;
 			for ( i = nbsteps + 1; i < ntotal; i++ )
 			{
-				//points.push_back( discPointToXy( a, *annulus ));
-				points.push_back( discPointToXy( a, annulus ));
+				//points.push_back( diskPointToXy( a, *annulus ));
+				points.push_back( diskPointToXy( a, annulus ));
 				a -= astep;
 			}
 			painter->drawPolygon( points );
@@ -220,12 +220,12 @@ void CeLabelledAnnulus::drawAnnulusSegment( Painter *painter, const double &alfa
 
 			std::vector<MComplex> points;
 
-			points.push_back( discPointToXy( a0, annulus->innerRadius, annulus->geometryType ));
-			if ( qdrchange ) points.push_back( discPointToXy( qdrcorner, annulus->innerRadius, annulus->geometryType ));
-			points.push_back( discPointToXy( a1, annulus->innerRadius, annulus->geometryType ));
-			points.push_back( discPointToXy( a1, annulus ));
-			if ( qdrchange ) points.push_back( discPointToXy( qdrcorner, annulus ));
-			points.push_back( discPointToXy( a0, annulus ));
+			points.push_back( diskPointToXy( a0, annulus->innerRadius, annulus->geometryType ));
+			if ( qdrchange ) points.push_back( diskPointToXy( qdrcorner, annulus->innerRadius, annulus->geometryType ));
+			points.push_back( diskPointToXy( a1, annulus->innerRadius, annulus->geometryType ));
+			points.push_back( diskPointToXy( a1, annulus ));
+			if ( qdrchange ) points.push_back( diskPointToXy( qdrcorner, annulus ));
+			points.push_back( diskPointToXy( a0, annulus ));
 			painter->drawPolygon( points );
 		}
 		break;

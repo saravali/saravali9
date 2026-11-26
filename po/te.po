@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: maitreya 4.1\n"
 "Report-Msgid-Bugs-To: http://saravali.github.io/about.html\n"
-"POT-Creation-Date: 2026-11-17 14:22+0100\n"
+"POT-Creation-Date: 2026-11-26 07:28+0100\n"
 "PO-Revision-Date: 2006-07-09 23:34+0530\n"
 "Last-Translator: Santhosh <astrosanthosh@gmail.com>\n"
 "Language-Team: te <info@onlinejyotish.com>\n"
@@ -183,7 +183,7 @@ msgstr "వరుడు"
 msgid "Bride"
 msgstr "వధువు"
 
-#: src/astro/Ashtakoota.cpp:310 src/dialogs/Sidebar.cpp:877
+#: src/astro/Ashtakoota.cpp:310 src/dialogs/Sidebar.cpp:876
 msgid "Result"
 msgstr ""
 
@@ -925,7 +925,7 @@ msgstr "గోపుర"
 msgid "No Matches"
 msgstr "ఏమీలేదు"
 
-#: src/astro/MatchWriter.cpp:165 src/dialogs/Sidebar.cpp:166
+#: src/astro/MatchWriter.cpp:165 src/dialogs/Sidebar.cpp:165
 #, fuzzy
 msgid "Matches"
 msgstr "ఏమీలేదు"
@@ -936,12 +936,12 @@ msgid "filtered"
 msgstr "వడపోత"
 
 #: src/astro/MatchWriter.cpp:207 src/astro/WesternAspect.cpp:432
-#: src/dialogs/Sidebar.cpp:649 src/dialogs/UranianControls.cpp:151
+#: src/dialogs/Sidebar.cpp:648 src/dialogs/UranianControls.cpp:151
 #: src/dialogs/WesternAspectConflet.cpp:153
 msgid "Orbis"
 msgstr "కక్ష్య"
 
-#: src/astro/MatchWriter.cpp:208 src/dialogs/Sidebar.cpp:522
+#: src/astro/MatchWriter.cpp:208 src/dialogs/Sidebar.cpp:521
 msgid "Residuum"
 msgstr ""
 
@@ -949,7 +949,7 @@ msgstr ""
 msgid "deg/day"
 msgstr ""
 
-#: src/astro/MatchWriter.cpp:210 src/dialogs/Sidebar.cpp:510
+#: src/astro/MatchWriter.cpp:210 src/dialogs/Sidebar.cpp:509
 #: src/dialogs/UranianControls.cpp:172
 #, fuzzy
 msgid "Due Date"
@@ -1302,7 +1302,7 @@ msgstr ""
 
 #: src/astro/SpWriter.cpp:111 src/base/Commands.cpp:300 src/base/Lang.cpp:156
 #: src/base/Lang.cpp:222 src/dialogs/PlanetPropertyConflet.cpp:146
-#: src/dialogs/Sidebar.cpp:527 src/dialogs/ToolbarConflet.cpp:112
+#: src/dialogs/Sidebar.cpp:526 src/dialogs/ToolbarConflet.cpp:112
 #: src/widgets/AshtakavargaWidget.cpp:108 src/widgets/ShadbalaWidget.cpp:145
 msgid "Text"
 msgstr "అక్షరములు"
@@ -2503,7 +2503,7 @@ msgstr "సాంవత్సరిక పూర్తి"
 msgid "unknown"
 msgstr "తెలియని"
 
-#: src/base/ChartGeometry.cpp:676
+#: src/base/ChartGeometry.cpp:628
 #, fuzzy
 msgid "Unknown"
 msgstr "తెలియని"
@@ -2754,8 +2754,8 @@ msgstr "యోగ గవాక్షం"
 msgid "Atlas"
 msgstr ""
 
-#: src/base/Commands.cpp:347 src/dialogs/AboutDialog.cpp:219
-#: src/dialogs/AboutDialog.cpp:231
+#: src/base/Commands.cpp:347 src/dialogs/AboutDialog.cpp:225
+#: src/dialogs/AboutDialog.cpp:237
 msgid "About"
 msgstr "మైత్రేయ గురించి"
 
@@ -2885,7 +2885,7 @@ msgid "Goto"
 msgstr "ఆరంభ దినం"
 
 #: src/base/Commands.cpp:376 src/dialogs/AtlasDialog.cpp:274
-#: src/dialogs/Sidebar.cpp:177 src/dialogs/Sidebar.cpp:194
+#: src/dialogs/Sidebar.cpp:176 src/dialogs/Sidebar.cpp:193
 msgid "Filter"
 msgstr "వడపోత"
 
@@ -3121,8 +3121,8 @@ msgid "PP"
 msgstr "పు"
 
 #: src/base/Lang.cpp:136 src/base/Lang.cpp:201
-#: src/dialogs/ChartOptionsUranian.cpp:80 src/dialogs/Sidebar.cpp:208
-#: src/dialogs/Sidebar.cpp:240 src/dialogs/Sidebar.cpp:318
+#: src/dialogs/ChartOptionsUranian.cpp:86 src/dialogs/Sidebar.cpp:207
+#: src/dialogs/Sidebar.cpp:239 src/dialogs/Sidebar.cpp:317
 #, fuzzy
 msgid "Events"
 msgstr "సంఘటన"
@@ -5073,7 +5073,7 @@ msgstr "సంయోగములు"
 msgid "Declination"
 msgstr "డైరెక్షన్లు"
 
-#: src/base/Viewpoint.cpp:636 src/dialogs/Sidebar.cpp:519
+#: src/base/Viewpoint.cpp:636 src/dialogs/Sidebar.cpp:518
 #: src/dialogs/UranianControls.cpp:166
 msgid "Speed"
 msgstr ""
@@ -5154,17 +5154,17 @@ msgstr "అష్టకవర్గ బిందువులు"
 msgid "Custom Key-Value"
 msgstr "ఆయనాంశ విలువ"
 
-#: src/dialogs/AboutDialog.cpp:235
+#: src/dialogs/AboutDialog.cpp:241
 #, fuzzy
 msgid "Version"
 msgstr "వర్షన్"
 
-#: src/dialogs/AboutDialog.cpp:237 src/dialogs/AboutDialog.cpp:241
-#: src/dialogs/AboutDialog.cpp:245 src/dialogs/AboutDialog.cpp:249
-#: src/dialogs/AboutDialog.cpp:253 src/dialogs/AboutDialog.cpp:257
-#: src/dialogs/AboutDialog.cpp:265 src/dialogs/AboutDialog.cpp:269
-#: src/dialogs/AboutDialog.cpp:273 src/dialogs/AboutDialog.cpp:277
-#: src/dialogs/AboutDialog.cpp:281 src/dialogs/AboutDialog.cpp:285
+#: src/dialogs/AboutDialog.cpp:243 src/dialogs/AboutDialog.cpp:247
+#: src/dialogs/AboutDialog.cpp:251 src/dialogs/AboutDialog.cpp:255
+#: src/dialogs/AboutDialog.cpp:259 src/dialogs/AboutDialog.cpp:263
+#: src/dialogs/AboutDialog.cpp:271 src/dialogs/AboutDialog.cpp:275
+#: src/dialogs/AboutDialog.cpp:279 src/dialogs/AboutDialog.cpp:283
+#: src/dialogs/AboutDialog.cpp:287 src/dialogs/AboutDialog.cpp:291
 #: src/dialogs/AtlasAliasDialog.cpp:76 src/dialogs/AtlasConflet.cpp:97
 #: src/dialogs/AtlasDialog.cpp:287 src/dialogs/AtlasDialog.cpp:288
 #: src/dialogs/AtlasDialog.cpp:289 src/dialogs/AtlasDialog.cpp:290
@@ -5210,61 +5210,61 @@ msgstr "వర్షన్"
 msgid "dummy"
 msgstr "ఢమ్మీ"
 
-#: src/dialogs/AboutDialog.cpp:239
+#: src/dialogs/AboutDialog.cpp:245
 msgid "Author"
 msgstr "రచయిత"
 
-#: src/dialogs/AboutDialog.cpp:243
+#: src/dialogs/AboutDialog.cpp:249
 #, fuzzy
 msgid "URL"
 msgstr "ఉ.ల"
 
-#: src/dialogs/AboutDialog.cpp:247
+#: src/dialogs/AboutDialog.cpp:253
 msgid "Build Date"
 msgstr "నిర్మించిన తేది"
 
-#: src/dialogs/AboutDialog.cpp:251
+#: src/dialogs/AboutDialog.cpp:257
 #, fuzzy
 msgid "Compiler"
 msgstr "వడపోయ వద్దు"
 
-#: src/dialogs/AboutDialog.cpp:255
+#: src/dialogs/AboutDialog.cpp:261
 #, fuzzy
 msgid "Current OS"
 msgstr "ప్రస్తుత సమయం"
 
-#: src/dialogs/AboutDialog.cpp:259
+#: src/dialogs/AboutDialog.cpp:265
 #, fuzzy
 msgid "Integrated Software Versions"
 msgstr "సాఫ్ట్ వేర్"
 
-#: src/dialogs/AboutDialog.cpp:263
+#: src/dialogs/AboutDialog.cpp:269
 #, fuzzy
 msgid "wxWidgets"
 msgstr "టెక్స్ట్ గవాక్షం"
 
-#: src/dialogs/AboutDialog.cpp:267
+#: src/dialogs/AboutDialog.cpp:273
 #, fuzzy
 msgid "Swiss Ephemeris"
 msgstr "ఎఫిమరీస్"
 
-#: src/dialogs/AboutDialog.cpp:271
+#: src/dialogs/AboutDialog.cpp:277
 msgid "sqlite3"
 msgstr ""
 
-#: src/dialogs/AboutDialog.cpp:275
+#: src/dialogs/AboutDialog.cpp:281
 msgid "wxsqlite3"
 msgstr ""
 
-#: src/dialogs/AboutDialog.cpp:279
+#: src/dialogs/AboutDialog.cpp:285
 msgid "wxpdfdoc"
 msgstr ""
 
-#: src/dialogs/AboutDialog.cpp:283
+#: src/dialogs/AboutDialog.cpp:289
 msgid "Jsoncpp"
 msgstr ""
 
-#: src/dialogs/AboutDialog.cpp:289 src/dialogs/AtlasAliasDialog.cpp:93
+#: src/dialogs/AboutDialog.cpp:295 src/dialogs/AtlasAliasDialog.cpp:93
 #: src/dialogs/AtlasDialog.cpp:399 src/dialogs/AtlasEditDialog.cpp:134
 #: src/dialogs/BirthDataDialog.cpp:179 src/dialogs/BrushDialog.cpp:176
 #: src/dialogs/ConfigurationDialog.cpp:110 src/dialogs/ExportDialog.cpp:79
@@ -5962,7 +5962,7 @@ msgstr ""
 msgid "Change Brush ..."
 msgstr "పద్ధతి"
 
-#: src/dialogs/ChartColorConflet.cpp:203 src/dialogs/Sidebar.cpp:635
+#: src/dialogs/ChartColorConflet.cpp:203 src/dialogs/Sidebar.cpp:634
 msgid "Houses"
 msgstr "భావములు"
 
@@ -6013,7 +6013,7 @@ msgstr "అడ్డము కొలత"
 msgid "Retrogression Style"
 msgstr " వక్రగ్రహములను చూపించు (వ)"
 
-#: src/dialogs/ChartConflet.cpp:159 src/dialogs/ChartOptionsUranian.cpp:72
+#: src/dialogs/ChartConflet.cpp:159 src/dialogs/ChartOptionsUranian.cpp:78
 #: src/dialogs/ChartOptionsVarga.cpp:95
 msgid "Nothing"
 msgstr "ఏమీలేదు"
@@ -6058,52 +6058,46 @@ msgstr "సంఘటన గుర్తులు"
 msgid "Benefic/Malefic (B/M) in Nakshatras Names"
 msgstr ""
 
-#: src/dialogs/ChartOptionsUranian.cpp:61
+#: src/dialogs/ChartOptionsUranian.cpp:62
 #, fuzzy
 msgid "Uranian Options"
 msgstr "టైం జోన్ ఐచ్ఛికములు"
 
-#: src/dialogs/ChartOptionsUranian.cpp:63
+#: src/dialogs/ChartOptionsUranian.cpp:64
 #, fuzzy
 msgid "Use Colors for Planets"
 msgstr "వర్ణములు"
 
-#: src/dialogs/ChartOptionsUranian.cpp:65
+#: src/dialogs/ChartOptionsUranian.cpp:66
 #, fuzzy
 msgid "Use Colors for Signs"
 msgstr "వర్ణములు"
 
-#: src/dialogs/ChartOptionsUranian.cpp:69 src/dialogs/ChartOptionsVarga.cpp:92
+#: src/dialogs/ChartOptionsUranian.cpp:70
+msgid "Origin for Higher Divisions"
+msgstr ""
+
+#: src/dialogs/ChartOptionsUranian.cpp:75 src/dialogs/ChartOptionsVarga.cpp:92
 msgid "Center of Chart"
 msgstr "కుండలి మధ్య స్థితి"
 
-#: src/dialogs/ChartOptionsUranian.cpp:73
+#: src/dialogs/ChartOptionsUranian.cpp:79
 msgid "Division D-N"
 msgstr "విభాగము"
 
-#: src/dialogs/ChartOptionsUranian.cpp:74
+#: src/dialogs/ChartOptionsUranian.cpp:80
 #, fuzzy
 msgid "Total Degrees"
 msgstr "అంశలు"
 
-#: src/dialogs/ChartOptionsUranian.cpp:75
+#: src/dialogs/ChartOptionsUranian.cpp:81
 msgid "D-N + Total Degrees"
 msgstr ""
 
-#: src/dialogs/ChartOptionsUranian.cpp:82
+#: src/dialogs/ChartOptionsUranian.cpp:88
 #, fuzzy
 msgid "Show Matches on Mouseover"
 msgstr "టూల్ బార్ ను చూపించు"
-
-#: src/dialogs/ChartOptionsUranian.cpp:84
-#, fuzzy
-msgid "Shifted Charts"
-msgstr "ఊహాత్మక"
-
-#: src/dialogs/ChartOptionsUranian.cpp:86
-#, fuzzy
-msgid "Show Cardinal Points"
-msgstr "పాశ్చాత్య గ్రహములు"
 
 #: src/dialogs/ChartOptionsVarga.cpp:63
 #, fuzzy
@@ -6464,8 +6458,8 @@ msgid "Western Planets"
 msgstr "పాశ్చాత్య గ్రహములు"
 
 #: src/dialogs/ConfletFactory.cpp:143 src/dialogs/ConfletFactory.cpp:151
-#: src/dialogs/Sidebar.cpp:200 src/dialogs/Sidebar.cpp:231
-#: src/dialogs/Sidebar.cpp:310
+#: src/dialogs/Sidebar.cpp:199 src/dialogs/Sidebar.cpp:230
+#: src/dialogs/Sidebar.cpp:309
 msgid "Chart"
 msgstr "జాతకము"
 
@@ -7232,7 +7226,7 @@ msgstr "మొత్తం"
 msgid "Matching Side"
 msgstr "ఏమీలేదు"
 
-#: src/dialogs/PlanetFilterDialog.cpp:91 src/dialogs/Sidebar.cpp:628
+#: src/dialogs/PlanetFilterDialog.cpp:91 src/dialogs/Sidebar.cpp:627
 msgid "Both"
 msgstr ""
 
@@ -7261,7 +7255,7 @@ msgstr "వడపోతను రిసెట్ చెయ్యి"
 msgid "Configure active planets"
 msgstr "వడపోతను రిసెట్ చెయ్యి"
 
-#: src/dialogs/PlanetPropertyConflet.cpp:80 src/dialogs/Sidebar.cpp:503
+#: src/dialogs/PlanetPropertyConflet.cpp:80 src/dialogs/Sidebar.cpp:502
 #: src/gui/MenuProvider.cpp:661 src/gui/MenuProvider.cpp:810
 #, fuzzy
 msgid "Columns"
@@ -7427,132 +7421,132 @@ msgstr "ప్రస్తుత తేదీని అంగీకరించ�
 msgid "Move current item down"
 msgstr "ప్రస్తుత తేదీని అంగీకరించు"
 
-#: src/dialogs/Sidebar.cpp:144 src/dialogs/Sidebar.cpp:183
-#: src/dialogs/Sidebar.cpp:254 src/dialogs/Sidebar.cpp:273
-#: src/dialogs/Sidebar.cpp:292 src/dialogs/Sidebar.cpp:333
-#: src/dialogs/Sidebar.cpp:351 src/dialogs/Sidebar.cpp:369
+#: src/dialogs/Sidebar.cpp:143 src/dialogs/Sidebar.cpp:182
+#: src/dialogs/Sidebar.cpp:253 src/dialogs/Sidebar.cpp:272
+#: src/dialogs/Sidebar.cpp:291 src/dialogs/Sidebar.cpp:332
+#: src/dialogs/Sidebar.cpp:350 src/dialogs/Sidebar.cpp:368
 #, fuzzy
 msgid "Options"
 msgstr "క్రియలు"
 
-#: src/dialogs/Sidebar.cpp:156
+#: src/dialogs/Sidebar.cpp:155
 #, fuzzy
 msgid "Calculation Filters"
 msgstr "గణిత ఐచ్ఛికములు"
 
-#: src/dialogs/Sidebar.cpp:160
+#: src/dialogs/Sidebar.cpp:159
 #, fuzzy
 #| msgid "Event date"
 msgid "Update"
 msgstr "సంఘటన తేది"
 
-#: src/dialogs/Sidebar.cpp:216 src/dialogs/Sidebar.cpp:248
-#: src/dialogs/Sidebar.cpp:267 src/dialogs/Sidebar.cpp:285
-#: src/dialogs/Sidebar.cpp:303 src/dialogs/Sidebar.cpp:363
-#: src/dialogs/Sidebar.cpp:380
+#: src/dialogs/Sidebar.cpp:215 src/dialogs/Sidebar.cpp:247
+#: src/dialogs/Sidebar.cpp:266 src/dialogs/Sidebar.cpp:284
+#: src/dialogs/Sidebar.cpp:302 src/dialogs/Sidebar.cpp:362
+#: src/dialogs/Sidebar.cpp:379
 #, fuzzy
 msgid "Display filter"
 msgstr "వీక్షణలు"
 
-#: src/dialogs/Sidebar.cpp:221
+#: src/dialogs/Sidebar.cpp:220
 #, fuzzy
 msgid "Offset"
 msgstr "టైం జోన్ ఐచ్ఛికములు"
 
-#: src/dialogs/Sidebar.cpp:326 src/dialogs/Sidebar.cpp:344
+#: src/dialogs/Sidebar.cpp:325 src/dialogs/Sidebar.cpp:343
 #, fuzzy
 #| msgid "Filter"
 msgid "Filters"
 msgstr "వడపోత"
 
-#: src/dialogs/Sidebar.cpp:467
+#: src/dialogs/Sidebar.cpp:466
 #, fuzzy
 msgid "Include Antiscia"
 msgstr "విషయము"
 
-#: src/dialogs/Sidebar.cpp:470
+#: src/dialogs/Sidebar.cpp:469
 #, fuzzy
 msgid "LR Permutations"
 msgstr "వ్యవధి"
 
-#: src/dialogs/Sidebar.cpp:487
+#: src/dialogs/Sidebar.cpp:486
 msgid "Activate Offset"
 msgstr ""
 
-#: src/dialogs/Sidebar.cpp:514
+#: src/dialogs/Sidebar.cpp:513
 #, fuzzy
 msgid "Show Time in Due Date"
 msgstr "వైదిక గ్రహములు"
 
-#: src/dialogs/Sidebar.cpp:523
+#: src/dialogs/Sidebar.cpp:522
 msgid "Roles"
 msgstr ""
 
-#: src/dialogs/Sidebar.cpp:536
+#: src/dialogs/Sidebar.cpp:535
 #, fuzzy
 msgid "Pp Options"
 msgstr "క్రియలు"
 
-#: src/dialogs/Sidebar.cpp:537
+#: src/dialogs/Sidebar.cpp:536
 #, fuzzy
 #| msgid "Longitude"
 msgid "Show Longitude"
 msgstr "రేఖాంశము"
 
-#: src/dialogs/Sidebar.cpp:538
+#: src/dialogs/Sidebar.cpp:537
 #, fuzzy
 msgid "Show Score"
 msgstr "వీక్షణలు చూపించు"
 
-#: src/dialogs/Sidebar.cpp:561 src/widgets/EventFinderWidget.cpp:189
+#: src/dialogs/Sidebar.cpp:560 src/widgets/EventFinderWidget.cpp:189
 #: src/widgets/EventFinderWidget.cpp:237
 #, fuzzy
 #| msgid "Start Date"
 msgid "Start Update"
 msgstr "ఆరంభ దినం"
 
-#: src/dialogs/Sidebar.cpp:600
+#: src/dialogs/Sidebar.cpp:599
 msgid "Dial"
 msgstr ""
 
-#: src/dialogs/Sidebar.cpp:608 src/dialogs/UranianConflet.cpp:298
+#: src/dialogs/Sidebar.cpp:607 src/dialogs/UranianConflet.cpp:298
 #: src/dialogs/UranianControls.cpp:160 src/dialogs/UranianControls.cpp:478
 #: src/gui/ToolPanel.cpp:273
 #, fuzzy
 msgid "Division"
 msgstr "విభాగము"
 
-#: src/dialogs/Sidebar.cpp:616
+#: src/dialogs/Sidebar.cpp:615
 #, fuzzy
 msgid "Order"
 msgstr "అనుక్రమ పద్ధతి"
 
-#: src/dialogs/Sidebar.cpp:623
+#: src/dialogs/Sidebar.cpp:622
 #, fuzzy
 msgid "Progression Mode"
 msgstr "పురోగామి"
 
-#: src/dialogs/Sidebar.cpp:626
+#: src/dialogs/Sidebar.cpp:625
 #, fuzzy
 msgid "Radix-Progression"
 msgstr " వక్రగ్రహములను చూపించు (వ)"
 
-#: src/dialogs/Sidebar.cpp:627
+#: src/dialogs/Sidebar.cpp:626
 #, fuzzy
 msgid "Progression only"
 msgstr "పురోగామి"
 
-#: src/dialogs/Sidebar.cpp:654
+#: src/dialogs/Sidebar.cpp:653
 #, fuzzy
 msgid "min"
 msgstr "మిథున"
 
-#: src/dialogs/Sidebar.cpp:877
+#: src/dialogs/Sidebar.cpp:876
 #, fuzzy
 msgid "matches"
 msgstr "ఏమీలేదు"
 
-#: src/dialogs/Sidebar.cpp:881
+#: src/dialogs/Sidebar.cpp:880
 #, fuzzy
 msgid "WARN: too many matches"
 msgstr "సరిచూడు"
@@ -8643,6 +8637,14 @@ msgstr ""
 #: src/widgets/YogaWidget.cpp:84
 msgid "All Sources"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Shifted Charts"
+#~ msgstr "ఊహాత్మక"
+
+#, fuzzy
+#~ msgid "Show Cardinal Points"
+#~ msgstr "పాశ్చాత్య గ్రహములు"
 
 #, fuzzy
 #~ msgid "Uranian Matches"

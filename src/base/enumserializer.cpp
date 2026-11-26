@@ -1558,6 +1558,48 @@ void string_to_enum( const wxString &s, WesternChartOrientation &x )
 
 /***********************************
 *
+* enum UranianChartOrigin
+*
+************************************/
+const static std::list<std::pair<UranianChartOrigin, wxString>> mapping_list_UranianChartOrigin =
+{
+	{ UranianChartOrigin::None, "None" },
+	{ UranianChartOrigin::Right, "Right" },
+	{ UranianChartOrigin::Top, "Top" },
+	{ UranianChartOrigin::Left, "Left" },
+	{ UranianChartOrigin::Bottom, "Bottom" },
+};
+
+wxString enum_to_string( const UranianChartOrigin &a )
+{
+	for( const auto &p : mapping_list_UranianChartOrigin ) 
+	{
+		if ( p.first == a )
+		{
+		 return p.second;
+		}
+	}
+	mstringstream m;
+	m << "None (" << (int)a << ")";
+	return m.str();
+}
+
+void string_to_enum( const wxString &s, UranianChartOrigin &x )
+{
+	for( const auto &p : mapping_list_UranianChartOrigin ) 
+	{
+		if ( p.second == s )
+		{
+		 x = p.first;
+		 return;
+		}
+	}
+	errorlog << "Cannot convert string \"" << s << "\" to scoped enum of type UranianChartOrigin";
+	x = UranianChartOrigin::None;
+}
+
+/***********************************
+*
 * enum Element
 *
 ************************************/
@@ -4513,19 +4555,20 @@ void string_to_enum( const wxString &s, DoNotShowAgainTopic &x )
 const static std::list<std::pair<CgElementType, wxString>> mapping_list_CgElementType =
 {
 	{ CgElementType::None, "None" },
-	{ CgElementType::Disc, "Disc" },
+	{ CgElementType::Disk, "Disk" },
 	{ CgElementType::Annulus, "Annulus" },
 	{ CgElementType::Signs, "Signs" },
 	{ CgElementType::Houses, "Houses" },
 	{ CgElementType::Nakshatras, "Nakshatras" },
 	{ CgElementType::DasaLords, "DasaLords" },
-	{ CgElementType::WesternPlanets, "WesternPlanets" },
-	{ CgElementType::UranianPlanets, "UranianPlanets" },
+	{ CgElementType::WesternSigns, "WesternSigns" },
+	{ CgElementType::WesternPlanetRing, "WesternPlanetRing" },
 	{ CgElementType::Angles, "Angles" },
 	{ CgElementType::Aspects, "Aspects" },
 	{ CgElementType::Image, "Image" },
-	{ CgElementType::UranianDial, "UranianDial" },
+	{ CgElementType::UranianDisk, "UranianDisk" },
 	{ CgElementType::UranianAspects, "UranianAspects" },
+	{ CgElementType::UranianPlanetRing, "UranianPlanetRing" },
 	{ CgElementType::EastGrid, "EastGrid" },
 	{ CgElementType::SouthGrid, "SouthGrid" },
 	{ CgElementType::DiamondGrid, "DiamondGrid" },

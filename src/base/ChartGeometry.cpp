@@ -46,7 +46,7 @@
 
 #include <format>
 
-//#define DEBUG_CHARTGEOMETRY
+#define DEBUG_CHARTGEOMETRY
 
 /*****************************************************
 **
@@ -79,52 +79,6 @@ ChartConfig::ChartConfig( const WidgetCategory category )
 		default:
 		break;
 	}
-}
-
-/*****************************************************
-**
-**   CgPlanetScale   ---   getParams4ChartId
-**
-******************************************************/
-std::pair<double, double> CgPlanetScale::getParams4ChartId( const int &id ) const
-{
-	// Return values are: radius + rLabels
-	assert( id >= 0 );
-	switch( id )
-	{
-		case 0:
-			return std::make_pair( radius, rLabels );
-		break;
-		default:
-		{
-			const double r1 = radius + secondaryScaleOffset + ( id - 1 ) * furtherScaleOffset;
-			return std::make_pair( r1, r1 + furtherScaleLabelOffset );
-		}
-		break;
-	}
-}
-
-/*****************************************************
-**
-**   CgPlanetScale   ---   getOuterRadius
-**
-******************************************************/
-double CgPlanetScale::getOuterRadius( const int &id ) const
-{
-	assert( id >= 0 );
-	switch( id )
-	{
-		case 0:
-			return radius;
-		break;
-		default:
-		{
-			auto [ radius, rLabels ] = getParams4ChartId( id );
-			return radius + furtherScaleOffset;
-		}
-		break;
-	}
-	return radius;
 }
 
 /*****************************************************
@@ -280,10 +234,11 @@ bool ChartGeometry::findWidgetCategory( const WidgetCategory &category ) const
 					|| type ==  CgElementType::DasaLords
 					|| type ==  CgElementType::Aspects
 					|| type ==  CgElementType::Angles
+					|| type ==  CgElementType::WesternPlanetRing
 				) return true;
 			break;
 			case WidgetCategory::UranianChart:
-				if ( type ==  CgElementType::UranianDial
+					if ( type ==  CgElementType::UranianDisk
 					|| type ==  CgElementType::UranianAspects
 				) return true;
 			break;
@@ -320,16 +275,17 @@ void ChartGeometryLoader::loadDefaultConfigs()
 		addDefault( geom.elements, CgElementType::Signs );
 		addDefault( geom.elements, CgElementType::Houses );
 		addDefault( geom.elements, CgElementType::Angles );
-		addDefault( geom.elements, CgElementType::WesternPlanets );
+		addDefault( geom.elements, CgElementType::WesternPlanetRing );
 		addDefault( geom.elements, CgElementType::Aspects );
 		geom.updateMatchingCategories();
 		configs.push_back( std::move( geom ));
 	}
 	{
 		ChartGeometry geom( "Default Uranian Chart", ChartShape::Circle );
-		geom.elements[ CgElementType::UranianPlanets ] = new CgPlanetScale( CgElementType::UranianPlanets, 79, 50, 85 );
-		addDefault( geom.elements, CgElementType::Houses );
-		addDefault( geom.elements, CgElementType::UranianDial );
+		CgElement *disk = new CgUranianDisk;
+		disk->brush = MBrush( "#dedede" );
+		geom.elements[ CgElementType::UranianDisk ] = disk;
+		addDefault( geom.elements, CgElementType::UranianPlanetRing );
 		addDefault( geom.elements, CgElementType::UranianAspects );
 		geom.updateMatchingCategories();
 		configs.push_back( std::move( geom ));
@@ -370,14 +326,13 @@ void ChartGeometryLoader::loadDefaultConfigs()
 ******************************************************/
 CgElement *ChartGeometryLoader::createDefaultElement( const CgElementType &type )
 {
+#ifdef DEBUG_CHARTGEOMETRY
+	debuglog << "ChartGeometryLoader::createDefaultElement type " << (int)type;
+#endif
 	switch( type )
 	{
-		case CgElementType::Disc:
-			return new CgDisc;
-		break;
-
-		case CgElementType::Annulus:
-			return new CgAnnulus;
+		case CgElementType::Disk:
+			return new CgDisk;
 		break;
 
 		case CgElementType::Signs:
@@ -393,33 +348,30 @@ CgElement *ChartGeometryLoader::createDefaultElement( const CgElementType &type 
 		break;
 
 		case CgElementType::Aspects:
-			return new CgDisc( CgElementType::Aspects, 50 );
+			return new CgDisk( CgElementType::Aspects, 50 );
 		break;
 
-		case CgElementType::UranianPlanets:
-		case CgElementType::WesternPlanets:
-			return new CgPlanetScale;
+		case CgElementType::UranianPlanetRing:
+			return new CgPlanetRing( CgElementType::UranianPlanetRing, 84, /* unused*/ 100, 95 );
+		break;
+		case CgElementType::WesternPlanetRing:
+			return new CgPlanetRing( CgElementType::WesternPlanetRing, 92, 79, 70 );
 		break;
 
 		case CgElementType::UranianAspects:
-			return new CgDisc( CgElementType::UranianAspects, 79 );
+			return new CgDisk( CgElementType::UranianAspects, 84 );
 		break;
 
-		case CgElementType::UranianDial:
-			return new CgUranianDial;
+		case CgElementType::UranianDisk:
+			return new CgUranianDisk;
 		break;
 
 		case CgElementType::Angles:
 		{
-			CgPlanetScale *t = new CgPlanetScale( CgElementType::Angles, 97, 50, 102 );
+			CgLabelledAnnulus *t = new CgPlanetRing( CgElementType::Angles, 100, 50, 95 );
 			t->labelSize  = 150;
 			t->showOuterFrame = false;
 			t->showInnerFrame = false;
-
-			// reset params for doublechart/multitransit because chart will be zoomed too much in normal mode
-			t->secondaryScaleOffset = 0;
-			t->furtherScaleOffset = 0;
-			t->furtherScaleLabelOffset = 0;
 			return t;
 		}
 		break;
@@ -571,10 +523,10 @@ void ChartGeometryLoader::read_single_node( ChartGeometry &geom, const Json::Val
 
 				switch( type )
 				{
-					case CgElementType::Disc:
+					case CgElementType::Disk:
 					case CgElementType::Aspects:
 					case CgElementType::UranianAspects:
-						worker.jsonToObject( *static_cast<CgDisc*>( elem ), key );
+						worker.jsonToObject( *static_cast<CgDisk*>( elem ), key );
 					break;
 
 					case CgElementType::Annulus:
@@ -588,14 +540,14 @@ void ChartGeometryLoader::read_single_node( ChartGeometry &geom, const Json::Val
 						worker.jsonToObject( *static_cast<CgLabelledAnnulus*>( elem ), key );
 					break;
 
+					case CgElementType::UranianPlanetRing:
+					case CgElementType::WesternPlanetRing:
 					case CgElementType::Angles:
-					case CgElementType::UranianPlanets:
-					case CgElementType::WesternPlanets:
-						worker.jsonToObject( *static_cast<CgPlanetScale*>( elem ), key );
+						worker.jsonToObject( *static_cast<CgPlanetRing*>( elem ), key );
 					break;
 
-					case CgElementType::UranianDial:
-						worker.jsonToObject( *static_cast<CgUranianDial*>( elem ), key );
+					case CgElementType::UranianDisk:
+						worker.jsonToObject( *static_cast<CgUranianDisk*>( elem ), key );
 					break;
 
 					case CgElementType::EastGrid:
@@ -641,7 +593,7 @@ void ChartGeometry::fromJsonValue( const Json::Value&, JsonHandler& ) {}
 **
 ******************************************************/
 template<typename CLASS> void transformJson( const Json::Value &v, JsonHandler &jh,
-	ChartGeometry *geom, const CgElementType &e, const wxString& )
+	ChartGeometry *geom, const CgElementType &e )
 {
 	const wxString s( enum_to_string( e ));
 	if ( v[ s ] )
@@ -690,28 +642,27 @@ void ChartGeometry::fromJsonValue( const Json::Value &v, JsonHandler &jh )
 	}
 
 #if 1
-	transformJson<CgDisc>( v, jh, this, CgElementType::Disc, "disc" );
-	transformJson<CgAnnulus>( v, jh, this, CgElementType::Annulus, "annulus" );
-	transformJson<CgLabelledAnnulus>( v, jh, this, CgElementType::Signs, "signs" );
+	transformJson<CgDisk>( v, jh, this, CgElementType::Disk );
+	transformJson<CgLabelledAnnulus>( v, jh, this, CgElementType::Signs );
 
-	transformJson<CgLabelledAnnulus>( v, jh, this, CgElementType::Houses, "houses" );
-	transformJson<CgDisc>( v, jh, this, CgElementType::Aspects, "aspects" );
-	transformJson<CgPlanetScale>( v, jh, this, CgElementType::Angles, "angles" );
+	transformJson<CgLabelledAnnulus>( v, jh, this, CgElementType::Houses );
+	transformJson<CgDisk>( v, jh, this, CgElementType::Aspects );
 
-	transformJson<CgPlanetScale>( v, jh, this, CgElementType::UranianPlanets, "uranianplanets" );
-	transformJson<CgPlanetScale>( v, jh, this, CgElementType::WesternPlanets, "westernplanets" );
+	transformJson<CgPlanetRing>( v, jh, this, CgElementType::UranianPlanetRing );
+	transformJson<CgPlanetRing>( v, jh, this, CgElementType::WesternPlanetRing );
+	transformJson<CgPlanetRing>( v, jh, this, CgElementType::Angles );
 
-	transformJson<CgUranianDial>( v, jh, this, CgElementType::UranianDial , "dial");
-	transformJson<CgDisc>( v, jh, this, CgElementType::UranianAspects, "uaspects" );
+	transformJson<CgUranianDisk>( v, jh, this, CgElementType::UranianDisk );
+	transformJson<CgDisk>( v, jh, this, CgElementType::UranianAspects );
 
-	transformJson<CgLabelledAnnulus>( v, jh, this, CgElementType::DasaLords, "dasalords" );
-	transformJson<CgLabelledAnnulus>( v, jh, this, CgElementType::Nakshatras, "nakshatras" );
+	transformJson<CgLabelledAnnulus>( v, jh, this, CgElementType::DasaLords );
+	transformJson<CgLabelledAnnulus>( v, jh, this, CgElementType::Nakshatras );
 
-	transformJson<CgVedicChartGrid>( v, jh, this, CgElementType::EastGrid, "egrid" );
-	transformJson<CgVedicChartGrid>( v, jh, this, CgElementType::SouthGrid, "sgrid" );
-	transformJson<CgVedicChartGrid>( v, jh, this, CgElementType::DiamondGrid, "diamondgrid" );
-	transformJson<CgVedicChartGrid>( v, jh, this, CgElementType::SbcGrid, "sbcgrid" );
-	transformJson<CgInlayImage>( v, jh, this, CgElementType::Image, "image" );
+	transformJson<CgVedicChartGrid>( v, jh, this, CgElementType::EastGrid );
+	transformJson<CgVedicChartGrid>( v, jh, this, CgElementType::SouthGrid );
+	transformJson<CgVedicChartGrid>( v, jh, this, CgElementType::DiamondGrid );
+	transformJson<CgVedicChartGrid>( v, jh, this, CgElementType::SbcGrid );
+	transformJson<CgInlayImage>( v, jh, this, CgElementType::Image );
 #endif
 }
 /*****************************************************

@@ -162,7 +162,7 @@ public:
 	******************************************************/
 	virtual void drawBitmap( const wxBitmap &bitmap, const double &x0, const double &y0 ) const override
 	{
-		gc->DrawBitmap( bitmap, x0, y0, bitmap.GetWidth(), bitmap.GetHeight() );
+		gc->DrawBitmap( bitmap, x0, y0, bitmap.GetWidth(), bitmap.GetHeight());
 	}
 
 	/*****************************************************

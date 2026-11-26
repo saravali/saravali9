@@ -91,20 +91,20 @@ protected:
 
 		{
 			constexpr double l0 = 20;
-			CgVedicChartGrid *cg = getCg();
+			CgVedicChartGrid *cg = getGeom();
 
 			// start of gemini etc. in clockwise order
-			p_gemini = discPointToXy( 90 - l0, cg );
+			p_gemini = diskPointToXy( 90 - l0, cg );
 
 			// start of libra
-			p_libra = discPointToXy( 270 + l0, cg );
-			p_sagittarius = discPointToXy( 270 - l0, cg );
-			p_aries = discPointToXy( 90 + l0, cg );
+			p_libra = diskPointToXy( 270 + l0, cg );
+			p_sagittarius = diskPointToXy( 270 - l0, cg );
+			p_aries = diskPointToXy( 90 + l0, cg );
 
-			p_cancer = discPointToXy( l0, cg );
-			p_pisces = discPointToXy( 180 - l0, cg );
-			p_virgo = discPointToXy( - l0, cg );
-			p_capricorn = discPointToXy( 180 + l0, cg );
+			p_cancer = diskPointToXy( l0, cg );
+			p_pisces = diskPointToXy( 180 - l0, cg );
+			p_virgo = diskPointToXy( - l0, cg );
+			p_capricorn = diskPointToXy( 180 + l0, cg );
 		}
 
 		p_north_inner = MComplex( p_north.real(), p_pisces.imag());
