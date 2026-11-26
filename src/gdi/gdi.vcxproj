@@ -91,7 +91,6 @@
     <ClCompile Include="WesternAngles.cpp" />
     <ClCompile Include="WesternAspects.cpp" />
     <ClCompile Include="WesternHouses.cpp" />
-    <ClCompile Include="WesternPlanets.cpp" />
     <ClCompile Include="WesternSigns.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

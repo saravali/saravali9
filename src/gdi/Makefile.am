@@ -81,7 +81,6 @@ libsaravali_gdi_a_SOURCES = \
 	WesternAngles.cpp \
 	WesternAspects.cpp \
 	WesternHouses.cpp \
-	WesternPlanets.cpp \
 	WesternSigns.cpp \
 	WidgetResponse.h
 
