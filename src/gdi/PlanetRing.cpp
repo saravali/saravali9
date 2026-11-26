@@ -66,7 +66,7 @@ PlanetRingItem::PlanetRingItem( PlanetRing *ring, const HoroscopeRole &role, con
 {
 	correctedLongitude = longitude;
 	// TEST
-	correctedLongitude = longitude + 3;
+	//correctedLongitude = longitude + 3;
 	//PlanetConfig cfg( astroconfig->getViewpointConfig( Viewpoint::Uranian ).planets );
 	//tf << term.toMString( cfg ) << MToken( MovingDirection::Retrograde, TextFormat::Symbol );
 
@@ -419,6 +419,8 @@ void PlanetRing::paint( Painter *painter, const MRect& /*refreshRect*/ )
 	const wxPen defaultPen = getPen();
 	const wxPen dotPen( painter->getPenColor(), 1,  wxPENSTYLE_DOT );
 	painter->setPen( defaultPen );
+	double p1radius = 0;
+	double p2radius = 0;
 
 	for( uint i = 0; i < chartRoles.size(); i++ )
 	{
@@ -437,8 +439,14 @@ void PlanetRing::paint( Painter *painter, const MRect& /*refreshRect*/ )
 
 		for( PlanetRingItem *item : items[ role ] )
 		{
-			double p1radius = geom->radius;
-			double p2radius = geom->radius + geom->markerLength;
+			p1radius = geom->radius;
+			p2radius = geom->radius + geom->markerLength;
+			if ( i > 1 )
+			{
+				// buckle in marker begins on outer circle of last role
+				p2radius = getOuterRadiusForRoleIndex( i - 1 );
+			}
+			// planets inside for first role (radix)
 			if ( reverseFirstRole && role == chart->getFirstRole() )
 			{
 				p1radius = geom->innerRadius;
